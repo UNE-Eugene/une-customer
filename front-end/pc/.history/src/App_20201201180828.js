@@ -27,7 +27,7 @@ function App() {
             className="card"
             title="Default size card"
             extra={<a href="#">More</a>}
-            style={{ width: 300, alignSelf:"center" }}
+            style={{ width: 300, alignItems: "center" }}
           >
             <p>Card content</p>
             <p>Card content</p>
