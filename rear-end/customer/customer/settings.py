@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'customer.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'dj_db_conn_pool.backends.mysql',
-        'NAME': 'IHG',
+        'NAME': 'UNE',
         'USER': 'root',
         'PASSWORD': 'L1ng0511',
         'HOST': 'sh-cynosdbmysql-grp-4pphruce.sql.tencentcdb.com',

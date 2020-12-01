@@ -1,0 +1,4 @@
+
+*.pyd
+*.pyc
+node_modules/
