@@ -583,6 +583,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./public/logo.png":
+/*!*************************!*\
+  !*** ./public/logo.png ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "a4be751fc49c9a0562e7e6f6662b27c7.png");
+
+/***/ }),
+
 /***/ "./src/pages/index/index.css?modules":
 /*!*******************************************!*\
   !*** ./src/pages/index/index.css?modules ***!
@@ -591,7 +604,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"app":"app___2lhPP","logo":"logo___Al4Xb","logo-spin":"logo-spin___3_EwH","text":"text___XEtZ5","header":"header___3qOk9"};
+module.exports = {"app":"app___2lhPP","header":"header___3qOk9","background":"background___ZSAAH","card":"card___3O7TJ","logo":"logo___Al4Xb","title":"title___2mr8X","button":"button___3NgDU"};
 
 /***/ }),
 
@@ -626,24 +639,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! remax/wechat */ "./node_modules/remax/wechat.js");
 /* harmony import */ var _index_css_modules__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.css?modules */ "./src/pages/index/index.css?modules");
 /* harmony import */ var _index_css_modules__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_index_css_modules__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _static_bg_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../static/bg.png */ "./src/pages/static/bg.png");
+/* harmony import */ var _public_logo_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../public/logo.png */ "./public/logo.png");
+
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["View"], {
     className: _index_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.app
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["View"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["Image"], {
+    src: _static_bg_png__WEBPACK_IMPORTED_MODULE_3__["default"],
+    className: _index_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.background
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["View"], {
     className: _index_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.header
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["Image"], {
-    src: "https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*OGyZSI087zkAAAAAAAAAAABkARQnAQ",
-    className: _index_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.logo,
-    alt: "logo"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["View"], {
-    className: _index_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.text
-  }, "\u7F16\u8F91 ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["Text"], {
-    className: _index_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.path
-  }, "src/pages/index/index.js"), ' ', "\u5F00\u59CB")));
+    src: _public_logo_png__WEBPACK_IMPORTED_MODULE_4__["default"],
+    className: _index_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.logo
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["View"], {
+    className: _index_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.card
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["Text"], {
+    className: _index_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.title
+  }, "\u767B \u5F55")));
 });
+
+/***/ }),
+
+/***/ "./src/pages/static/bg.png":
+/*!*********************************!*\
+  !*** ./src/pages/static/bg.png ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "6316091b4cf4c16062d83fb2c05a7aeb.png");
 
 /***/ }),
 
