@@ -46,75 +46,61 @@ function App() {
                 setformMessage(allValues);
               }}
             >
-              <Row gutter={[4, 20]}>
-                <Col span="24">&nbsp;</Col>
-                <Col span="24">
-                  <Form.Item>
-                    <Title strong="true">登 录</Title>
-                  </Form.Item>
-                </Col>
-                <Col span="1">&nbsp;</Col>
-                <Col span="22">
+              <Row>
+                  <Col span='24'>
+                    <Form.Item>
+                      <Title strong="true">登录</Title>
+                    </Form.Item>
+                  </Col>
+                  <Col span="2">&nbsp;</Col>
+                  <Col span="8">
                   <Form.Item
                     name="username"
                     rules={[
                       {
                         required: true,
-                        message: "请输入用户名!",
+                        message: "Please input your Username!",
                       },
                     ]}
+                    className="login-form-input"
                   >
                     <Input
-                      autocomplete="off"
-                      className="login-input"
                       prefix={<img src={UserLogo} alt="" />}
-                      placeholder="用 户 名"
-                      style={{ borderTop: 0, borderRight: 0, borderLeft: 0 }}
+                      placeholder="Username"
                     />
                   </Form.Item>
                 </Col>
-                <Col span="1">&nbsp;</Col>
-
-                <Col span="1">&nbsp;</Col>
-                <Col span="22">
+                <Col span="8">&nbsp;</Col>
+                <Col span="8">&nbsp;</Col>
+                <Col span="8">
                   <Form.Item
                     name="password"
                     rules={[
                       {
                         required: true,
-                        message: "请输入密码!",
+                        message: "Please input your Password!",
                       },
                     ]}
+                    className="login-form-input"
                   >
                     <Input
-                      autocomplete="off"
                       prefix={<img src={PassLogo} alt="" />}
                       type="password"
-                      placeholder="密 码"
-                      style={{ borderTop: 0, borderRight: 0, borderLeft: 0 }}
+                      placeholder="Password"
                     />
                   </Form.Item>
                 </Col>
-                <Col span="1">&nbsp;</Col>
-                <Col span="2">&nbsp;</Col>
-                <Col span="20">
-                  <Form.Item>
-                    <Button
-                      size="large"
-                      type="primary"
-                      htmlType="submit"
-                      style={{
-                        width: "100%",
-                        borderRadius: 10,
-                        backgroundColor: "black",
-                      }}
-                    >
-                      登录
-                    </Button>
-                  </Form.Item>
-                </Col>
-                <Col span="2">&nbsp;</Col>
+                <Col span="8">&nbsp;</Col>
               </Row>
+              <Form.Item>
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  className="login-form-button"
+                >
+                  登录
+                </Button>
+              </Form.Item>
             </Form>
           </Card>
         </Col>

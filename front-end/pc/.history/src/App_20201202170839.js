@@ -47,10 +47,10 @@ function App() {
               }}
             >
               <Row gutter={[4, 20]}>
-                <Col span="24">&nbsp;</Col>
+              <Col span="24">&nbsp;</Col>
                 <Col span="24">
                   <Form.Item>
-                    <Title strong="true">登 录</Title>
+                    <Title strong="true">登录</Title>
                   </Form.Item>
                 </Col>
                 <Col span="1">&nbsp;</Col>
@@ -65,11 +65,10 @@ function App() {
                     ]}
                   >
                     <Input
-                      autocomplete="off"
-                      className="login-input"
+                      className='login-input'
                       prefix={<img src={UserLogo} alt="" />}
                       placeholder="用 户 名"
-                      style={{ borderTop: 0, borderRight: 0, borderLeft: 0 }}
+                      style={{borderTop: 0, borderRight: 0, borderLeft: 0}}
                     />
                   </Form.Item>
                 </Col>
@@ -87,11 +86,10 @@ function App() {
                     ]}
                   >
                     <Input
-                      autocomplete="off"
                       prefix={<img src={PassLogo} alt="" />}
                       type="password"
                       placeholder="密 码"
-                      style={{ borderTop: 0, borderRight: 0, borderLeft: 0 }}
+                      style={{borderTop: 0, borderRight: 0, borderLeft: 0}}
                     />
                   </Form.Item>
                 </Col>
@@ -100,14 +98,10 @@ function App() {
                 <Col span="20">
                   <Form.Item>
                     <Button
-                      size="large"
+                      size='large'
                       type="primary"
                       htmlType="submit"
-                      style={{
-                        width: "100%",
-                        borderRadius: 10,
-                        backgroundColor: "black",
-                      }}
+                      style={{width: '100%', borderRadius: 10, backgroundColor: "black"}}
                     >
                       登录
                     </Button>

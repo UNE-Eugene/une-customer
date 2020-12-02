@@ -50,7 +50,7 @@ function App() {
                 <Col span="24">&nbsp;</Col>
                 <Col span="24">
                   <Form.Item>
-                    <Title strong="true">登 录</Title>
+                    <Title strong="true">登录</Title>
                   </Form.Item>
                 </Col>
                 <Col span="1">&nbsp;</Col>

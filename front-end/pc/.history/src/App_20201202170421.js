@@ -47,10 +47,10 @@ function App() {
               }}
             >
               <Row gutter={[4, 20]}>
-                <Col span="24">&nbsp;</Col>
+              <Col span="24">&nbsp;</Col>
                 <Col span="24">
                   <Form.Item>
-                    <Title strong="true">登 录</Title>
+                    <Title strong="true">登录</Title>
                   </Form.Item>
                 </Col>
                 <Col span="1">&nbsp;</Col>
@@ -63,13 +63,13 @@ function App() {
                         message: "请输入用户名!",
                       },
                     ]}
+                    
                   >
                     <Input
-                      autocomplete="off"
-                      className="login-input"
+                      className='login-input'
                       prefix={<img src={UserLogo} alt="" />}
                       placeholder="用 户 名"
-                      style={{ borderTop: 0, borderRight: 0, borderLeft: 0 }}
+                      style={{borderTop: 0, borderRight: 0, borderLeft: 0}}
                     />
                   </Form.Item>
                 </Col>
@@ -85,35 +85,31 @@ function App() {
                         message: "请输入密码!",
                       },
                     ]}
+                    className="login-form-input"
                   >
                     <Input
-                      autocomplete="off"
                       prefix={<img src={PassLogo} alt="" />}
                       type="password"
                       placeholder="密 码"
-                      style={{ borderTop: 0, borderRight: 0, borderLeft: 0 }}
+                      style={{borderTop: 0, borderRight: 0, borderLeft: 0}}
                     />
                   </Form.Item>
                 </Col>
                 <Col span="1">&nbsp;</Col>
-                <Col span="2">&nbsp;</Col>
-                <Col span="20">
+                <Col span="4">&nbsp;</Col>
+                <Col span="16">
                   <Form.Item>
                     <Button
-                      size="large"
+                      size='large'
                       type="primary"
                       htmlType="submit"
-                      style={{
-                        width: "100%",
-                        borderRadius: 10,
-                        backgroundColor: "black",
-                      }}
+                      style={{width: '100%'}}
                     >
                       登录
                     </Button>
                   </Form.Item>
                 </Col>
-                <Col span="2">&nbsp;</Col>
+                <Col span="4">&nbsp;</Col>
               </Row>
             </Form>
           </Card>

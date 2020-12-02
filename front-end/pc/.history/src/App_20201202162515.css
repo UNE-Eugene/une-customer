@@ -30,15 +30,17 @@
 }
 .login-form {
   text-align: center;
-  align-items: center;
 }
 
 
-.login-input {
-  border-left-width:0 px ;
-  border-top-width: 0 px ;
-  border-right-width: 0 px ; 
-  border-bottom-width: 2 px;
-  border-bottom: 1px solid #000000
+.login-form-button {
+  width: 90%;
+  height: 100%;
+  border: 15px;
+  border-radius: 15px;
 }
 
+.login-form-input {
+  width: 50%;
+  display: inline-block;
+}
