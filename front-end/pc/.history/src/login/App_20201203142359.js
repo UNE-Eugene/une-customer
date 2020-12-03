@@ -17,14 +17,7 @@ function App() {
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
   };
-  const formItemLayout = {
-    labelCol: {
-      span: 10,
-    },
-    // wrapperCol: {
-    //   span: 14,
-    // },
-  };
+
   return (
     <div className="test">
       <div className="header">&nbsp;</div>
@@ -34,8 +27,8 @@ function App() {
           <img src={LogoUrl} alt="" />
         </Col>
         <Col span="8">&nbsp;</Col>
-        <Col span="8">&nbsp;</Col>
-        <Col span="8" style={{ alignItems: "center" }}>
+        <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>&nbsp;</Col>
+        <Col xs={{ span: 11, offset: 1 }} lg={{ span: 6, offset: 2 }} style={{ alignItems: "center" }}>
           <Card className="inline-center" style={{ alignSelf: "center" }}>
             <Form
               name="normal_login"
@@ -46,7 +39,7 @@ function App() {
                 setformMessage(allValues);
               }}
             >
-              <Row gutter={[4, 20]}>
+              <Row gutter={[4, 18]}>
                 <Col span="24">&nbsp;</Col>
                 <Col span="24">
                   <Form.Item>
@@ -118,7 +111,7 @@ function App() {
             </Form>
           </Card>
         </Col>
-        <Col span="8">&nbsp;</Col>
+        <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }} >&nbsp;</Col>
       </Row>
     </div>
   );

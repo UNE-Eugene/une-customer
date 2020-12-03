@@ -1,0 +1,45 @@
+
+/* 父元素text-align+子元素 inline-block 水平居中 */
+.test {
+  background-image: url('./static/bg.png');
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+.header {
+  width: 100%;
+  height: 15%;
+  text-align: center;
+}
+
+.inline-center {
+  /* margin: 0 auto;
+  display: inline-block; */
+  margin: 2rem auto;
+  display: inline-block;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  width: 60%;
+  /* max-width: 425px; */
+  background-color: #FFF;
+  border-radius: 25px;
+  box-shadow: 0 10px 20px 0 rgba(34, 34, 34, 0.089);
+  padding: .75rem;
+}
+.login-form {
+  text-align: center;
+  align-items: center;
+}
+
+
+.login-input {
+  font-size: 40px;
+  border-left-width:0 px ;
+  border-top-width: 0 px ;
+  border-right-width: 0 px ; 
+  border-bottom-width: 2 px;
+  border-bottom: 1px solid #000000
+}
+
