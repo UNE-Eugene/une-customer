@@ -1,1 +1,9 @@
-{}
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "酒店客服系统",
+    "navigationBarBackgroundColor": "#282c34"
+  }
+}
