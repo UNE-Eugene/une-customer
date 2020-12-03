@@ -1,0 +1,15 @@
+.main {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+
+.header {
+    background: white;
+    background-color: white;
+}
+.sider {
+    position: absolute;
+    height: 100%;
+}

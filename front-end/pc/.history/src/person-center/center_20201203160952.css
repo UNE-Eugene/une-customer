@@ -1,0 +1,51 @@
+.main {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+
+.header {
+    position: absolute;
+    background: white;
+    background-color: white;
+    height: 6%;
+}
+
+.header img {
+    position: absolute;
+    top: 20%;
+    left: 1%;
+    height: 60%;
+}
+
+.body {
+    position: absolute;
+    top: 6%;
+    left: 0;
+    width: 100%;
+    height: 94%;
+}
+
+.side {
+    position: absolute;
+    top: 0;
+    height: 100%;
+}
+
+.side Menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.content {
+    position: absolute;
+    top: 0;
+    left: 5%;
+    height: 100%;
+    width: 95%;
+    background: tomato;
+}
+
