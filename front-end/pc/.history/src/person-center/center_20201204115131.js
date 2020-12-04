@@ -52,12 +52,12 @@ const Center = () => {
       <Header className="header">
         <img src={Logo} alt="" />
         <Row className="avatar" gutter={16}>
-          <Col xs={12} sm={10} md={10} lg={8} xl={7} xxl={6}>
+          <Col xs={10} sm={10} md={9} lg={8} xl={7} xxl={5}>
             <Avatar
               size={{ xs: 30, sm: 30, md: 35, lg: 35, xl: 40, xxl: 50 }}
             />
           </Col>
-          <Col xs={12} sm={14} md={14} lg={16} xl={17} xxl={18}>
+          <Col xs={14} sm={14} md={15} lg={16} xl={17} xxl={19}>
             <Dropdown overlay={menu} placement="bottomCenter" arrow>
               <Text className="workerNumber">工号位置</Text>
             </Dropdown>

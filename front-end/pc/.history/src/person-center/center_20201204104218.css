@@ -10,7 +10,6 @@
     background: white;
     background-color: white;
     height: 6%;
-    display: flex;
 }
 
 .header img {
@@ -19,20 +18,6 @@
     left: 1%;
     height: 44%;
     width: 9.5%;
-}
-
-.avatar {
-    position: absolute;
-    align-self: center;
-    left: 85%;
-    width: 15%;
-
-}
-
-.workerNumber {
-    position: absolute;
-    left: 0;
-    align-self: center;
 }
 
 .body {

@@ -24,14 +24,12 @@
 .avatar {
     position: absolute;
     align-self: center;
-    left: 85%;
-    width: 15%;
-
+    left: 75%;
 }
 
 .workerNumber {
     position: absolute;
-    left: 0;
+    left: 78%;
     align-self: center;
 }
 

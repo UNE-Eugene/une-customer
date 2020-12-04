@@ -11,6 +11,7 @@
     background-color: white;
     height: 6%;
     display: flex;
+    overflow: hidden;
 }
 
 .header img {
@@ -24,14 +25,13 @@
 .avatar {
     position: absolute;
     align-self: center;
-    left: 85%;
-    width: 15%;
-
+    left: 75%;
+    size: 10vw;
 }
 
 .workerNumber {
     position: absolute;
-    left: 0;
+    left: 80%;
     align-self: center;
 }
 

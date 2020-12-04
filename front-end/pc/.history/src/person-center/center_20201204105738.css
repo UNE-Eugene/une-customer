@@ -24,15 +24,7 @@
 .avatar {
     position: absolute;
     align-self: center;
-    left: 85%;
-    width: 15%;
-
-}
-
-.workerNumber {
-    position: absolute;
-    left: 0;
-    align-self: center;
+    left: 60%;
 }
 
 .body {

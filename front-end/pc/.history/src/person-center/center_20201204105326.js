@@ -1,6 +1,14 @@
 import { useState } from "react";
 import "./Center.css";
-import { Row, Col, Avatar, Table, Layout, Typography, Menu, Dropdown } from "antd";
+import {
+  Row,
+  Col,
+  Avatar,
+  Table,
+  Layout,
+  Typography,
+  Menu,
+} from "antd";
 import "antd/dist/antd.css";
 import Logo from "./static/logo.png";
 import icon1 from "./static/icon1.png";
@@ -13,56 +21,18 @@ import icon3_3 from "./static/icon3-3.png";
 const { Text } = Typography;
 const { Header, Sider, Content } = Layout;
 
-const menu = (
-  <Menu>
-    <Menu.Item>
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="http://www.alipay.com/"
-      >
-        1st menu item
-      </a>
-    </Menu.Item>
-    <Menu.Item>
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="http://www.taobao.com/"
-      >
-        2nd menu item
-      </a>
-    </Menu.Item>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
-        3rd menu item
-      </a>
-    </Menu.Item>
-  </Menu>
-);
 
 const Center = () => {
   const [states, setStates] = useState({
-    area1: "before",
-    area2: "before",
-    area3: "before",
-  });
+    area1: 'before',
+    area2: 'before',
+    area3: 'before'
+  })
   return (
     <Layout className="main">
       <Header className="header">
         <img src={Logo} alt="" />
-        <Row className="avatar" gutter={16}>
-          <Col xs={12} sm={10} md={10} lg={8} xl={7} xxl={6}>
-            <Avatar
-              size={{ xs: 30, sm: 30, md: 35, lg: 35, xl: 40, xxl: 50 }}
-            />
-          </Col>
-          <Col xs={12} sm={14} md={14} lg={16} xl={17} xxl={18}>
-            <Dropdown overlay={menu} placement="bottomCenter" arrow>
-              <Text className="workerNumber">工号位置</Text>
-            </Dropdown>
-          </Col>
-        </Row>
+        <Avatar size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 60 }} className='avatar'/>
       </Header>
       <Layout className="body">
         <Sider className="side" width="3vw">
@@ -79,10 +49,10 @@ const Center = () => {
               }}
               onClick={() => {
                 setStates({
-                  area1: "after",
-                  area2: "before",
-                  area3: "before",
-                });
+                  area1: 'after',
+                  area2: 'before',
+                  area3: 'before'
+                })
               }}
             >
               <img
@@ -95,7 +65,7 @@ const Center = () => {
                   left: "0.5vw",
                   minWidth: "2vw",
                 }}
-                src={states["area1"] === "before" ? icon1 : icon1_1}
+                src={states['area1'] === 'before'?icon1:icon1_1}
                 alt=""
               />
               <Text
@@ -111,7 +81,7 @@ const Center = () => {
                   fontWeight: "800",
                   fontSize: "0.75vw",
                   textAlign: "center",
-                  color: states["area1"] === "before" ? "gray" : "white",
+                  color: states['area1'] === 'before'?"gray":'white',
                 }}
               >
                 查 询
@@ -129,7 +99,7 @@ const Center = () => {
                   fontWeight: "800",
                   fontSize: "0.75vw",
                   textAlign: "center",
-                  color: states["area1"] === "before" ? "gray" : "white",
+                  color: states['area1'] === 'before'?"gray":'white',
                 }}
               >
                 系 统
@@ -147,10 +117,10 @@ const Center = () => {
               }}
               onClick={() => {
                 setStates({
-                  area1: "before",
-                  area2: "after",
-                  area3: "before",
-                });
+                  area1: 'before',
+                  area2: 'after',
+                  area3: 'before'
+                })
               }}
             >
               <img
@@ -163,7 +133,7 @@ const Center = () => {
                   left: "0.5vw",
                   minWidth: "2vw",
                 }}
-                src={states["area2"] === "before" ? icon2 : icon2_2}
+                src={states['area2'] === 'before'?icon2:icon2_2}
                 alt=""
               />
               <Text
@@ -179,7 +149,7 @@ const Center = () => {
                   fontWeight: "800",
                   fontSize: "0.75vw",
                   textAlign: "center",
-                  color: states["area2"] === "before" ? "gray" : "white",
+                  color: states['area2'] === 'before'?"gray":'white',
                 }}
               >
                 个 人
@@ -197,7 +167,7 @@ const Center = () => {
                   fontWeight: "800",
                   fontSize: "0.75vw",
                   textAlign: "center",
-                  color: states["area2"] === "before" ? "gray" : "white",
+                  color: states['area2'] === 'before'?"gray":'white',
                 }}
               >
                 中 心
@@ -215,10 +185,10 @@ const Center = () => {
               }}
               onClick={() => {
                 setStates({
-                  area1: "before",
-                  area2: "before",
-                  area3: "after",
-                });
+                  area1: 'before',
+                  area2: 'before',
+                  area3: 'after'
+                })
               }}
             >
               <img
@@ -231,7 +201,7 @@ const Center = () => {
                   left: "0.5vw",
                   minWidth: "2vw",
                 }}
-                src={states["area3"] === "before" ? icon3 : icon3_3}
+                src={states['area3'] === 'before'?icon3:icon3_3}
                 alt=""
               />
               <Text
@@ -247,7 +217,7 @@ const Center = () => {
                   fontWeight: "800",
                   fontSize: "0.75vw",
                   textAlign: "center",
-                  color: states["area3"] === "before" ? "gray" : "white",
+                  color: states['area3'] === 'before'?"gray":'white',
                 }}
               >
                 日 志
@@ -265,7 +235,7 @@ const Center = () => {
                   fontWeight: "800",
                   fontSize: "0.75vw",
                   textAlign: "center",
-                  color: states["area3"] === "before" ? "gray" : "white",
+                  color: states['area3'] === 'before'?"gray":'white',
                 }}
               >
                 查 询
@@ -275,7 +245,9 @@ const Center = () => {
         </Sider>
         <Content className="content">
           <Row gutter={[16, { xs: 14, sm: 20, md: 30, lg: 36 }]}>
-            <Col></Col>
+                <Col>
+                  
+                </Col>
           </Row>
         </Content>
       </Layout>
