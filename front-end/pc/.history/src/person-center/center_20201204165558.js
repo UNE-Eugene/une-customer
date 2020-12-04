@@ -77,14 +77,14 @@ const columns = [
     width: 100,
     dataIndex: "name",
     key: "name",
-
+    fixed: "left",
   },
   {
     title: "Age",
     width: 100,
     dataIndex: "age",
     key: "age",
-
+    fixed: "left",
   },
   {
     title: "Column 1",
@@ -98,10 +98,41 @@ const columns = [
     key: "2",
     width: 150,
   },
-
+  {
+    title: "Column 3",
+    dataIndex: "address",
+    key: "3",
+    width: 150,
+  },
+  {
+    title: "Column 4",
+    dataIndex: "address",
+    key: "4",
+    width: 150,
+  },
+  {
+    title: "Column 5",
+    dataIndex: "address",
+    key: "5",
+    width: 150,
+  },
+  {
+    title: "Column 6",
+    dataIndex: "address",
+    key: "6",
+    width: 150,
+  },
+  {
+    title: "Column 7",
+    dataIndex: "address",
+    key: "7",
+    width: 150,
+  },
+  { title: "Column 8", dataIndex: "address", key: "8" },
   {
     title: "Action",
     key: "operation",
+    fixed: "right",
     width: 100,
     render: () => <a>action</a>,
   },
@@ -351,15 +382,16 @@ const Center = () => {
           </Menu>
         </Sider>
         <Content className="content">
-          {/* <Row gutter={[16, { xs: 14, sm: 20, md: 30, lg: 36 }]}>
-            <Col> */}
+          <Row gutter={[16, { xs: 14, sm: 20, md: 30, lg: 36 }]}>
+            <Col>
               <Table
-              className='table-mission'
                 columns={columns}
                 dataSource={data}
+                scroll={{ x: 1500 }}
+                sticky
               />
-            {/* </Col>
-          </Row> */}
+            </Col>
+          </Row>
         </Content>
       </Layout>
     </Layout>

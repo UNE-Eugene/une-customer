@@ -77,14 +77,14 @@ const columns = [
     width: 100,
     dataIndex: "name",
     key: "name",
-
+    fixed: "left",
   },
   {
     title: "Age",
     width: 100,
     dataIndex: "age",
     key: "age",
-
+    fixed: "left",
   },
   {
     title: "Column 1",
@@ -98,10 +98,22 @@ const columns = [
     key: "2",
     width: 150,
   },
-
+  {
+    title: "Column 3",
+    dataIndex: "address",
+    key: "3",
+    width: 150,
+  },
+  {
+    title: "Column 4",
+    dataIndex: "address",
+    key: "4",
+    width: 150,
+  },
   {
     title: "Action",
     key: "operation",
+    fixed: "right",
     width: 100,
     render: () => <a>action</a>,
   },
@@ -357,6 +369,8 @@ const Center = () => {
               className='table-mission'
                 columns={columns}
                 dataSource={data}
+                scroll={{ x: 1500 }}
+                
               />
             {/* </Col>
           </Row> */}

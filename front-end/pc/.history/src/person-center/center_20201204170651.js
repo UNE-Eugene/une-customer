@@ -73,13 +73,6 @@ const menu = (
 
 const columns = [
   {
-    title: "Full Name",
-    width: 100,
-    dataIndex: "name",
-    key: "name",
-
-  },
-  {
     title: "Age",
     width: 100,
     dataIndex: "age",
@@ -357,6 +350,8 @@ const Center = () => {
               className='table-mission'
                 columns={columns}
                 dataSource={data}
+                scroll={{ x: 1500 }}
+                
               />
             {/* </Col>
           </Row> */}

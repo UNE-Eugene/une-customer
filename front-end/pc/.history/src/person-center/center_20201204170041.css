@@ -66,14 +66,6 @@
     width: 96%;
 }
 
-.table-mission {
-    position: absolute;
-    top: 1vh;
-    left: 1vw;
-    width: 60%;
-    height: 45%;
-}
-
 .dropdown {
     border-radius: 10px;
     text-align: center;

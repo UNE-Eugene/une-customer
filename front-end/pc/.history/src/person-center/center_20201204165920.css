@@ -61,17 +61,9 @@
 .content  {
     position: absolute;
     top: 0;
-    left: 3%;
+    left: 4vw;
     height: 100%;
-    width: 96%;
-}
-
-.table-mission {
-    position: absolute;
-    top: 1vh;
-    left: 1vw;
-    width: 60%;
-    height: 45%;
+    width: 96;
 }
 
 .dropdown {

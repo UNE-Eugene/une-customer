@@ -98,7 +98,12 @@ const columns = [
     key: "2",
     width: 150,
   },
-
+  {
+    title: "Column 3",
+    dataIndex: "address",
+    key: "3",
+    width: 150,
+  },
   {
     title: "Action",
     key: "operation",
@@ -357,6 +362,8 @@ const Center = () => {
               className='table-mission'
                 columns={columns}
                 dataSource={data}
+                scroll={{ x: 1500 }}
+                
               />
             {/* </Col>
           </Row> */}

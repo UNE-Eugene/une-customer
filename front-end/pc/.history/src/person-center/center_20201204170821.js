@@ -357,6 +357,7 @@ const Center = () => {
               className='table-mission'
                 columns={columns}
                 dataSource={data}
+                
               />
             {/* </Col>
           </Row> */}
