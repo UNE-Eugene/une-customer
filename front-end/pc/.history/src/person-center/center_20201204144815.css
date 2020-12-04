@@ -66,9 +66,16 @@
 }
 
 .dropdown {
+    display: flex;
     border-radius: 10px;
     text-align: center;
     width: 100px;
-    height: 128px;
+    height: 120px;
 }
 
+.dropItem {
+    display: inline-block;
+    height: 60px;
+    width: 100px;
+    border-radius: 10px;
+}

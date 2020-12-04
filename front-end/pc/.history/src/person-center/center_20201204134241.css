@@ -11,9 +11,10 @@
     background-color: white;
     height: 6%;
     display: flex;
+    z-index: 1;
 }
 
-.img {
+.header img {
     position: absolute;
     top: 28%;
     left: 1%;
@@ -63,12 +64,5 @@
     left: 5%;
     height: 100%;
     width: 95%;
-}
-
-.dropdown {
-    border-radius: 10px;
-    text-align: center;
-    width: 100px;
-    height: 128px;
 }
 

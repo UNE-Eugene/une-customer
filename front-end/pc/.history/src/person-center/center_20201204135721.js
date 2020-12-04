@@ -14,12 +14,12 @@ const { Text } = Typography;
 const { Header, Sider, Content } = Layout;
 
 const menu = (
-  <Menu className='dropdown'>
-    <Menu.Item onClick={{}} style={{position: 'relative',width: '100px',height: '60px', borderRadius:'10px'}}>
-      <Text style={{position: "absolute", top: '20px', height: '40px',bottom:0,right:0,left:0}}>上传头像</Text>
+  <Menu>
+    <Menu.Item>
+      上传头像
     </Menu.Item>
-    <Menu.Item onClick={{}} style={{position: 'relative',width: '100px',height: '60px', borderRadius:'10px'}}>
-      <Text style={{position: "absolute", top: '20px', height: '40px',bottom:0,right:0,left:0}}>修改密码</Text>
+    <Menu.Item>
+      修改密码
     </Menu.Item>
   </Menu>
 );
@@ -37,7 +37,7 @@ const Center = () => {
         <Row className="avatar" gutter={16}>
           <Col xs={12} sm={10} md={10} lg={8} xl={7} xxl={6}>
             <Avatar
-              src={<img src={icon1} alt='' />}
+              src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" 
               size={{ xs: 30, sm: 30, md: 35, lg: 35, xl: 40, xxl: 50 }}
             />
           </Col>

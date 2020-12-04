@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Center.css";
-import { Row, Col, Avatar, Table, Layout, Typography, Menu, Dropdown } from "antd";
+import { Row, Col, Avatar, Table, Layout, Typography, Menu, Dropdown, Divider } from "antd";
 import "antd/dist/antd.css";
 import Logo from "./static/logo.png";
 import icon1 from "./static/icon1.png";
