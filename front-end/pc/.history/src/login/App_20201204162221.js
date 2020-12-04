@@ -33,7 +33,7 @@ function App() {
         <Col span="8">&nbsp;</Col>
         <Col xs={2} sm={5} md={7} lg={8} xl={8} xxl={9}>&nbsp;</Col>
         <Col xs={20} sm={14} md={10} lg={8} xl={8} xxl={6} style={{ alignItems: "center" }}>
-          <Card className="inline-center" style={{ alignSelf: "center", borderRadius: "15px" }}>
+          <Card className="inline-center" style={{ alignSelf: "center", borderRadius: "10px" }}>
             <Form
               name="normal_login"
               className="login-form"

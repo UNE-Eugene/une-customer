@@ -22,7 +22,8 @@
   border-radius: 25px;
   box-shadow: 0 10px 20px 0 rgba(34, 34, 34, 0.089);
   padding: .75rem;
-  max-width: 35vh;
+  max-width: 35vw;
+  min-width: 35vw;
 }
 .login-form {
   text-align: center;

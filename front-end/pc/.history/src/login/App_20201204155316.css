@@ -1,11 +1,22 @@
 
 /* 父元素text-align+子元素 inline-block 水平居中 */
 .test {
-  top: 0;
+  /* background-image: url('./static/bg.png'); */
+  /* background-size: 100% 100%; */
   height: 100%;
   width: 100%;
   text-align: center;
+}
+.background {
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
 
+.header {
+  width: 100%;
+  height: 15%;
+  text-align: center;
 }
 
 .inline-center {
@@ -22,7 +33,6 @@
   border-radius: 25px;
   box-shadow: 0 10px 20px 0 rgba(34, 34, 34, 0.089);
   padding: .75rem;
-  max-width: 35vh;
 }
 .login-form {
   text-align: center;
@@ -35,7 +45,7 @@
   border-left-width:0 px ;
   border-top-width: 0 px ;
   border-right-width: 0 px ; 
-  border-bottom-width: 1 px;
+  border-bottom-width: 2 px;
   border-bottom: 1px solid #000000
 }
 

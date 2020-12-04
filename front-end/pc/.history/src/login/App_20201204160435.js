@@ -21,19 +21,18 @@ function App() {
 
   return (
     <div className="test">
+      {/* <img src={Bg} alt='' className='background'></img> */}
+      {/* <div className="header">&nbsp;</div> */}
       <Row gutter={[16, { xs: 14, sm: 20, md: 30, lg: 36 }]}>
-        <div className='header'></div>
-        <Col span="24">&nbsp;</Col>
-        <Col span="24">&nbsp;</Col>
-        <Col span="24">&nbsp;</Col>
+        <Col span="24" style={{height: '15%'}}>&nbsp;</Col>
         <Col span="8">&nbsp;</Col>
         <Col span="8" style={{ alignItems: "center" }}>
           <img src={LogoUrl} alt="" />
         </Col>
         <Col span="8">&nbsp;</Col>
-        <Col xs={2} sm={5} md={7} lg={8} xl={8} xxl={9}>&nbsp;</Col>
-        <Col xs={20} sm={14} md={10} lg={8} xl={8} xxl={6} style={{ alignItems: "center" }}>
-          <Card className="inline-center" style={{ alignSelf: "center", borderRadius: "15px" }}>
+        <Col xs={2} sm={5} md={6} lg={8} xl={9} xxl={10}>&nbsp;</Col>
+        <Col xs={20} sm={14} md={12} lg={8} xl={6} xxl={4} style={{ alignItems: "center" }}>
+          <Card className="inline-center" style={{ alignSelf: "center" }}>
             <Form
               name="normal_login"
               className="login-form"
@@ -85,7 +84,6 @@ function App() {
                   >
                     <Input
                       autocomplete="off"
-                      className='login-input'
                       prefix={<img src={PassLogo} alt="" />}
                       type="password"
                       placeholder="密 码"
@@ -116,7 +114,7 @@ function App() {
             </Form>
           </Card>
         </Col>
-        <Col xs={2} sm={5} md={7} lg={8} xl={8} xxl={9}>&nbsp;</Col>
+        <Col xs={2} sm={5} md={6} lg={8} xl={9} xxl={10}>&nbsp;</Col>
       </Row>
     </div>
   );

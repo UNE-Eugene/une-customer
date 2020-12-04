@@ -8,7 +8,6 @@ body {
   height: 100%;
   padding: 0px;
   background-image: url('./login/static/bg.png');
-  background-size: 100% 100%;
 }
 
 code {

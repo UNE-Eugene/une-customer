@@ -7,6 +7,12 @@
   text-align: center;
 
 }
+.header {
+  width: 100%;
+  height: 15%;
+  background-color:(0,0,0,0)
+  text-align: center;
+}
 
 .inline-center {
   /* margin: 0 auto;
@@ -22,7 +28,6 @@
   border-radius: 25px;
   box-shadow: 0 10px 20px 0 rgba(34, 34, 34, 0.089);
   padding: .75rem;
-  max-width: 35vh;
 }
 .login-form {
   text-align: center;
