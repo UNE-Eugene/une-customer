@@ -288,7 +288,7 @@ const Center = (props) => {
                 中 心
               </Text>
             </Menu.Item>
-            <Menu.Item
+            <Submenu
               key="3"
               style={{
                 position: "absolute",
@@ -307,7 +307,6 @@ const Center = (props) => {
                 });
               }}
             >
-                <>
               <img
                 id="icon3"
                 style={{
@@ -357,8 +356,7 @@ const Center = (props) => {
               >
                 查 询
               </Text>
-              </>
-            </Menu.Item>
+            </Submenu>
           </Menu>
         </Sider>
         <Content className="content">

@@ -26,7 +26,7 @@ import Logger from "./Logger";
 const { Text } = Typography;
 const { Header, Sider, Content } = Layout;
 const { TabPane } = Tabs;
-const { Submenu } = Menu;
+const { SubMenu } = Menu;
 
 const menu = (
   <Menu className="dropdown">
@@ -149,7 +149,19 @@ const Center = (props) => {
       </Header>
       <Layout className="body">
         <Sider className="side" width="3vw">
-          <Menu className="menu" theme="dark" defaultSelectedKeys="2">
+          <Menu className="menu" theme="dark" defaultSelectedKeys="2" mode='inline' icon={<img
+                id="icon1"
+                style={{
+                  position: "absolute",
+                  height: "2vw",
+                  width: "2vw",
+                  top: "0.5vw",
+                  left: "0.5vw",
+                  minWidth: "2vw",
+                }}
+                src={states["area1"] === "before" ? icon1 : icon1_1}
+                alt=""
+              />}>
             <Menu.Item
               key="1"
               style={{
@@ -169,19 +181,7 @@ const Center = (props) => {
                 });
               }}
             >
-              <img
-                id="icon1"
-                style={{
-                  position: "absolute",
-                  height: "2vw",
-                  width: "2vw",
-                  top: "0.5vw",
-                  left: "0.5vw",
-                  minWidth: "2vw",
-                }}
-                src={states["area1"] === "before" ? icon1 : icon1_1}
-                alt=""
-              />
+              
               <Text
                 id="text1_1"
                 style={{
@@ -288,7 +288,7 @@ const Center = (props) => {
                 中 心
               </Text>
             </Menu.Item>
-            <Menu.Item
+            <SubMenu
               key="3"
               style={{
                 position: "absolute",
@@ -307,7 +307,6 @@ const Center = (props) => {
                 });
               }}
             >
-                <>
               <img
                 id="icon3"
                 style={{
@@ -357,8 +356,7 @@ const Center = (props) => {
               >
                 查 询
               </Text>
-              </>
-            </Menu.Item>
+            </SubMenu>
           </Menu>
         </Sider>
         <Content className="content">

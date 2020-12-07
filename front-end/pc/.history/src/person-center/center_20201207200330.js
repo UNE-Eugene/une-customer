@@ -288,6 +288,8 @@ const Center = (props) => {
                 中 心
               </Text>
             </Menu.Item>
+
+            <Dropdown overlay={menu} placement="rightCenter" arrow>
             <Menu.Item
               key="3"
               style={{
@@ -307,6 +309,7 @@ const Center = (props) => {
                 });
               }}
             >
+              
                 <>
               <img
                 id="icon3"
@@ -358,7 +361,9 @@ const Center = (props) => {
                 查 询
               </Text>
               </>
+              
             </Menu.Item>
+            </Dropdown>
           </Menu>
         </Sider>
         <Content className="content">

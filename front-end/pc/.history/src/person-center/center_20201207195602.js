@@ -26,7 +26,7 @@ import Logger from "./Logger";
 const { Text } = Typography;
 const { Header, Sider, Content } = Layout;
 const { TabPane } = Tabs;
-const { Submenu } = Menu;
+const { SubMenu } = Menu;
 
 const menu = (
   <Menu className="dropdown">
@@ -288,7 +288,7 @@ const Center = (props) => {
                 中 心
               </Text>
             </Menu.Item>
-            <Menu.Item
+            <SubMenu
               key="3"
               style={{
                 position: "absolute",
@@ -307,7 +307,6 @@ const Center = (props) => {
                 });
               }}
             >
-                <>
               <img
                 id="icon3"
                 style={{
@@ -357,8 +356,7 @@ const Center = (props) => {
               >
                 查 询
               </Text>
-              </>
-            </Menu.Item>
+            </SubMenu>
           </Menu>
         </Sider>
         <Content className="content">

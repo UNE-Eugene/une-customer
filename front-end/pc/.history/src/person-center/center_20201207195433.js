@@ -307,7 +307,6 @@ const Center = (props) => {
                 });
               }}
             >
-                <>
               <img
                 id="icon3"
                 style={{
@@ -357,7 +356,6 @@ const Center = (props) => {
               >
                 查 询
               </Text>
-              </>
             </Menu.Item>
           </Menu>
         </Sider>
