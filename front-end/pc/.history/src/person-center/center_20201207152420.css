@@ -71,7 +71,7 @@
     top: 0.94vh;
     left: 0.96vw;
     width: 52.8vw;
-    height: 39.2vh;
+    height: 39vh;
     box-shadow: 0 10px 20px 0 rgba(34, 34, 34, 0.089);
 }
 
@@ -80,15 +80,15 @@
     top: 0.56vh;
     left: 0.53vw;
     width: 51.7vw;
-    height: 38vh;
+    height: 39vh;
 }
 
 .card-table-personal {
     position: absolute;
-    top: 42vh;
+    top: 47vh;
     left: 0.96vw;
     width: 95.1vw;
-    height: 50vh;
+    height: 45vh;
     box-shadow: 0 10px 20px 0 rgba(34, 34, 34, 0.089);
 }
 

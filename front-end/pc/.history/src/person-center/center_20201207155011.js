@@ -153,7 +153,7 @@ const Center = (props) => {
       </Header>
       <Layout className="body">
         <Sider className="side" width="3vw">
-          <Menu className="menu" theme="dark" >
+          <Menu className="menu" theme="dark" onClick={() => {props.history.push('/search')}}>
             <Menu.Item
               key="1"
               style={{
@@ -165,7 +165,6 @@ const Center = (props) => {
                 minWidth: "3vw",
               }}
               onClick={() => {
-                props.history.push('/search')
                 setStates({
                   area1: "after",
                   area2: "before",
@@ -239,7 +238,6 @@ const Center = (props) => {
                   area2: "after",
                   area3: "before",
                 });
-                
               }}
             >
               <img

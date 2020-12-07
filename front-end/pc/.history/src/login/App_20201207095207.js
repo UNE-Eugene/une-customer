@@ -9,20 +9,21 @@ import {withRouter} from 'react-router-dom'
 
 const { Title } = Typography;
 
-function App(props) {
+function App() {
   const [formMessage, setformMessage] = useState({
     username: "",
     password: "",
   });
 
   const onFinish = (values) => {
-    props.history.push('/center')
+    
     console.log("Received values of form: ", values);
   };
 
   return (
     <div className="test">
       <Row gutter={[16, { xs: 14, sm: 20, md: 30, lg: 36 }]}>
+        <div className='header'></div>
         <Col span="24">&nbsp;</Col>
         <Col span="24">&nbsp;</Col>
         <Col span="24">&nbsp;</Col>
@@ -63,7 +64,7 @@ function App(props) {
                     ]}
                   >
                     <Input
-                      autoComplete="off"
+                      autocomplete="off"
                       className="login-input"
                       prefix={<img src={UserLogo} alt="" />}
                       placeholder="用 户 名"
@@ -85,7 +86,7 @@ function App(props) {
                     ]}
                   >
                     <Input
-                      autoComplete="off"
+                      autocomplete="off"
                       className='login-input'
                       prefix={<img src={PassLogo} alt="" />}
                       type="password"

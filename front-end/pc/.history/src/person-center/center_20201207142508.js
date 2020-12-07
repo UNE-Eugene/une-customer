@@ -22,12 +22,9 @@ import icon2_2 from "./static/icon2-2.png";
 import icon3_3 from "./static/icon3-3.png";
 import { withRouter } from "react-router-dom";
 
-
 const { Text } = Typography;
 const { Header, Sider, Content } = Layout;
 const { TabPane } = Tabs;
-
-
 const menu = (
   <Menu className="dropdown">
     <Menu.Item
@@ -78,43 +75,46 @@ const menu = (
 );
 
 const columns = [
-  
   {
     title: "Full Name",
-    textWrap: 'word-break',
+    width: 100,
     dataIndex: "name",
     key: "name",
+    height: '1vh'
 
   },
   {
     title: "Age",
-    textWrap: 'word-break',
+    width: 100,
     dataIndex: "age",
     key: "age",
+    height: '1vh'
 
   },
   {
     title: "Column 1",
     dataIndex: "address",
     key: "1",
-    textWrap: 'word-break',
+    width: 150,
+    height: '1vh'
 
   },
   {
     title: "Column 2",
     dataIndex: "address",
     key: "2",
-    textWrap: 'word-break',
+    width: 150,
+    height: '1vh'
 
   },
 
   {
     title: "Action",
     key: "operation",
-    textWrap: 'word-break',
+    width: 100,
+    height: '1vh',
     render: () => <a>action</a>,
   },
-  
 ];
 
 const data = [];
@@ -127,7 +127,7 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-const Center = (props) => {
+const Center = () => {
   const [states, setStates] = useState({
     area1: "before",
     area2: "before",
@@ -153,7 +153,7 @@ const Center = (props) => {
       </Header>
       <Layout className="body">
         <Sider className="side" width="3vw">
-          <Menu className="menu" theme="dark" >
+          <Menu className="menu" theme="dark" onClick={() => {}}>
             <Menu.Item
               key="1"
               style={{
@@ -165,7 +165,6 @@ const Center = (props) => {
                 minWidth: "3vw",
               }}
               onClick={() => {
-                props.history.push('/search')
                 setStates({
                   area1: "after",
                   area2: "before",
@@ -239,7 +238,6 @@ const Center = (props) => {
                   area2: "after",
                   area3: "before",
                 });
-                
               }}
             >
               <img
@@ -365,29 +363,25 @@ const Center = (props) => {
         <Content className="content">
           <Card className='card-table-mission'>
             <Tabs defaultActiveKey="1" className="table-mission">
-              <TabPane tab="转出任务" key="1" style={{position: 'absolute', height: '37vh'}}>
+              <TabPane tab="转出任务" key="1" style={{position: 'absolute', height: '55.2vh'}}>
                 <Table
                   columns={columns}
                   dataSource={data}
-                  scroll={{
-                    y: '30vh'}}
+                  // scroll={{y: '53.2vh'}}
                   style={{
                     position: 'absolute',
                     top: 0,
                     left: 0,
                     width: '51.7vw',
-                    height: '30vh',
-                    minWidth: '300px'
+                    height: '53.2vh'
                   }}
                   pagination={{
-                    defaultPageSize: 6,
+                    position: ["bottomRight"],
+                    defaultPageSize: 7,
                     style: {
                       position: 'absolute',
-                      left: '18vw',
-                      height: '1.5vh',
-                      width: '10vw',
-                      minWidth:'190px'},
-                    simple: true
+                      left: 0,
+                      height: '1vh'}
                   }}
                 />
               </TabPane>
@@ -395,31 +389,27 @@ const Center = (props) => {
                 <Table
                   columns={columns}
                   dataSource={data}
-                  scroll={{
-                    y: '35vh'}}
                   pagination={{
-                    defaultPageSize: 6,
-                    style: {
-                      position: 'absolute',
-                      left: '18vw',
-                      height: '1.5vh',
-                      width: '10vw',
-                      minWidth:'190px'},
-                    simple: true
+                    position: ["bottomRight"],
+                    defaultPageSize: 7,
+                    size: "small",
                   }}
                 />
               </TabPane>
             </Tabs>
           </Card>
-          <Card className='card-table-personal'>
-
-          </Card>
+          {/* <Tabs defaultActiveKey="1" className="table-personal">
+            <TabPane tab="转出任务" key="1">
+              <Table columns={columns} dataSource={data} />
+            </TabPane>
+            <TabPane tab="待接任务" key="2">
+              <Table columns={columns} dataSource={data} />
+            </TabPane>
+          </Tabs> */}
         </Content>
       </Layout>
     </Layout>
   );
 };
-
-
 
 export default withRouter(Center);

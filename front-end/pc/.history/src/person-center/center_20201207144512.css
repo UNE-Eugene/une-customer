@@ -71,8 +71,7 @@
     top: 0.94vh;
     left: 0.96vw;
     width: 52.8vw;
-    height: 39.2vh;
-    box-shadow: 0 10px 20px 0 rgba(34, 34, 34, 0.089);
+    height: 45vh;
 }
 
 .table-mission {
@@ -80,16 +79,15 @@
     top: 0.56vh;
     left: 0.53vw;
     width: 51.7vw;
-    height: 38vh;
+    height: 44vh;
 }
 
-.card-table-personal {
+.table-personal {
     position: absolute;
-    top: 42vh;
-    left: 0.96vw;
-    width: 95.1vw;
-    height: 50vh;
-    box-shadow: 0 10px 20px 0 rgba(34, 34, 34, 0.089);
+    top: 50%;
+    left: 1%;
+    width: 95%;
+    height: 45%;
 }
 
 .dropdown {

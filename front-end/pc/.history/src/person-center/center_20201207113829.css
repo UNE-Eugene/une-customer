@@ -1,4 +1,3 @@
-
 .main {
     position: relative;
     height: 100%;
@@ -39,10 +38,10 @@
 
 .body {
     position: absolute;
-    top: 6vh;
+    top: 6%;
     left: 0;
-    width: 100vw;
-    height: 94vh;
+    width: 100%;
+    height: 94%;
 }
 
 .side {
@@ -62,34 +61,33 @@
 .content  {
     position: absolute;
     top: 0;
-    left: 3vw;
-    height: 94vh;
-    width: 96vw;
+    left: 3%;
+    height: 100%;
+    width: 96%;
 }
-.card-table-mission {
+
+.table {
     position: absolute;
-    top: 0.94vh;
-    left: 0.96vw;
-    width: 52.8vw;
-    height: 39.2vh;
-    box-shadow: 0 10px 20px 0 rgba(34, 34, 34, 0.089);
+    top: 20%;
+    left: 0;
+    width: 90%;
+    height: 20%;
 }
 
 .table-mission {
     position: absolute;
-    top: 0.56vh;
-    left: 0.53vw;
-    width: 51.7vw;
-    height: 38vh;
+    top: 1%;
+    left: 1%;
+    width: 55%;
+    height: 45%;
 }
 
-.card-table-personal {
+.table-personal {
     position: absolute;
-    top: 42vh;
-    left: 0.96vw;
-    width: 95.1vw;
-    height: 50vh;
-    box-shadow: 0 10px 20px 0 rgba(34, 34, 34, 0.089);
+    top: 50%;
+    left: 1%;
+    width: 95%;
+    height: 45%;
 }
 
 .dropdown {

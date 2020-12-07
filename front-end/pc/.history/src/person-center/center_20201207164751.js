@@ -165,7 +165,6 @@ const Center = (props) => {
                 minWidth: "3vw",
               }}
               onClick={() => {
-                props.history.push('/search')
                 setStates({
                   area1: "after",
                   area2: "before",
@@ -239,7 +238,7 @@ const Center = (props) => {
                   area2: "after",
                   area3: "before",
                 });
-                
+                props.history.push('/search')
               }}
             >
               <img

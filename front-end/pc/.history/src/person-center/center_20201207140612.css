@@ -68,28 +68,26 @@
 }
 .card-table-mission {
     position: absolute;
-    top: 0.94vh;
-    left: 0.96vw;
-    width: 52.8vw;
-    height: 39.2vh;
-    box-shadow: 0 10px 20px 0 rgba(34, 34, 34, 0.089);
+    top: 1%;
+    left: 1%;
+    width: 55%;
+    height: 60%;
 }
 
 .table-mission {
     position: absolute;
-    top: 0.56vh;
-    left: 0.53vw;
-    width: 51.7vw;
-    height: 38vh;
+    top: 1%;
+    left: 1%;
+    width: 98%;
+    height: 98%;
 }
 
-.card-table-personal {
+.table-personal {
     position: absolute;
-    top: 42vh;
-    left: 0.96vw;
-    width: 95.1vw;
-    height: 50vh;
-    box-shadow: 0 10px 20px 0 rgba(34, 34, 34, 0.089);
+    top: 50%;
+    left: 1%;
+    width: 95%;
+    height: 45%;
 }
 
 .dropdown {
