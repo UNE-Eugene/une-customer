@@ -1,0 +1,4 @@
+.background {
+    background-image: url('./static/bg.png');
+    z-index: 1;
+}

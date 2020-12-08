@@ -1,0 +1,51 @@
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('./static/bg.png');
+    height: 100%;
+    width: 100%;
+    background-size: 100% 100%;
+}
+
+.logo {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.input {
+    position: absolute;
+    top: 25vh;
+    width: 33vw;
+    left: 31vw;
+    height: 5vh;
+    border-radius: 10px;
+    font-size: 2.5vh;
+}
+
+.button {
+    position: absolute;
+    top: 25vh;
+    height: 5vh;
+    left: 64.5vw;
+    border-radius: 10px;
+    width: 4.5vw;
+}
+
+.card {
+    position: absolute;
+    top: 38vh;
+    left: 31vw;
+    width: 38vw;
+    height: 35vh;
+    border-radius: 10px;
+}
+
+.divider {
+    position: absolute;
+    top: 39vh;
+    left: 31vw;
+    color: black;
+}

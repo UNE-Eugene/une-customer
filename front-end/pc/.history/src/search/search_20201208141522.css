@@ -1,0 +1,7 @@
+.background {
+    background-image: url('./static/bg.png');
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    background-size: 100% 100%;
+}

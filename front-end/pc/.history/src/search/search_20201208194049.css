@@ -1,0 +1,90 @@
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('./static/bg.png');
+    height: 100%;
+    width: 100%;
+    background-size: 100% 100%;
+    min-width: 900px;
+    min-height: 800px;
+}
+
+.logo {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.searchArea {
+    position: absolute;
+    top: 25vh;
+    left: 31vw;
+    width: 40vw;
+    height: 5vh;
+    min-width: 622px;
+    min-height: 50px;
+}
+.input {
+    position: absolute;
+    top: 0;
+    width: 35vw;
+    left: 0;
+    height: 5vh;
+    border-radius: 10px;
+    font-size: 2.5vh;
+    min-width: 545px;
+    min-height: 50px;
+}
+
+.button {
+    position: absolute;
+    top: 0;
+    height: 5vh;
+    left: 88.75%;
+    border-radius: 10px;
+    width: 4.5vw;
+    color: blanchedalmond;
+    background-color: black;
+    font-size: 1.5vh;
+    min-width: 70px;
+    min-height: 50px;
+    text-align: center;
+}
+
+.card {
+    position: absolute;
+    top: 40vh;
+    left: 31vw;
+    width: 40vw;
+    height: 40vh;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px 0 rgba(34, 34, 34, 0.089);
+    min-width: 622px;
+    min-height: 500px;
+}
+
+
+.buttonArea {
+    position: absolute;
+    top: 35vh;
+    left: 31vw;
+    width: 8vw;
+    height: 3vh;
+    min-width: 180px;
+}
+.simple {
+    border-radius: 5px;
+    height: 3vh;
+    width: 3vw;
+    min-width: 70px;
+    min-height: 30px;
+}
+
+.advance {
+    border-radius: 5px;
+    height: 3vh;
+    width: 3vw;
+    min-width: 70px;
+    min-height: 30px;
+}

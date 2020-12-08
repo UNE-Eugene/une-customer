@@ -1,0 +1,118 @@
+
+.main {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+
+.header {
+    position: absolute;
+    background: white;
+    background-color: white;
+    width: 100%;
+    height: 6%;
+    display: flex;
+}
+
+.img {
+    position: absolute;
+    top: 28%;
+    left: 1%;
+    height: 44%;
+    width: 9.5%;
+}
+
+.avatar {
+    position: absolute;
+    align-self: center;
+    left: 85%;
+    width: 15%;
+
+}
+
+.workerNumber {
+    position: absolute;
+    left: 0;
+    align-self: center;
+}
+
+.body {
+    position: absolute;
+    top: 6vh;
+    left: 0;
+    width: 100vw;
+    height: 94vh;
+}
+
+.side {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    margin: 0 0 0 0 ;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.content  {
+    position: absolute;
+    top: 0;
+    left: 3vw;
+    height: 94vh;
+    width: 96vw;
+}
+.card-table-mission {
+    position: absolute;
+    top: 0.94vh;
+    left: 0.96vw;
+    width: 52.8vw;
+    height: 39.2vh;
+    box-shadow: 0 10px 20px 0 rgba(34, 34, 34, 0.089);
+}
+
+.table-mission {
+    position: absolute;
+    top: 0.56vh;
+    left: 0.53vw;
+    width: 51.7vw;
+    height: 38vh;
+}
+
+.card-table-personal {
+    position: absolute;
+    top: 42vh;
+    left: 0.96vw;
+    width: 95.1vw;
+    height: 50vh;
+    box-shadow: 0 10px 20px 0 rgba(34, 34, 34, 0.089);
+}
+
+.logger {
+    position: absolute;
+    top: 15vh;
+    left: 0.92vw;
+    width: 95.1vw;
+    height: 39.2vh;
+    text-align: center;
+}
+
+.dropdown {
+    border-radius: 10px;
+    text-align: center;
+    width: 100px;
+    height: 128px;
+}
+
+
+.logger-card {
+    display: inline-block;
+    height: 25vh;
+    width: 15vw;
+    text-align: center;
+    align-self: center;
+}
