@@ -140,9 +140,6 @@
 .form-submit {
   position: absolute;
   width: 10%;
-  left: 85%;
+  left: 80%;
   align-self: center;
-  border-radius: 7px;
-  color: blanchedalmond;
-  background-color: black;
 }

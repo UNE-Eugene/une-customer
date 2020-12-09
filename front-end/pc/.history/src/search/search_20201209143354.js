@@ -1,11 +1,8 @@
 import { useState } from "react";
 import "./search.css";
-import { Row, Col, Button, Input, Card, Select, DatePicker } from "antd";
+import { Row, Col, Button, Input, Card, Select } from "antd";
 import { withRouter } from "react-router-dom";
 import Logo from "./static/logo.png";
-import moment from 'moment'
-const {RangePicker} = DatePicker;
-const dateFormat = 'YYYY/MM/DD';
 
 const options = [];
 for (let i = 0; i < 1000; i++) {
@@ -124,7 +121,7 @@ const Search = (props) => {
                 商圈：
                 </label>
               </Col>
-              {trade.map((item, index) => {
+              {group.map((item, index) => {
                 return (
                   <Col span={5} key={index} style={{ display: "flex",alignSelf: "center" }}>
                     <Button key={index}>{item}</Button>
@@ -158,14 +155,7 @@ const Search = (props) => {
                   日期：
                 </label>
               </Col>
-              <Col span={20} style={{ display: "flex" }}>
-                  <RangePicker      
-                  style={{  alignSelf: "center" }} 
-                  defaultValue={[moment('2015/01/01', dateFormat), moment('2015/01/01', dateFormat)]}
-                    format={dateFormat}/>
-              </Col>
             </Row>
-            <Button className='form-submit'>搜索</Button>
           </div>
         </div>
       </Card>

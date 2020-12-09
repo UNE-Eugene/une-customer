@@ -165,7 +165,6 @@ const Search = (props) => {
                     format={dateFormat}/>
               </Col>
             </Row>
-            <Button className='form-submit'>搜索</Button>
           </div>
         </div>
       </Card>

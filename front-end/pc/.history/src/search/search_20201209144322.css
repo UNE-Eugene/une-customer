@@ -136,13 +136,3 @@
   height: 20%;
   display: flex;
 }
-
-.form-submit {
-  position: absolute;
-  width: 10%;
-  left: 85%;
-  align-self: center;
-  border-radius: 7px;
-  color: blanchedalmond;
-  background-color: black;
-}

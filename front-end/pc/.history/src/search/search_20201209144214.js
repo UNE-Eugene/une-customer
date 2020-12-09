@@ -158,14 +158,12 @@ const Search = (props) => {
                   日期：
                 </label>
               </Col>
-              <Col span={20} style={{ display: "flex" }}>
-                  <RangePicker      
-                  style={{  alignSelf: "center" }} 
+              <Col span={20}>
+                  <RangePicker       
                   defaultValue={[moment('2015/01/01', dateFormat), moment('2015/01/01', dateFormat)]}
                     format={dateFormat}/>
               </Col>
             </Row>
-            <Button className='form-submit'>搜索</Button>
           </div>
         </div>
       </Card>

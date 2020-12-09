@@ -1,11 +1,8 @@
 import { useState } from "react";
 import "./search.css";
-import { Row, Col, Button, Input, Card, Select, DatePicker } from "antd";
+import { Row, Col, Button, Input, Card, Select } from "antd";
 import { withRouter } from "react-router-dom";
 import Logo from "./static/logo.png";
-import moment from 'moment'
-const {RangePicker} = DatePicker;
-const dateFormat = 'YYYY/MM/DD';
 
 const options = [];
 for (let i = 0; i < 1000; i++) {
@@ -25,9 +22,8 @@ const Search = (props) => {
   const [buttonChecked, setbuttonChecked] = useState(1);
   const [city, setCity] = useState(["北京", "上海", "深圳", "杭州"]);
   const [hotel, setHotel] = useState(["北京金茂万丽", "上海静安洲际"]);
-  const [trade, setTrade] = useState(["来福士", "故宫", "外滩", "东方明珠"]);
   const [group, setGroup] = useState(["洲际", "万豪", "凯悦", "希尔顿"]);
-  
+  // const [city, setCity] = useState(["北京", "上海", "深圳", "杭州"]);
 
   const checked = { backgroundColor: "black", color: "white" };
   const unChecked = { backgroundColor: "white", color: "black" };
@@ -124,23 +120,6 @@ const Search = (props) => {
                 商圈：
                 </label>
               </Col>
-              {trade.map((item, index) => {
-                return (
-                  <Col span={5} key={index} style={{ display: "flex",alignSelf: "center" }}>
-                    <Button key={index}>{item}</Button>
-                  </Col>
-                );
-              })}
-            </Row>
-            <Input className="form-input" />
-          </div>
-          <div className="inputArea" style={{ top: "60%", left: 0 }}>
-            <Row className="row" >
-              <Col span={4} style={{ display: "flex" }}>
-                <label style={{  alignSelf: "center" }}>
-                集团：
-                </label>
-              </Col>
               {group.map((item, index) => {
                 return (
                   <Col span={5} key={index} style={{ display: "flex",alignSelf: "center" }}>
@@ -149,7 +128,22 @@ const Search = (props) => {
                 );
               })}
             </Row>
-            <Input className="form-input" />
+          </div>
+          <div className="inputArea" style={{ top: "60%", left: 0 }}>
+            <Row className="row" >
+              <Col span={4} style={{ display: "flex" }}>
+                <label style={{  alignSelf: "center" }}>
+                集团：
+                </label>
+              </Col>
+              {city.map((item, index) => {
+                return (
+                  <Col span={5} key={index} style={{ display: "flex",alignSelf: "center" }}>
+                    <Button key={index}>{item}</Button>
+                  </Col>
+                );
+              })}
+            </Row>
           </div>
           <div className="inputArea" style={{ top: "80%", left: 0 }}>
             <Row className="row" >
@@ -158,14 +152,7 @@ const Search = (props) => {
                   日期：
                 </label>
               </Col>
-              <Col span={20} style={{ display: "flex" }}>
-                  <RangePicker      
-                  style={{  alignSelf: "center" }} 
-                  defaultValue={[moment('2015/01/01', dateFormat), moment('2015/01/01', dateFormat)]}
-                    format={dateFormat}/>
-              </Col>
             </Row>
-            <Button className='form-submit'>搜索</Button>
           </div>
         </div>
       </Card>
