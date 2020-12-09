@@ -26,11 +26,6 @@ function disabledDate(current) {
 }
 
 const Search = (props) => {
-  let formData = {
-    city: null,
-    hotel: null,
-    trade: null
-  }
   const [chosen, setChosen] = useState(["jdy"]);
   const [buttonChecked, setbuttonChecked] = useState(1);
   const [city, setCity] = useState(["北京", "上海", "深圳", "杭州"]);
@@ -234,7 +229,6 @@ const Search = (props) => {
                     moment(moment(), dateFormat),
                     moment(moment().add(1, "days"), dateFormat),
                   ]}
-                  bordered={false}
                   format={dateFormat}
                 />
               </Col>
