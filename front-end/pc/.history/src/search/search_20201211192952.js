@@ -25,6 +25,8 @@ function disabledDate(current) {
   return current && current < moment().add(-1, "days").endOf("day");
 }
 
+
+
 const Search = (props) => {
   const [buttonChecked, setbuttonChecked] = useState(1);
   const [city, setCity] = useState(["北京", "上海", "深圳", "杭州"]);
@@ -42,48 +44,26 @@ const Search = (props) => {
 
   const tagRender = (props) => {
     const { label, value } = props;
-    const onClose = (e) => {
-      switch (label) {
-        case cityChecked:
-          setCityChecked("");
-          break;
-        case hotelChecked:
-          setHotelChecked("");
-          break;
-        case tradeChecked:
-          setTradeChecked("");
-          break;
-        case groupChecked:
-          setGroupChecked("");
-          break;
-        case dateChecked:
-          setDateChecked("");
-          break;
-        default:
-          break;
-      }
-    };
+    const onClose = (e)=>{
+      console.log(e.target.value)
+    }
     switch (label) {
       case "":
         return null;
       default:
-        console.log(label);
+        console.log(label)
         return (
           <Tag
             color={value}
             closable={true}
             onClose={onClose}
-            style={{
-              color: "white",
-              fontSize: "15px",
-              backgroundColor: "black",
-            }}
+            style={{ color: "white", fontSize: "15px", backgroundColor: "black" }}
           >
             {label}
           </Tag>
         );
     }
-  };
+  }
   return (
     <div
       className="background"
@@ -349,25 +329,13 @@ const Search = (props) => {
                   format={dateFormat}
                   onCalendarChange={(dates, dateString, info) => {
                     switch (dateString[1]) {
-                      case dateString[0]:
-                        setDateChecked(
-                          `${dateString[0]} 入住 ${dates[1]
-                            .add(1, "days")
-                            .format(dateFormat)} 离开`
-                        );
-                        break;
-                      case "":
-                        setDateChecked(
-                          `${dateString[0]} 入住 ${dates[0]
-                            .add(1, "days")
-                            .format(dateFormat)} 离开`
-                        );
-                        break;
+                      case dateString[0]: setDateChecked(`${dateString[0]} 入住 ${dates[1].add(1, "days").format(dateFormat)} 离开`);
+                                          break;
+                      case "":setDateChecked(`${dateString[0]} 入住 ${dates[0].add(1, "days").format(dateFormat)} 离开`);
+                                break;
                       default:
-                        setDateChecked(
-                          `${dateString[0]} 入住 ${dateString[1]} 离开`
-                        );
-                        break;
+                        setDateChecked(`${dateString[0]} 入住 ${dateString[1]} 离开`);
+                                break;
                     }
                   }}
                 />

@@ -25,6 +25,26 @@ function disabledDate(current) {
   return current && current < moment().add(-1, "days").endOf("day");
 }
 
+function tagRender(props) {
+  const { label, value, onClose } = props;
+  switch (label) {
+    case "":
+      return null;
+    default:
+      console.log(label)
+      return (
+        <Tag
+          color={value}
+          closable={true}
+          onClose={onClose}
+          style={{ color: "white", fontSize: "15px", backgroundColor: "black" }}
+        >
+          {label}
+        </Tag>
+      );
+  }
+}
+
 const Search = (props) => {
   const [buttonChecked, setbuttonChecked] = useState(1);
   const [city, setCity] = useState(["北京", "上海", "深圳", "杭州"]);
@@ -36,54 +56,9 @@ const Search = (props) => {
   const [hotelChecked, setHotelChecked] = useState("");
   const [tradeChecked, setTradeChecked] = useState("");
   const [groupChecked, setGroupChecked] = useState("");
-  const [dateChecked, setDateChecked] = useState("");
+  const [dateChecked, setDateChecked] = useState(["",""]);
   const checked = { backgroundColor: "black", color: "white" };
   const unChecked = { backgroundColor: "white", color: "black" };
-
-  const tagRender = (props) => {
-    const { label, value } = props;
-    const onClose = (e) => {
-      switch (label) {
-        case cityChecked:
-          setCityChecked("");
-          break;
-        case hotelChecked:
-          setHotelChecked("");
-          break;
-        case tradeChecked:
-          setTradeChecked("");
-          break;
-        case groupChecked:
-          setGroupChecked("");
-          break;
-        case dateChecked:
-          setDateChecked("");
-          break;
-        default:
-          break;
-      }
-    };
-    switch (label) {
-      case "":
-        return null;
-      default:
-        console.log(label);
-        return (
-          <Tag
-            color={value}
-            closable={true}
-            onClose={onClose}
-            style={{
-              color: "white",
-              fontSize: "15px",
-              backgroundColor: "black",
-            }}
-          >
-            {label}
-          </Tag>
-        );
-    }
-  };
   return (
     <div
       className="background"
@@ -140,7 +115,8 @@ const Search = (props) => {
               hotelChecked,
               tradeChecked,
               groupChecked,
-              dateChecked,
+              dateChecked[0],
+              dateChecked[1]
             ]}
             onChange={handleChange}
             bordered={false}
@@ -348,27 +324,10 @@ const Search = (props) => {
                   bordered={false}
                   format={dateFormat}
                   onCalendarChange={(dates, dateString, info) => {
-                    switch (dateString[1]) {
-                      case dateString[0]:
-                        setDateChecked(
-                          `${dateString[0]} 入住 ${dates[1]
-                            .add(1, "days")
-                            .format(dateFormat)} 离开`
-                        );
-                        break;
-                      case "":
-                        setDateChecked(
-                          `${dateString[0]} 入住 ${dates[0]
-                            .add(1, "days")
-                            .format(dateFormat)} 离开`
-                        );
-                        break;
-                      default:
-                        setDateChecked(
-                          `${dateString[0]} 入住 ${dateString[1]} 离开`
-                        );
-                        break;
+                    if(dateString[0] === dateString[1]){
+                      setDateChecked([dateString[0], moment(dates[1].add(1, "days"), dateFormat)])
                     }
+                    setDateChecked(dateString);
                   }}
                 />
               </Col>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./search.css";
-import { Row, Col, Button, Input, Card, Select, DatePicker, Tag } from "antd";
+import { Row, Col, Button, Input, Card, Select, DatePicker } from "antd";
 import { withRouter } from "react-router-dom";
 import Logo from "./static/logo.png";
 import moment from "moment";
@@ -26,64 +26,24 @@ function disabledDate(current) {
 }
 
 const Search = (props) => {
+  let formData = {
+    city: null,
+    hotel: null,
+    date: null,
+    trade: null,
+    group: null,
+    budget: null
+  }
+  const [chosen, setChosen] = useState([undefined]);
   const [buttonChecked, setbuttonChecked] = useState(1);
   const [city, setCity] = useState(["北京", "上海", "深圳", "杭州"]);
   const [hotel, setHotel] = useState(["北京金茂万丽", "上海静安洲际"]);
   const [trade, setTrade] = useState(["来福士", "故宫", "外滩", "东方明珠"]);
   const [group, setGroup] = useState(["洲际", "万豪", "凯悦", "希尔顿"]);
 
-  const [cityChecked, setCityChecked] = useState("");
-  const [hotelChecked, setHotelChecked] = useState("");
-  const [tradeChecked, setTradeChecked] = useState("");
-  const [groupChecked, setGroupChecked] = useState("");
-  const [dateChecked, setDateChecked] = useState("");
   const checked = { backgroundColor: "black", color: "white" };
   const unChecked = { backgroundColor: "white", color: "black" };
 
-  const tagRender = (props) => {
-    const { label, value } = props;
-    const onClose = (e) => {
-      switch (label) {
-        case cityChecked:
-          setCityChecked("");
-          break;
-        case hotelChecked:
-          setHotelChecked("");
-          break;
-        case tradeChecked:
-          setTradeChecked("");
-          break;
-        case groupChecked:
-          setGroupChecked("");
-          break;
-        case dateChecked:
-          setDateChecked("");
-          break;
-        default:
-          break;
-      }
-    };
-    switch (label) {
-      case "":
-        return null;
-      default:
-        console.log(label);
-        return (
-          <Tag
-            color={value}
-            closable={true}
-            onClose={onClose}
-            style={{
-              color: "white",
-              fontSize: "15px",
-              backgroundColor: "black",
-            }}
-          >
-            {label}
-          </Tag>
-        );
-    }
-  };
   return (
     <div
       className="background"
@@ -125,44 +85,25 @@ const Search = (props) => {
           <label
             className="chosen-label"
             style={{ fontWeight: "900", fontSize: "18px" }}
-            key="chosen-label"
           >
             已选条件：
           </label>
           <Select
-            tagRender={tagRender}
             mode="multiple"
             className="chosen-fields"
             placeholder="Please select"
             // defaultValue={["a10", "c12"]}
-            value={[
-              cityChecked,
-              hotelChecked,
-              tradeChecked,
-              groupChecked,
-              dateChecked,
-            ]}
+            value={chosen}
             onChange={handleChange}
             bordered={false}
             open={false}
-            disabled
-            key="select"
           />
         </div>
         <div className="form">
-          <div
-            className="inputArea"
-            style={{ top: "0", left: 0 }}
-            key="cityArea"
-          >
-            <Row className="row" style={{ top: 0, left: 0 }} key="city-row">
-              <Col
-                span={4}
-                style={{ display: "flex", alignSelf: "center" }}
-                key="city-label-col"
-              >
+          <div className="inputArea" style={{ top: "0", left: 0 }}>
+            <Row className="row" style={{ top: 0, left: 0 }}>
+              <Col span={4} style={{ display: "flex", alignSelf: "center" }}>
                 <label
-                  key="city-label"
                   style={{
                     height: "100%",
                     fontWeight: "900",
@@ -176,37 +117,22 @@ const Search = (props) => {
                 return (
                   <Col
                     span={5}
-                    key={"city-col-" + index.toString()}
+                    key={index}
                     style={{ display: "flex", alignSelf: "center" }}
                   >
-                    <Button
-                      key={"city-button-" + index.toString()}
-                      type="text"
-                      onClick={() => {
-                        setCityChecked(item);
-                      }}
-                    >
+                    <Button key={index} type="text">
                       {item}
                     </Button>
                   </Col>
                 );
               })}
             </Row>
-            <Input className="form-input" key="city" />
+            <Input className="form-input" />
           </div>
-          <div
-            className="inputArea"
-            style={{ top: "20%", left: 0 }}
-            key="hotelArea"
-          >
-            <Row className="row" gutter={[16]} key="hotel-row">
-              <Col
-                span={4}
-                style={{ display: "flex", alignSelf: "center" }}
-                key="hotel-label-col"
-              >
+          <div className="inputArea" style={{ top: "20%", left: 0 }}>
+            <Row className="row" gutter={[16]}>
+              <Col span={4} style={{ display: "flex", alignSelf: "center" }}>
                 <label
-                  key="hotel-label"
                   style={{
                     alignSelf: "center",
                     fontWeight: "900",
@@ -220,33 +146,22 @@ const Search = (props) => {
                 return (
                   <Col
                     span={10}
-                    key={"hotel-col-" + index.toString()}
+                    key={index}
                     style={{ display: "flex", alignSelf: "center" }}
                   >
-                    <Button
-                      key={"hotel-button-" + index.toString()}
-                      type="text"
-                      onClick={() => {
-                        setHotelChecked(item);
-                      }}
-                    >
+                    <Button key={index} type="text">
                       {item}
                     </Button>
                   </Col>
                 );
               })}
             </Row>
-            <Input className="form-input" key="hotel" />
+            <Input className="form-input" />
           </div>
-          <div
-            className="inputArea"
-            style={{ top: "40%", left: 0 }}
-            key="tradeArea"
-          >
-            <Row className="row" key="trade-row">
-              <Col span={4} style={{ display: "flex" }} key="trade-label-col">
+          <div className="inputArea" style={{ top: "40%", left: 0 }}>
+            <Row className="row">
+              <Col span={4} style={{ display: "flex" }}>
                 <label
-                  key="trade-label"
                   style={{
                     alignSelf: "center",
                     fontWeight: "900",
@@ -260,33 +175,22 @@ const Search = (props) => {
                 return (
                   <Col
                     span={5}
-                    key={"trade-col-" + index.toString()}
+                    key={index}
                     style={{ display: "flex", alignSelf: "center" }}
                   >
-                    <Button
-                      key={"trade-button-" + index.toString()}
-                      type="text"
-                      onClick={() => {
-                        setTradeChecked(item);
-                      }}
-                    >
+                    <Button key={index} type="text">
                       {item}
                     </Button>
                   </Col>
                 );
               })}
             </Row>
-            <Input className="form-input" key="trade" />
+            <Input className="form-input" />
           </div>
-          <div
-            className="inputArea"
-            style={{ top: "60%", left: 0 }}
-            key="groupArea"
-          >
-            <Row className="row" key="group-row">
-              <Col span={4} style={{ display: "flex" }} key="group-label-col">
+          <div className="inputArea" style={{ top: "60%", left: 0 }}>
+            <Row className="row">
+              <Col span={4} style={{ display: "flex" }}>
                 <label
-                  key="group-label"
                   style={{
                     alignSelf: "center",
                     fontWeight: "900",
@@ -300,33 +204,22 @@ const Search = (props) => {
                 return (
                   <Col
                     span={5}
-                    key={"group-col-" + index.toString()}
+                    key={index}
                     style={{ display: "flex", alignSelf: "center" }}
                   >
-                    <Button
-                      key={"group-button-" + index.toString()}
-                      type="text"
-                      onClick={() => {
-                        setGroupChecked(item);
-                      }}
-                    >
+                    <Button key={index} type="text">
                       {item}
                     </Button>
                   </Col>
                 );
               })}
             </Row>
-            <Input className="form-input" key="group" />
+            <Input className="form-input" />
           </div>
-          <div
-            className="inputArea"
-            style={{ top: "80%", left: 0 }}
-            key="dateArea"
-          >
-            <Row className="row" key="date-row">
-              <Col span={4} style={{ display: "flex" }} key="date-label-col">
+          <div className="inputArea" style={{ top: "80%", left: 0 }}>
+            <Row className="row">
+              <Col span={4} style={{ display: "flex" }}>
                 <label
-                  key="date-label"
                   style={{
                     alignSelf: "center",
                     fontWeight: "900",
@@ -336,9 +229,8 @@ const Search = (props) => {
                   日期：
                 </label>
               </Col>
-              <Col span={20} style={{ display: "flex" }} key="date-col">
+              <Col span={20} style={{ display: "flex" }}>
                 <RangePicker
-                  key="1"
                   style={{ alignSelf: "center" }}
                   disabledDate={disabledDate}
                   defaultValue={[
@@ -347,35 +239,10 @@ const Search = (props) => {
                   ]}
                   bordered={false}
                   format={dateFormat}
-                  onCalendarChange={(dates, dateString, info) => {
-                    switch (dateString[1]) {
-                      case dateString[0]:
-                        setDateChecked(
-                          `${dateString[0]} 入住 ${dates[1]
-                            .add(1, "days")
-                            .format(dateFormat)} 离开`
-                        );
-                        break;
-                      case "":
-                        setDateChecked(
-                          `${dateString[0]} 入住 ${dates[0]
-                            .add(1, "days")
-                            .format(dateFormat)} 离开`
-                        );
-                        break;
-                      default:
-                        setDateChecked(
-                          `${dateString[0]} 入住 ${dateString[1]} 离开`
-                        );
-                        break;
-                    }
-                  }}
                 />
               </Col>
             </Row>
-            <Button className="form-submit" key="date">
-              搜索
-            </Button>
+            <Button className="form-submit">搜索</Button>
           </div>
         </div>
       </Card>

@@ -6,3 +6,61 @@
 [1207/200143.593:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系统找不到指定的路径。 (0x3)
 [1208/094153.428:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系统找不到指定的路径。 (0x3)
 [1209/100217.052:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系统找不到指定的路径。 (0x3)
+[1211/161302.936:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系统找不到指定的路径。 (0x3)
+[1211/173112.848:ERROR:process_info.cc(626)] range at 0xe33ad58000, size 0x354 partially unreadable
+[1211/173112.850:ERROR:process_info.cc(626)] range at 0xe33b5dd000, size 0x23000 partially unreadable
+[1211/173112.850:ERROR:process_info.cc(626)] range at 0xe33ad59000, size 0x1788 partially unreadable
+[1211/173112.850:ERROR:process_info.cc(626)] range at 0xe33bdfe000, size 0x2000 partially unreadable
+[1211/173112.850:ERROR:process_info.cc(626)] range at 0xe33ad5b000, size 0x1788 partially unreadable
+[1211/173112.850:ERROR:process_info.cc(626)] range at 0xe33cdfe000, size 0x2000 partially unreadable
+[1211/173112.850:ERROR:process_info.cc(626)] range at 0xe33ad5f000, size 0x1788 partially unreadable
+[1211/173112.850:ERROR:process_info.cc(626)] range at 0xe33d5fd000, size 0x3000 partially unreadable
+[1211/173112.850:ERROR:process_info.cc(626)] range at 0xe33ad61000, size 0x1788 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33e5ff000, size 0x1000 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33ad65000, size 0x1788 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33edfe000, size 0x2000 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33ad67000, size 0x1788 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33f5fc000, size 0x4000 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33ad69000, size 0x1788 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe3405fe000, size 0x2000 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33ad6d000, size 0x1788 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe340dfc000, size 0x4000 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33ad6f000, size 0x1788 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe3415fc000, size 0x4000 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33ad71000, size 0x1788 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe341dfc000, size 0x4000 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33ad73000, size 0x1788 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe3425fc000, size 0x4000 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33ad75000, size 0x1788 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe342dfe000, size 0x2000 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33ad77000, size 0x1788 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33c5fe000, size 0x2000 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33ad8b000, size 0x1788 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33fdfc000, size 0x4000 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33ad26000, size 0x1788 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe3435fc000, size 0x4000 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33ad36000, size 0x1788 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe343dfd000, size 0x3000 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33ad38000, size 0x1788 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe344dfd000, size 0x3000 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33ad3a000, size 0x1788 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe3455fd000, size 0x3000 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33ad40000, size 0x1788 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe3465fc000, size 0x4000 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33ad42000, size 0x1788 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe3475fd000, size 0x3000 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33ad44000, size 0x1788 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe347dfc000, size 0x4000 partially unreadable
+[1211/173112.851:ERROR:process_info.cc(626)] range at 0xe33ad48000, size 0x1788 partially unreadable
+[1211/173112.852:ERROR:process_info.cc(626)] range at 0xe348dfd000, size 0x3000 partially unreadable
+[1211/173112.852:ERROR:process_info.cc(626)] range at 0xe33ad4c000, size 0x1788 partially unreadable
+[1211/173112.852:ERROR:process_info.cc(626)] range at 0xe3495fd000, size 0x3000 partially unreadable
+[1211/173112.852:ERROR:process_info.cc(626)] range at 0xe33ad4e000, size 0x1788 partially unreadable
+[1211/173112.852:ERROR:process_info.cc(626)] range at 0xe34adfd000, size 0x3000 partially unreadable
+[1211/173112.852:ERROR:process_info.cc(626)] range at 0xe33ad54000, size 0x1788 partially unreadable
+[1211/173112.852:ERROR:process_info.cc(626)] range at 0xe34b5fd000, size 0x3000 partially unreadable
+[1211/173112.852:ERROR:process_info.cc(626)] range at 0xe33ad56000, size 0x1788 partially unreadable
+[1211/173112.881:ERROR:minidump_writable.cc(181)] size 1099536809984 out of range
+[1211/173112.881:ERROR:crash_report_exception_handler.cc(113)] WriteEverything failed
+[1211/173112.882:ERROR:filesystem_win.cc(148)] DeleteFile C:\Users\UNE\AppData\Local\Google\Chrome\User Data\Crashpad\reports\c1677b7d-1805-4bdf-ab2f-cc7194297ec7.dmp: 另一个程序正在使用此文件，进程无法访问。 (0x20)
+[1211/175003.744:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系统找不到指定的路径。 (0x3)
