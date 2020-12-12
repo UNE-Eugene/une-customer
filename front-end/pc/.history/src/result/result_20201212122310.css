@@ -1,0 +1,38 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    background-color: blue;
+}
+
+.content {
+    position: absolute;
+    top: 10%;
+    height: 90%;
+    left: 0;
+    width: 100%;
+}
+
+.img {
+    position: absolute;
+    top: 28%;
+    left: 1%;
+    height: 44%;
+    width: 9.5%;
+}
+
+.avatar {
+    position: absolute;
+    align-self: center;
+    left: 85%;
+    width: 15%;
+
+}
+
+.workerNumber {
+    position: absolute;
+    left: 0;
+    align-self: center;
+}

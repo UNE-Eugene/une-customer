@@ -1,0 +1,16 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 35%;
+    width: 100%;
+    background-color: blue;
+}
+
+.content {
+    position: absolute;
+    top: 35%;
+    height: 65%;
+    left: 0;
+    width: 100%;
+}

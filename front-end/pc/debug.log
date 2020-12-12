@@ -64,3 +64,4 @@
 [1211/173112.881:ERROR:crash_report_exception_handler.cc(113)] WriteEverything failed
 [1211/173112.882:ERROR:filesystem_win.cc(148)] DeleteFile C:\Users\UNE\AppData\Local\Google\Chrome\User Data\Crashpad\reports\c1677b7d-1805-4bdf-ab2f-cc7194297ec7.dmp: 另一个程序正在使用此文件，进程无法访问。 (0x20)
 [1211/175003.744:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系统找不到指定的路径。 (0x3)
+[1212/201854.081:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系统找不到指定的路径。 (0x3)
