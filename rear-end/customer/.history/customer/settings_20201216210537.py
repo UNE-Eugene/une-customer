@@ -132,6 +132,18 @@ STATIC_URL = '/static/'
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_HEADERS = (
+	'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'orgin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+    'logintoken'
+)
 # 部署到云服务上必备
 ALLOWED_HOSTS = ['*']
 # csrf验证

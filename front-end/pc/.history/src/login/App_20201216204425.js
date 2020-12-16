@@ -26,10 +26,10 @@ function App(props) {
   });
 
   const onFinish = (values) => {
-    console.log(formMessage)
+    console.log(JSON.parse(values))
     axios.get('/UNE/').then(
       response =>{
-        axios.post('/login/',formMessage, {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'}).then(
+        axios.post('/login/',JSON.parse(values)).then(
           response => {
             console.log(response.data)
           }

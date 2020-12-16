@@ -29,7 +29,7 @@ function App(props) {
     console.log(formMessage)
     axios.get('/UNE/').then(
       response =>{
-        axios.post('/login/',formMessage, {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'}).then(
+        axios.post('/login/',values).then(
           response => {
             console.log(response.data)
           }

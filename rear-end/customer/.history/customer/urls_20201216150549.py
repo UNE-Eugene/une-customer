@@ -15,9 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import loginView, get_csrf
+from .views import loginView
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('UNE/', get_csrf),
-    path('login/', loginView),
+    path('login/', loginView)
 ]

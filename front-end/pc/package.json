@@ -10,6 +10,8 @@
     "@testing-library/user-event": "^12.3.0",
     "ahooks": "^2.9.2",
     "antd": "^4.9.1",
+    "axios": "^0.21.0",
+    "django-react-csrftoken": "^1.0.4",
     "moment": "^2.29.1",
     "rc-queue-anim": "^1.8.5",
     "react": "^17.0.1",

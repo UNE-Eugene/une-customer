@@ -11,7 +11,7 @@ import DjangoCSRFToken from 'django-react-csrftoken'
  
 
 // axios 基本配置， 配置csrf验证
-axios.defaults.xsrfHeaderName = "X-CSRFToken";
+axios.defaults.xsrfHeaderName = "LoginToken";
 axios.defaults.xsrfCookieName = "LoginToken";
 axios.defaults.baseURL = 'http://127.0.0.1:8000'
 axios.defaults.withCredentials=true;
@@ -29,7 +29,7 @@ function App(props) {
     console.log(formMessage)
     axios.get('/UNE/').then(
       response =>{
-        axios.post('/login/',formMessage, {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'}).then(
+        axios.post('/login/',formMessage).then(
           response => {
             console.log(response.data)
           }

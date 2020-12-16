@@ -26,10 +26,9 @@ function App(props) {
   });
 
   const onFinish = (values) => {
-    console.log(formMessage)
     axios.get('/UNE/').then(
       response =>{
-        axios.post('/login/',formMessage, {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'}).then(
+        axios.post('/login/', values).then(
           response => {
             console.log(response.data)
           }
@@ -38,6 +37,8 @@ function App(props) {
     ).catch(response => {
       console.log('网络错误！')
     })
+
+    console.log("Received values of form: ", values);
   };
 
   const onFinishFaild = (values, errorFields, outOfDate) =>{

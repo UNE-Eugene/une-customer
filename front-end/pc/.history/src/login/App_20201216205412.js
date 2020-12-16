@@ -20,16 +20,12 @@ const { Title } = Typography;
 function App(props) {
 
   // eslint-disable-next-line
-  const [formMessage, setformMessage] = useState({
-    username: "",
-    password: "",
-  });
 
   const onFinish = (values) => {
-    console.log(formMessage)
+    console.log(values.password)
     axios.get('/UNE/').then(
       response =>{
-        axios.post('/login/',formMessage, {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'}).then(
+        axios.post('/login/',values).then(
           response => {
             console.log(response.data)
           }

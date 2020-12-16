@@ -26,10 +26,9 @@ function App(props) {
   });
 
   const onFinish = (values) => {
-    console.log(formMessage)
     axios.get('/UNE/').then(
       response =>{
-        axios.post('/login/',formMessage, {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'}).then(
+        axios.post('/login/', values).then(
           response => {
             console.log(response.data)
           }
@@ -38,6 +37,8 @@ function App(props) {
     ).catch(response => {
       console.log('网络错误！')
     })
+
+    console.log("Received values of form: ", values);
   };
 
   const onFinishFaild = (values, errorFields, outOfDate) =>{
@@ -59,6 +60,7 @@ function App(props) {
         <Col xs={20} sm={14} md={10} lg={8} xl={8} xxl={6} style={{ alignItems: "center" }}>
           <Card className="inline-center" style={{ alignSelf: "center", borderRadius: "15px" }}>
             <Form
+            
               name="normal_login"
               className="login-form"
               initialValues={{ layout: "horizontal" }}

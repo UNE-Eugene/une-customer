@@ -18,6 +18,6 @@ from django.urls import path
 from .views import loginView, get_csrf
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('UNE/', get_csrf),
+    path('UNE/', get_csrf)
     path('login/', loginView),
 ]
