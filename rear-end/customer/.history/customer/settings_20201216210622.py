@@ -136,7 +136,3 @@ CORS_ORIGIN_ALLOW_ALL = True
 ALLOWED_HOSTS = ['*']
 # csrf验证
 CSRF_COOKIE_NAME = 'LoginToken'
-
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True             # 是否关闭浏览器使得Session过期（默认）
-SESSION_SAVE_EVERY_REQUEST = False 
-SESSION_COOKIE_AGE = 43200

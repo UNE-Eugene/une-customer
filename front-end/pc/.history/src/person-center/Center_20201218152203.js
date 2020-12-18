@@ -202,12 +202,10 @@ const Center = (props) => {
         </Text>
       </Menu.Item>
       <Menu.Item
-        onClick={() => {
-          axios.get("/logout/").then((response) => {
-            message.success("注销成功， 请重新登录");
-            props.history.push("/");
-          });
-        }}
+        onClick={axios.get("/logout/").then((response) => {
+          message.success("注销成功， 请重新登录");
+          props.history.push("/");
+        })}
         style={{
           position: "relative",
           width: "100px",
@@ -292,8 +290,11 @@ const Center = (props) => {
                 minWidth: "50px",
               }}
               onClick={() => {
-                
-                props.history.push("/search");
+                console.log(username === "");
+                axios.get("/user/").then((response) => {
+                  console.log(response.data);
+                });
+                // props.history.push("/search");
                 setStates({
                   area1: "after",
                   area2: "before",

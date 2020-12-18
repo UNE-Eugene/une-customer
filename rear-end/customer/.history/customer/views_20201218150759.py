@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import HttpResponse, redirect
 from django.http import JsonResponse
@@ -34,11 +34,6 @@ def loginView(request):
 
 @login_required
 def get_user(request):
-    print(request.session)
     uid = request.session.get('_auth_user_id')
     username = User.objects.get(pk=uid)
     return HttpResponse(username)
-
-def logoutView(request):
-    logout(request)
-    return HttpResponse()

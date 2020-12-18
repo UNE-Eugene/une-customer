@@ -292,8 +292,11 @@ const Center = (props) => {
                 minWidth: "50px",
               }}
               onClick={() => {
-                
-                props.history.push("/search");
+                console.log(username === "");
+                axios.get("/user/").then((response) => {
+                  console.log(response.data);
+                });
+                // props.history.push("/search");
                 setStates({
                   area1: "after",
                   area2: "before",

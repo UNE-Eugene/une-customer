@@ -13,7 +13,6 @@ import {
   Tabs,
   Card,
   Pagination,
-  message,
 } from "antd";
 import "antd/dist/antd.css";
 import Logo from "./static/logo.png";
@@ -43,6 +42,57 @@ axios.defaults.withCredentials = true;
 const { Text } = Typography;
 const { Header, Sider, Content } = Layout;
 const { TabPane } = Tabs;
+
+const menu = (
+  <Menu className="dropdown">
+    <Menu.Item
+      onClick={{}}
+      style={{
+        position: "relative",
+        width: "100px",
+        height: "60px",
+        borderRadius: "10px",
+      }}
+    >
+      <Text
+        style={{
+          position: "absolute",
+          top: "20px",
+          height: "40px",
+          bottom: 0,
+          right: 0,
+          left: 0,
+        }}
+      >
+        上传头像
+      </Text>
+    </Menu.Item>
+    <Menu.Item
+      onClick={{}}
+      style={{
+        position: "relative",
+        width: "100px",
+        height: "60px",
+        borderRadius: "10px",
+      }}
+    >
+      <Text
+        style={{
+          position: "absolute",
+          top: "20px",
+          height: "40px",
+          bottom: 0,
+          right: 0,
+          left: 0,
+        }}
+      >
+        修改密码
+      </Text>
+    </Menu.Item>
+  </Menu>
+);
+
+
 
 const columns = [
   {
@@ -154,107 +204,19 @@ const contentList = {
   ),
 };
 
-const Center = (props) => {
-  const menu = (
-    <Menu className="dropdown">
-      <Menu.Item
-        onClick={{}}
-        style={{
-          position: "relative",
-          width: "100px",
-          height: "60px",
-          borderRadius: "10px",
-        }}
-      >
-        <Text
-          style={{
-            position: "absolute",
-            top: "20px",
-            height: "40px",
-            bottom: 0,
-            right: 0,
-            left: 0,
-          }}
-        >
-          上传头像
-        </Text>
-      </Menu.Item>
-      <Menu.Item
-        onClick={{}}
-        style={{
-          position: "relative",
-          width: "100px",
-          height: "60px",
-          borderRadius: "10px",
-        }}
-      >
-        <Text
-          style={{
-            position: "absolute",
-            top: "20px",
-            height: "40px",
-            bottom: 0,
-            right: 0,
-            left: 0,
-          }}
-        >
-          修改密码
-        </Text>
-      </Menu.Item>
-      <Menu.Item
-        onClick={() => {
-          axios.get("/logout/").then((response) => {
-            message.success("注销成功， 请重新登录");
-            props.history.push("/");
-          });
-        }}
-        style={{
-          position: "relative",
-          width: "100px",
-          height: "60px",
-          borderRadius: "10px",
-        }}
-      >
-        <Text
-          style={{
-            position: "absolute",
-            top: "20px",
-            height: "40px",
-            bottom: 0,
-            right: 0,
-            left: 0,
-          }}
-        >
-          退出登录
-        </Text>
-      </Menu.Item>
-    </Menu>
-  );
 
+const Center = (props) => {
   // 通过hox全局管理变量
   const { username, setUsername } = useLoginState();
 
   // 定义hook
-  const [TabKey, setTabKey] = useState("outMission");
+  const [TabKey, setTabKey] = useState('outMission')
   const [logger, setlogger] = useState(false);
   const [states, setStates] = useState({
     area1: "before",
     area2: "after",
     area3: "before",
   });
-
-  useEffect(() => {
-    if (username === "") {
-      axios
-        .get("/user/")
-        .then((response) => {
-          setUsername(response.data);
-        })
-        .catch((error) => {
-          props.history.push("/");
-        });
-    }
-  }, []);
 
   return (
     <Layout className="main">
@@ -292,8 +254,10 @@ const Center = (props) => {
                 minWidth: "50px",
               }}
               onClick={() => {
-                
-                props.history.push("/search");
+                axios.get("/test/").then((response) => {
+                  console.log(response.data);
+                });
+                // props.history.push("/search");
                 setStates({
                   area1: "after",
                   area2: "before",
@@ -539,17 +503,12 @@ const Center = (props) => {
               <QueueAnim type="left" delay={0}>
                 <Card
                   className="card-table-mission"
-                  tabBarExtraContent={
-                    <Pagination pageSizeOptions={[6]} total={18} />
-                  }
+                  tabBarExtraContent={<Pagination />}
                   key="card1"
                   tabList={tabList}
                   activeTabKey={TabKey}
-                  onTabChange={(key) => {
-                    console.log(contentList[TabKey]);
-                    setTabKey(key);
-                    console.log(contentList[TabKey]);
-                  }}
+                  onTabChange = {key=>{console.log(contentList[TabKey]);setTabKey(key);console.log(contentList[TabKey]);}}
+                  
                 >
                   {contentList[TabKey]}
                 </Card>

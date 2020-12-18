@@ -51,7 +51,7 @@ function disabledDate(current) {
 
 const Search = (props) => {
   const { username, setUsername } = useLoginState();
-  
+  const { label, value } = props;
   useEffect(() => {
     if (username === "") {
       axios
@@ -160,7 +160,7 @@ const Search = (props) => {
   );
 
   const tagRender = (props) => {
-    const { label, value } = props;
+
     const onClose = (e) => {
       switch (label) {
         case cityChecked:

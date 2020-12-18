@@ -51,7 +51,7 @@ function disabledDate(current) {
 
 const Search = (props) => {
   const { username, setUsername } = useLoginState();
-  
+  const { label, value } = props;
   useEffect(() => {
     if (username === "") {
       axios
@@ -160,7 +160,7 @@ const Search = (props) => {
   );
 
   const tagRender = (props) => {
-    const { label, value } = props;
+
     const onClose = (e) => {
       switch (label) {
         case cityChecked:
@@ -231,7 +231,31 @@ const Search = (props) => {
         <Input className="input" />
         <Button className="button">搜索</Button>
       </div>
-
+      {/* <Row gutter={16} className="buttonArea">
+        <Col span={10}>
+          <Button
+            className="simple"
+            style={buttonChecked === 1 ? checked : unChecked}
+            onClick={() => {
+              setbuttonChecked(1);
+            }}
+          >
+            基础
+          </Button>
+        </Col>
+        <Col span={4}>&nbsp;</Col>
+        <Col span={10}>
+          <Button
+            className="advance"
+            style={buttonChecked === 2 ? checked : unChecked}
+            onClick={() => {
+              setbuttonChecked(2);
+            }}
+          >
+            高级
+          </Button>
+        </Col>
+      </Row> */}
       <Card className="card">
         <div className="chosen-area">
           <label

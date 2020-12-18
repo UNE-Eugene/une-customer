@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./search.css";
 import {
   Row,
@@ -11,27 +11,16 @@ import {
   Tag,
   InputNumber,
   Slider,
-  Avatar,
-  Typography,
-  Menu,
-  Dropdown,
-  message
 } from "antd";
 import { withRouter } from "react-router-dom";
 import Logo from "./static/logo.png";
 import moment from "moment";
 import { ArrowRightOutlined } from "@ant-design/icons";
-import axios from 'axios'
-import useLoginState from '../dataCenter/loginMessage'
-
 
 const { RangePicker } = DatePicker;
-const {Text} = Typography;
 const dateFormat = "YYYY/MM/DD";
 
 const options = [];
-
-
 for (let i = 0; i < 1000; i++) {
   const value = `${i.toString(36)}${i}`;
   options.push({
@@ -50,20 +39,6 @@ function disabledDate(current) {
 }
 
 const Search = (props) => {
-  const { username, setUsername } = useLoginState();
-  
-  useEffect(() => {
-    if (username === "") {
-      axios
-        .get("/user/")
-        .then((response) => {
-          setUsername(response.data);
-        })
-        .catch((error) => {
-          props.history.push("/");
-        });
-    }
-  }, []);
   const [buttonChecked, setbuttonChecked] = useState(1);
   const [city, setCity] = useState(["北京", "上海", "深圳", "杭州"]);
   const [hotel, setHotel] = useState(["北京金茂万丽", "上海静安洲际"]);
@@ -82,82 +57,6 @@ const Search = (props) => {
 
   const checked = { backgroundColor: "black", color: "white" };
   const unChecked = { backgroundColor: "white", color: "black" };
-
-  const menu = (
-    <Menu className="search-dropdown">
-      <Menu.Item
-        onClick={{}}
-        style={{
-          position: "relative",
-          width: "100px",
-          height: "60px",
-          borderRadius: "10px",
-        }}
-      >
-        <Text
-          style={{
-            position: "absolute",
-            top: "20px",
-            height: "40px",
-            bottom: 0,
-            right: 0,
-            left: 0,
-          }}
-        >
-          上传头像
-        </Text>
-      </Menu.Item>
-      <Menu.Item
-        onClick={{}}
-        style={{
-          position: "relative",
-          width: "100px",
-          height: "60px",
-          borderRadius: "10px",
-        }}
-      >
-        <Text
-          style={{
-            position: "absolute",
-            top: "20px",
-            height: "40px",
-            bottom: 0,
-            right: 0,
-            left: 0,
-          }}
-        >
-          修改密码
-        </Text>
-      </Menu.Item>
-      <Menu.Item
-        onClick={() => {
-          axios.get("/logout/").then((response) => {
-            message.success("注销成功， 请重新登录");
-            props.history.push("/");
-          });
-        }}
-        style={{
-          position: "relative",
-          width: "100px",
-          height: "60px",
-          borderRadius: "10px",
-        }}
-      >
-        <Text
-          style={{
-            position: "absolute",
-            top: "20px",
-            height: "40px",
-            bottom: 0,
-            right: 0,
-            left: 0,
-          }}
-        >
-          退出登录
-        </Text>
-      </Menu.Item>
-    </Menu>
-  );
 
   const tagRender = (props) => {
     const { label, value } = props;
@@ -212,16 +111,16 @@ const Search = (props) => {
       className="background"
       style={{ minWidth: "900px", minHeight: "800px" }}
     >
-      <Row className="search-avatar" gutter={16}>
+      <Row className="avatar" gutter={16}>
           <Col xs={12} sm={10} md={10} lg={8} xl={7} xxl={6}>
             <Avatar
-              // src={<img src={icon1} alt="" />}
+              src={<img src={icon1} alt="" />}
               size={{ xs: 30, sm: 30, md: 35, lg: 35, xl: 40, xxl: 50 }}
             />
           </Col>
-          <Col xs={12} sm={14} md={14} lg={16} xl={17} xxl={18} style={{display: 'flex'}}>
-            <Dropdown overlay={menu} placement="bottomCenter" arrow style={{alignSelf: 'center'}}>
-              <Text className="search-workerNumber">{username}</Text>
+          <Col xs={12} sm={14} md={14} lg={16} xl={17} xxl={18}>
+            <Dropdown overlay={menu} placement="bottomCenter" arrow>
+              <Text className="workerNumber">{username}</Text>
             </Dropdown>
           </Col>
         </Row>
@@ -231,7 +130,31 @@ const Search = (props) => {
         <Input className="input" />
         <Button className="button">搜索</Button>
       </div>
-
+      {/* <Row gutter={16} className="buttonArea">
+        <Col span={10}>
+          <Button
+            className="simple"
+            style={buttonChecked === 1 ? checked : unChecked}
+            onClick={() => {
+              setbuttonChecked(1);
+            }}
+          >
+            基础
+          </Button>
+        </Col>
+        <Col span={4}>&nbsp;</Col>
+        <Col span={10}>
+          <Button
+            className="advance"
+            style={buttonChecked === 2 ? checked : unChecked}
+            onClick={() => {
+              setbuttonChecked(2);
+            }}
+          >
+            高级
+          </Button>
+        </Col>
+      </Row> */}
       <Card className="card">
         <div className="chosen-area">
           <label
