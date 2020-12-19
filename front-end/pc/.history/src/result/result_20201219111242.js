@@ -307,7 +307,7 @@ const TitleRender = (props) => {
   );
 };
 
-const Result = (props) => {
+const Result = () => {
   const { username, setUsername } = useLoginState();
   const [dateChecked, setDateChecked] = useState("");
   const [pageDate, setPageDate] = useState([

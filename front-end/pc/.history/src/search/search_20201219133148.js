@@ -74,7 +74,7 @@ const Search = (props) => {
   const [hotelChecked, setHotelChecked] = useState("");
   const [tradeChecked, setTradeChecked] = useState("");
   const [groupChecked, setGroupChecked] = useState("");
-  const [dateChecked, setDateChecked] = useState(`${moment().format(dateFormat)} 入住 ${moment().add(1, 'days').format(dateFormat)} 离开`);
+  const [dateChecked, setDateChecked] = useState("");
 
   const [budget1, setBudget1] = useState(0);
   const [budget2, setBudget2] = useState(10000);
@@ -189,9 +189,8 @@ const Search = (props) => {
         return null;
       case "0元 到 10000元 ":
         return null;
-      case `${moment().format(dateFormat)} 入住 ${moment().add(1, 'days').format(dateFormat)} 离开`:
-        return null;
       default:
+        console.log(label);
         return (
           <Tag
             color={value}
@@ -562,11 +561,7 @@ const Search = (props) => {
                   group: groupChecked,
                   budget: `${budget1}元 到 ${budget2}元 `,
                   date: dateChecked
-                }).then(
-                  response =>{
-                    console.log(response.data)
-                  }
-                )
+                })
                 props.history.push("/result");
               }}
             >

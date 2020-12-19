@@ -25,13 +25,15 @@ import moment from "moment";
 import { withRouter } from "react-router-dom";
 import hotelJPG from "./static/广州东圃合景福朋喜来登酒店_2.jpg";
 import { EnvironmentFilled } from "@ant-design/icons";
-import useLoginState from "../dataCenter/loginMessage";
-import axios from "axios";
+import useLoginState from '../dataCenter/loginMessage'
+import axios from 'axios'
+
 
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
 axios.defaults.xsrfCookieName = "LoginToken";
 axios.defaults.baseURL = "http://127.0.0.1:8000";
 axios.defaults.withCredentials = true;
+
 
 const { RangePicker } = DatePicker;
 const { Text } = Typography;
@@ -143,14 +145,18 @@ const columns = [
     dataIndex: "priceLevel",
     key: "priceLevel",
     align: "center",
-    render: (text, record) => <Tag color="gold">SS</Tag>,
+    render: (text, record) => (
+      <Tag color='gold'>SS</Tag>
+    ),
   },
   {
     title: "预估客户等级",
     dataIndex: "customerLevel",
     key: "customerLevel",
     align: "center",
-    render: (text, record) => <Tag color="gold">AA</Tag>,
+    render: (text, record) => (
+      <Tag color='gold'>AA</Tag>
+    ),
   },
   {
     title: "操作",
@@ -307,8 +313,8 @@ const TitleRender = (props) => {
   );
 };
 
-const Result = (props) => {
-  const { username, setUsername } = useLoginState();
+const Result = () => {
+  const {username, setUsername} = useLoginState()
   const [dateChecked, setDateChecked] = useState("");
   const [pageDate, setPageDate] = useState([
     moment(moment(), dateFormat),

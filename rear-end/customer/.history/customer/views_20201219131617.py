@@ -39,28 +39,10 @@ def get_user(request):
     username = User.objects.get(pk=uid)
     return HttpResponse(username)
 
-
 def logoutView(request):
     logout(request)
     return HttpResponse()
 
-
 def search(request):
     if request.method == 'POST':
-        form = request.body
-        form = json.loads(form)
-        if form['city'] != '' and form['hotel'] == '':
-            if form['trade'] == '' and form['budget'] == '':  #城市+商圈+预算+日期
-                pass
-            elif form['trade'] == '' and form['budget'] != '':  # 城市+预算+日期
-                pass
-            elif form['trade'] != '' and form['budget'] == '':  # 城市+商圈+日期
-                pass
-            elif form['trade'] != '' and form['budget'] != '':  # 城市+日期
-                pass
-        elif form['hotel'] != '':
-            if form['budget'] == '':  # 酒店+日期
-                pass
-            else:  # 酒店+预算+日期
-                pass
-    return HttpResponse()
+        

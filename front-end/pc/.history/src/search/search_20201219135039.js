@@ -192,6 +192,7 @@ const Search = (props) => {
       case `${moment().format(dateFormat)} 入住 ${moment().add(1, 'days').format(dateFormat)} 离开`:
         return null;
       default:
+        console.log(label);
         return (
           <Tag
             color={value}
