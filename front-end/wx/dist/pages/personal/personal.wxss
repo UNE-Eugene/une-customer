@@ -1,0 +1,70 @@
+.div___2icZ0 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: gray;
+}
+
+.personHeader___PyNiv {
+  position: absolute;
+  top: 5%;
+  left: 0;
+  height: 20%;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  min-height: 240rpx;
+
+}
+
+.personImg___3Kjna {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  top: 0;
+  left: 0;
+  display: flex;
+}
+
+.personImg___3Kjna image {
+  margin: auto;
+  align-self: center;
+  border-radius: 50%;
+  width: 180rpx;
+  height: 180rpx;
+}
+
+.workerNumber___ZyyTN {
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  top: 80%;
+  left: 0;
+  display: flex;
+}
+
+.workerNumber___ZyyTN text {
+  align-self: center;
+  margin: auto;
+  color: black;
+  font-size: 40rpx;
+  font-weight: 800;
+}
+
+.personContent___BPd3Y {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  background-color: white;
+  display: flex;
+  border-bottom-width: medium;
+  border-bottom-color: black;
+}
+
+.personText___3CgsG {
+  position: absolute;
+  align-self: center;
+  left: 3%;
+}

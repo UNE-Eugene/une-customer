@@ -1,0 +1,70 @@
+.div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: gray;
+}
+
+.personHeader {
+  position: absolute;
+  top: 5%;
+  left: 0;
+  height: 20%;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  min-height: 240px;
+
+}
+
+.personImg {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  top: 0;
+  left: 0;
+  display: flex;
+}
+
+.personImg image {
+  margin: auto;
+  align-self: center;
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+}
+
+.workerNumber {
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  top: 80%;
+  left: 0;
+  display: flex;
+}
+
+.workerNumber text {
+  align-self: center;
+  margin: auto;
+  color: black;
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.personContent {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  background-color: white;
+  display: flex;
+  border-bottom-width: medium;
+  border-bottom-color: black;
+}
+
+.personText {
+  position: absolute;
+  align-self: center;
+  left: 3%;
+}

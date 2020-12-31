@@ -819,7 +819,8 @@ module.exports = {
   }
 },
       pageEvents: {
-  "pages/index/index": []
+  "pages/index/index": [],
+  "pages/personal/personal": []
 },
       appEvents: []
     }
