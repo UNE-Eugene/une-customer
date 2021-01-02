@@ -59,16 +59,13 @@ def city_date(form):
         suggestion = cursor.fetchall()
         cursor.execute("SELECT tags from T_Hotel_Tag inner join T_Hotel_Info where T_Hotel_Info.city=%s and T_Hotel_Tag.hotel_id = T_Hotel_Info.hotel_id", [form['city']]) 
         tags = cursor.fetchall()
-        cursor.execute("SELECT address from T_Hotel_Address inner join T_Hotel_Info where T_Hotel_Info.city=%s and T_Hotel_Address.hotel_id = T_Hotel_Info.hotel_id", [form['city']]) 
-        address = cursor.fetchall()
         for i, item in enumerate(message):
             if item[0] != None:
                 result.append({
                     'name': item[1],
                     'dataUrl': item[2],
                     'suggestion': suggestion[i][0],
-                    'tags': tags[i][0].split('|'),
-                    'address': address[i][0]
+                    'tags': tags[i][0].split('|')
                 })
         print(result)
 

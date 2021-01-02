@@ -27,7 +27,8 @@ import hotelJPG from "./static/广州东圃合景福朋喜来登酒店_2.jpg";
 import { EnvironmentFilled } from "@ant-design/icons";
 import useLoginState from "../dataCenter/loginMessage";
 import axios from "axios";
-import useSearchResult from "../dataCenter/searchResult";
+import useSearchResult from '../dataCenter/searchResult'
+
 
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
 axios.defaults.xsrfCookieName = "LoginToken";
@@ -239,7 +240,7 @@ const menu = (
 );
 
 const TitleRender = (props) => {
-  console.log(props.tags);
+  const { searchResult, setSearchResult } = useSearchResult();
   return (
     <Row style={{ height: "200px", width: "100%" }}>
       <Col span={6} style={{ display: "flex" }}>
@@ -255,54 +256,63 @@ const TitleRender = (props) => {
           }}
         />
       </Col>
-      <Col span={18} style={{display: 'flex'}}>
-        <Space direction='vertical' style={{alignSelf: 'center'}}>
-            <a
+      <Col span={18}>
+        <Row gutter={[16, 10]}>
+          <Col span={24} style={{ display: "flex" }}>
+            <Text
               style={{
-                fontSize: "30px",
+                fontSize: "20px",
                 fontWeight: "700",
                 alignSelf: "center",
                 display: "flex",
-                color: 'black'
               }}
-              href={props.data}
-              target='_blank'
-              rel="noreferrer"
             >
-              {props.hotelName}&nbsp;
+              广州东圃合景福朋喜来登酒店&nbsp;
               {
                 <Tag color="gold" style={{ alignSelf: "center" }}>
                   SSS
                 </Tag>
               }
-            </a>
+            </Text>
+          </Col>
+          <Col span={24} style={{ display: "flex" }}>
             <Paragraph style={{ alignSelf: "center" }}>
-              {props.suggestion}
+              备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注
             </Paragraph>
+          </Col>
           {/* <Col span={24} style={{ display: "flex" }}>
             <Paragraph style={{ alignSelf: "center" }}>
               备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注
             </Paragraph>
           </Col> */}
+          <Col span={24} style={{ display: "flex" }}>
             <Space>
-              {props.tags.map((item, index) => {
-                return (
-                  <Tag
-                    style={{
-                      alignSelf: "center",
-                      height: "25px",
-                      fontSize: "13px",
-                    }}
-                  >
-                    {item}
-                  </Tag>
-                );
-              })}
+              <Tag
+                style={{
+                  alignSelf: "center",
+                  height: "25px",
+                  fontSize: "13px",
+                }}
+              >
+                地铁周边
+              </Tag>
+              <Tag
+                style={{
+                  alignSelf: "center",
+                  height: "25px",
+                  fontSize: "13px",
+                }}
+              >
+                亲子套房
+              </Tag>
             </Space>
+          </Col>
+          <Col span={24} style={{ display: "flex" }}>
             <Text style={{ alignSelf: "center", height: "30px" }}>
-              {<EnvironmentFilled />} { props.address}
+              {<EnvironmentFilled />} 广州市东圃汇彩路菁映路1号
             </Text>
-        </Space>
+          </Col>
+        </Row>
       </Col>
     </Row>
   );
@@ -310,8 +320,6 @@ const TitleRender = (props) => {
 
 const Result = (props) => {
   const { username, setUsername } = useLoginState();
-  const { searchResult, setSearchResult } = useSearchResult();
-
   const [dateChecked, setDateChecked] = useState("");
   const [pageDate, setPageDate] = useState([
     moment(moment(), dateFormat),
@@ -435,76 +443,159 @@ const Result = (props) => {
           }}
           direction="vertical"
         >
-          {/* 根据搜索结果循环生成card */}
-          {searchResult.map((item, index) => {
-            return (
-              <Card
-                className="result-card"
-                hoverable
-                title={
-                  <TitleRender
-                    hotelName={item.name}
-                    suggestion={item.suggestion}
-                    tags={item.tags}
-                    data={item.dataUrl}
-                    address={item.address}
-                  />
-                }
+          <Card className="result-card" hoverable title={<TitleRender />}>
+            <div style={{ display: "flex" }}>
+              <Text
+                style={{
+                  alignSelf: "center",
+                  fontSize: "20px",
+                  fontWeight: "700",
+                }}
               >
-                <div style={{ display: "flex" }}>
-                  <Text
-                    style={{
-                      alignSelf: "center",
-                      fontSize: "20px",
-                      fontWeight: "700",
-                    }}
-                  >
-                    房价详情
-                  </Text>
-                  <RangePicker
-                    style={{ alignSelf: "center", marginLeft: "auto" }}
-                    disabledDate={disabledDate}
-                    value={pageDate}
-                    className="result-rangePicker"
-                    inputReadOnly
-                    format={dateFormat}
-                    onCalendarChange={(dates, dateString, info) => {
-                      switch (dateString[1]) {
-                        case dateString[0]:
-                          setDateChecked(
-                            `${dateString[0]} 入住 ${dates[1]
-                              .add(1, "days")
-                              .format(dateFormat)} 离开`
-                          );
-                          setPageDate([dates[0], dates[1].add(1, "days")]);
-                          break;
-                        case "":
-                          setDateChecked(
-                            `${dateString[0]} 入住 ${dates[0]
-                              .add(1, "days")
-                              .format(dateFormat)} 离开`
-                          );
-                          setPageDate([dateString[0], dates[0].add(1, "days")]);
-                          break;
-                        default:
-                          setDateChecked(
-                            `${dateString[0]} 入住 ${dateString[1]} 离开`
-                          );
-                          setPageDate(dates);
-                          break;
-                      }
-                    }}
-                  />
-                  <div>&nbsp;</div>
-                  <Button style={{ alignSelf: "center", width: "5%" }}>
-                    查询
-                  </Button>
-                </div>
-                <div>&nbsp;</div>
-                <Table columns={columns} dataSource={data} pagination={false} />
-              </Card>
-            );
-          })}
+                房价详情
+              </Text>
+              <RangePicker
+                style={{ alignSelf: "center", marginLeft: "auto" }}
+                disabledDate={disabledDate}
+                value={pageDate}
+                className="result-rangePicker"
+                inputReadOnly
+                format={dateFormat}
+                onCalendarChange={(dates, dateString, info) => {
+                  switch (dateString[1]) {
+                    case dateString[0]:
+                      setDateChecked(
+                        `${dateString[0]} 入住 ${dates[1]
+                          .add(1, "days")
+                          .format(dateFormat)} 离开`
+                      );
+                      setPageDate([dates[0], dates[1].add(1, "days")]);
+                      break;
+                    case "":
+                      setDateChecked(
+                        `${dateString[0]} 入住 ${dates[0]
+                          .add(1, "days")
+                          .format(dateFormat)} 离开`
+                      );
+                      setPageDate([dateString[0], dates[0].add(1, "days")]);
+                      break;
+                    default:
+                      setDateChecked(
+                        `${dateString[0]} 入住 ${dateString[1]} 离开`
+                      );
+                      setPageDate(dates);
+                      break;
+                  }
+                }}
+              />
+              <div>&nbsp;</div>
+              <Button style={{ alignSelf: "center", width: "5%" }}>查询</Button>
+            </div>
+            <div>&nbsp;</div>
+            <Table columns={columns} dataSource={data} pagination={false} />
+          </Card>
+          <Card className="result-card" hoverable title={<TitleRender />}>
+            <div style={{ display: "flex" }}>
+              <Text
+                style={{
+                  alignSelf: "center",
+                  fontSize: "20px",
+                  fontWeight: "700",
+                }}
+              >
+                房价详情
+              </Text>
+              <RangePicker
+                style={{ alignSelf: "center", marginLeft: "auto" }}
+                disabledDate={disabledDate}
+                value={pageDate}
+                className="result-rangePicker"
+                inputReadOnly
+                format={dateFormat}
+                onCalendarChange={(dates, dateString, info) => {
+                  switch (dateString[1]) {
+                    case dateString[0]:
+                      setDateChecked(
+                        `${dateString[0]} 入住 ${dates[1]
+                          .add(1, "days")
+                          .format(dateFormat)} 离开`
+                      );
+                      setPageDate([dates[0], dates[1].add(1, "days")]);
+                      break;
+                    case "":
+                      setDateChecked(
+                        `${dateString[0]} 入住 ${dates[0]
+                          .add(1, "days")
+                          .format(dateFormat)} 离开`
+                      );
+                      setPageDate([dateString[0], dates[0].add(1, "days")]);
+                      break;
+                    default:
+                      setDateChecked(
+                        `${dateString[0]} 入住 ${dateString[1]} 离开`
+                      );
+                      setPageDate(dates);
+                      break;
+                  }
+                }}
+              />
+              <div>&nbsp;</div>
+              <Button style={{ alignSelf: "center", width: "5%" }}>查询</Button>
+            </div>
+            <div>&nbsp;</div>
+            <Table columns={columns} dataSource={data} pagination={false} />
+          </Card>
+          <Card className="result-card" hoverable title={<TitleRender />}>
+            <div style={{ display: "flex" }}>
+              <Text
+                style={{
+                  alignSelf: "center",
+                  fontSize: "20px",
+                  fontWeight: "700",
+                }}
+              >
+                房价详情
+              </Text>
+              <RangePicker
+                style={{ alignSelf: "center", marginLeft: "auto" }}
+                disabledDate={disabledDate}
+                value={pageDate}
+                className="result-rangePicker"
+                inputReadOnly
+                format={dateFormat}
+                onCalendarChange={(dates, dateString, info) => {
+                  switch (dateString[1]) {
+                    case dateString[0]:
+                      setDateChecked(
+                        `${dateString[0]} 入住 ${dates[1]
+                          .add(1, "days")
+                          .format(dateFormat)} 离开`
+                      );
+                      setPageDate([dates[0], dates[1].add(1, "days")]);
+                      break;
+                    case "":
+                      setDateChecked(
+                        `${dateString[0]} 入住 ${dates[0]
+                          .add(1, "days")
+                          .format(dateFormat)} 离开`
+                      );
+                      setPageDate([dateString[0], dates[0].add(1, "days")]);
+                      break;
+                    default:
+                      setDateChecked(
+                        `${dateString[0]} 入住 ${dateString[1]} 离开`
+                      );
+                      setPageDate(dates);
+                      break;
+                  }
+                }}
+              />
+              <div>&nbsp;</div>
+              <Button style={{ alignSelf: "center", width: "5%" }}>查询</Button>
+            </div>
+            <div>&nbsp;</div>
+            <Table columns={columns} dataSource={data} pagination={false} />
+          </Card>
         </Space>
         <Footer>&nbsp;</Footer>
       </section>

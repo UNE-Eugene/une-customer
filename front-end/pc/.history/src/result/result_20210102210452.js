@@ -300,7 +300,7 @@ const TitleRender = (props) => {
               })}
             </Space>
             <Text style={{ alignSelf: "center", height: "30px" }}>
-              {<EnvironmentFilled />} { props.address}
+              {<EnvironmentFilled /> { props.address}} 
             </Text>
         </Space>
       </Col>

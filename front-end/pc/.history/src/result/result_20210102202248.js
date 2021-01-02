@@ -239,7 +239,6 @@ const menu = (
 );
 
 const TitleRender = (props) => {
-  console.log(props.tags);
   return (
     <Row style={{ height: "200px", width: "100%" }}>
       <Col span={6} style={{ display: "flex" }}>
@@ -255,19 +254,16 @@ const TitleRender = (props) => {
           }}
         />
       </Col>
-      <Col span={18} style={{display: 'flex'}}>
-        <Space direction='vertical' style={{alignSelf: 'center'}}>
-            <a
+      <Col span={18}>
+        <Row gutter={[16, 10]}>
+          <Col span={24} style={{ display: "flex" }}>
+            <Text
               style={{
-                fontSize: "30px",
+                fontSize: "20px",
                 fontWeight: "700",
                 alignSelf: "center",
                 display: "flex",
-                color: 'black'
               }}
-              href={props.data}
-              target='_blank'
-              rel="noreferrer"
             >
               {props.hotelName}&nbsp;
               {
@@ -275,34 +271,46 @@ const TitleRender = (props) => {
                   SSS
                 </Tag>
               }
-            </a>
+            </Text>
+          </Col>
+          <Col span={24} style={{ display: "flex" }}>
             <Paragraph style={{ alignSelf: "center" }}>
               {props.suggestion}
             </Paragraph>
+          </Col>
           {/* <Col span={24} style={{ display: "flex" }}>
             <Paragraph style={{ alignSelf: "center" }}>
               备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注
             </Paragraph>
           </Col> */}
+          <Col span={24} style={{ display: "flex" }}>
             <Space>
-              {props.tags.map((item, index) => {
-                return (
-                  <Tag
-                    style={{
-                      alignSelf: "center",
-                      height: "25px",
-                      fontSize: "13px",
-                    }}
-                  >
-                    {item}
-                  </Tag>
-                );
-              })}
+              <Tag
+                style={{
+                  alignSelf: "center",
+                  height: "25px",
+                  fontSize: "13px",
+                }}
+              >
+                地铁周边
+              </Tag>
+              <Tag
+                style={{
+                  alignSelf: "center",
+                  height: "25px",
+                  fontSize: "13px",
+                }}
+              >
+                亲子套房
+              </Tag>
             </Space>
+          </Col>
+          <Col span={24} style={{ display: "flex" }}>
             <Text style={{ alignSelf: "center", height: "30px" }}>
-              {<EnvironmentFilled />} { props.address}
+              {<EnvironmentFilled />} 广州市东圃汇彩路菁映路1号
             </Text>
-        </Space>
+          </Col>
+        </Row>
       </Col>
     </Row>
   );
@@ -438,19 +446,7 @@ const Result = (props) => {
           {/* 根据搜索结果循环生成card */}
           {searchResult.map((item, index) => {
             return (
-              <Card
-                className="result-card"
-                hoverable
-                title={
-                  <TitleRender
-                    hotelName={item.name}
-                    suggestion={item.suggestion}
-                    tags={item.tags}
-                    data={item.dataUrl}
-                    address={item.address}
-                  />
-                }
-              >
+              <Card className="result-card" hoverable title={<TitleRender hotelName={item.name} suggestion={item.suggestion} tags={item.tags} />}>
                 <div style={{ display: "flex" }}>
                   <Text
                     style={{

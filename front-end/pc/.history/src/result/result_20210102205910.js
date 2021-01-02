@@ -266,8 +266,7 @@ const TitleRender = (props) => {
                 color: 'black'
               }}
               href={props.data}
-              target='_blank'
-              rel="noreferrer"
+              target='_black'
             >
               {props.hotelName}&nbsp;
               {
@@ -300,7 +299,7 @@ const TitleRender = (props) => {
               })}
             </Space>
             <Text style={{ alignSelf: "center", height: "30px" }}>
-              {<EnvironmentFilled />} { props.address}
+              {<EnvironmentFilled />} 广州市东圃汇彩路菁映路1号
             </Text>
         </Space>
       </Col>
@@ -447,7 +446,6 @@ const Result = (props) => {
                     suggestion={item.suggestion}
                     tags={item.tags}
                     data={item.dataUrl}
-                    address={item.address}
                   />
                 }
               >

@@ -8,22 +8,8 @@
 from django.db import models
 
 
-class THotelInfo(models.Model):
-    hotel_id = models.CharField(max_length=7, blank=True, null=True)
-    hotel_name = models.CharField(max_length=255, blank=True, null=True)
-    platform = models.CharField(max_length=255, blank=True, null=True)
-    city = models.CharField(max_length=255, blank=True, null=True)
-    telephone = models.CharField(max_length=20, blank=True, null=True)
-    data_url = models.TextField(blank=True, null=True)
-    near_url = models.TextField(blank=True, null=True)
-    cdn_url = models.TextField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'T_Hotel_Info'
-
 class THotelAddress(models.Model):
-    hotel_id = models.CharField(max_length=255, blank=True, null=True)
+    hotel_id = models.ForeignKey(unique=True)
     longtitude = models.FloatField(blank=True, null=True)
     latitude = models.FloatField(blank=True, null=True)
     address = models.CharField(max_length=255, blank=True, null=True)
@@ -54,7 +40,19 @@ class THotelHotelDistance(models.Model):
         db_table = 'T_Hotel_Hotel_Distance'
 
 
+class THotelInfo(models.Model):
+    hotel_id = models.CharField(max_length=7, blank=True, null=True)
+    hotel_name = models.CharField(max_length=255, blank=True, null=True)
+    platform = models.CharField(max_length=255, blank=True, null=True)
+    city = models.CharField(max_length=255, blank=True, null=True)
+    telephone = models.CharField(max_length=20, blank=True, null=True)
+    data_url = models.TextField(blank=True, null=True)
+    near_url = models.TextField(blank=True, null=True)
+    cdn_url = models.TextField(blank=True, null=True)
 
+    class Meta:
+        managed = False
+        db_table = 'T_Hotel_Info'
 
 
 class THotelRoomMapping(models.Model):

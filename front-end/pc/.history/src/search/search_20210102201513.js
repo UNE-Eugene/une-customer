@@ -52,7 +52,7 @@ function disabledDate(current) {
 
 const Search = (props) => {
   const { username, setUsername } = useLoginState();
-  const { searchResult, setSearchResult } = useSearchResult();
+  const { searchResult, setSearchResult } = useLoginState();
 
   useEffect(() => {
     if (username === "") {

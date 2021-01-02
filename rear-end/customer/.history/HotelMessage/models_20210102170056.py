@@ -23,7 +23,7 @@ class THotelInfo(models.Model):
         db_table = 'T_Hotel_Info'
 
 class THotelAddress(models.Model):
-    hotel_id = models.CharField(max_length=255, blank=True, null=True)
+    hotel_id = models.ForeignKey('THotelInfo')
     longtitude = models.FloatField(blank=True, null=True)
     latitude = models.FloatField(blank=True, null=True)
     address = models.CharField(max_length=255, blank=True, null=True)

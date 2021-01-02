@@ -300,7 +300,7 @@ const TitleRender = (props) => {
               })}
             </Space>
             <Text style={{ alignSelf: "center", height: "30px" }}>
-              {<EnvironmentFilled />} { props.address}
+              {<EnvironmentFilled />} 广州市东圃汇彩路菁映路1号
             </Text>
         </Space>
       </Col>

@@ -257,17 +257,13 @@ const TitleRender = (props) => {
       </Col>
       <Col span={18} style={{display: 'flex'}}>
         <Space direction='vertical' style={{alignSelf: 'center'}}>
-            <a
+            <Text
               style={{
-                fontSize: "30px",
+                fontSize: "20px",
                 fontWeight: "700",
                 alignSelf: "center",
                 display: "flex",
-                color: 'black'
               }}
-              href={props.data}
-              target='_blank'
-              rel="noreferrer"
             >
               {props.hotelName}&nbsp;
               {
@@ -275,7 +271,7 @@ const TitleRender = (props) => {
                   SSS
                 </Tag>
               }
-            </a>
+            </Text>
             <Paragraph style={{ alignSelf: "center" }}>
               {props.suggestion}
             </Paragraph>
@@ -300,7 +296,7 @@ const TitleRender = (props) => {
               })}
             </Space>
             <Text style={{ alignSelf: "center", height: "30px" }}>
-              {<EnvironmentFilled />} { props.address}
+              {<EnvironmentFilled />} 广州市东圃汇彩路菁映路1号
             </Text>
         </Space>
       </Col>
@@ -446,8 +442,6 @@ const Result = (props) => {
                     hotelName={item.name}
                     suggestion={item.suggestion}
                     tags={item.tags}
-                    data={item.dataUrl}
-                    address={item.address}
                   />
                 }
               >
