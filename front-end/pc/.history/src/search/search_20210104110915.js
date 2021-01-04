@@ -69,7 +69,7 @@ const Search = (props) => {
 
   const [buttonChecked, setbuttonChecked] = useState(1);
   const [city, setCity] = useState(["北京", "上海", "深圳", "杭州"]);
-  const [hotel, setHotel] = useState(["北京雅诗阁来福士中心服务公寓", "上海静安洲际"]);
+  const [hotel, setHotel] = useState(["北京金茂万丽", "上海静安洲际"]);
   const [trade, setTrade] = useState(["来福士", "故宫", "外滩", "东方明珠"]);
   const [group, setGroup] = useState(["洲际", "万豪", "凯悦", "希尔顿"]);
 
@@ -552,7 +552,6 @@ const Search = (props) => {
                         setDateChecked(
                           `${dateString[0]} 入住 ${dateString[1]} 离开`
                         );
-                        setFormDate(dates)
                         break;
                     }
                   }}
@@ -563,29 +562,17 @@ const Search = (props) => {
               className="form-submit"
               key="date"
               onClick={() => {
-                setSearchForm(
-                  {              
-                    city: cityChecked,
-                    hotel: hotelChecked,
-                    trade: tradeChecked,
-                    group: groupChecked,
-                    budget: [budget1, budget2],
-                    date: formDate
-                  }
-                )
-                console.log(searchForm)
                 axios.post('/api/search/', {              
                   city: cityChecked,
                   hotel: hotelChecked,
                   trade: tradeChecked,
                   group: groupChecked,
-                  budget: [budget1, budget2],
-                  date: [formDate[0].format(dateFormat), formDate[1].format(dateFormat)]
+                  budget: `${budget1}元 到 ${budget2}元 `,
+                  date: dateChecked
                 }).then(
                   response =>{
                     console.log(response.data)
                     setSearchResult(response.data)
-
                   }
                 )
                 props.history.push("/result");

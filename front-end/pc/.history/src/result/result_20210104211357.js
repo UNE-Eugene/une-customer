@@ -345,7 +345,7 @@ const ResultCard = (props) =>{
       <RangePicker
         style={{ alignSelf: "center", marginLeft: "auto", width: '20%', minWidth: '240px' }}
         disabledDate={disabledDate}
-        defaultValue={[moment(defaultDate[0], 'YYYY/MM/DD'), moment(defaultDate[1], 'YYYY/MM/DD')]}
+        defaultValue={defaultDate}
         // value={pageDate}
         className="result-rangePicker"
         inputReadOnly

@@ -313,7 +313,6 @@ const TitleRender = (props) => {
 const ResultCard = (props) =>{
   const item = props.item;
   const defaultDate=props.defaultDate
-  console.log(defaultDate)
   const [pageDate, setPageDate] = useState([
     moment(moment(), dateFormat),
     moment(moment().add(1, "days"), dateFormat),
@@ -345,7 +344,7 @@ const ResultCard = (props) =>{
       <RangePicker
         style={{ alignSelf: "center", marginLeft: "auto", width: '20%', minWidth: '240px' }}
         disabledDate={disabledDate}
-        defaultValue={[moment(defaultDate[0], 'YYYY/MM/DD'), moment(defaultDate[1], 'YYYY/MM/DD')]}
+        defaultValue={defaultDate}
         // value={pageDate}
         className="result-rangePicker"
         inputReadOnly

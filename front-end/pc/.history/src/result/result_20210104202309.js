@@ -310,78 +310,16 @@ const TitleRender = (props) => {
   );
 };
 
-const ResultCard = (props) =>{
-  const item = props.item;
-  const defaultDate=props.defaultDate
-  console.log(defaultDate)
-  const [pageDate, setPageDate] = useState([
-    moment(moment(), dateFormat),
-    moment(moment().add(1, "days"), dateFormat),
-  ]);
-  return (
-    <Card
-    className="result-card"
-    hoverable
-    title={
-      <TitleRender
-        hotelName={item.name}
-        suggestion={item.suggestion}
-        tags={item.tags}
-        data={item.dataUrl}
-        address={item.address}
-      />
-    }
-  >
-    <div style={{ display: "flex" }}>
-      <Text
-        style={{
-          alignSelf: "center",
-          fontSize: "20px",
-          fontWeight: "700",
-        }}
-      >
-        房价详情
-      </Text>
-      <RangePicker
-        style={{ alignSelf: "center", marginLeft: "auto", width: '20%', minWidth: '240px' }}
-        disabledDate={disabledDate}
-        defaultValue={[moment(defaultDate[0], 'YYYY/MM/DD'), moment(defaultDate[1], 'YYYY/MM/DD')]}
-        // value={pageDate}
-        className="result-rangePicker"
-        inputReadOnly
-        format={dateFormat}
-        onCalendarChange={(dates, dateString, info) => {
-          switch (dateString[1]) {
-            case dateString[0]:
-              setPageDate([dates[0], dates[1].add(1, "days")]);
-              break;
-            case "":
-              setPageDate([dateString[0], dates[0].add(1, "days")]);
-              break;
-            default:
-              setPageDate(dates);
-              break;
-          }
-        }}
-      />
-      <div>&nbsp;</div>
-      <Button style={{ alignSelf: "center", width: "5%", minWidth: '60px' }}>
-        查询
-      </Button>
-    </div>
-    <div>&nbsp;</div>
-    <Table columns={columns} dataSource={data} pagination={false} />
-  </Card>
-  )
-}
-
 const Result = (props) => {
   const { username, setUsername } = useLoginState();
   const { searchResult, setSearchResult } = useSearchResult();
   const { searchForm, setSearchForm } = useSearchForm();
 
-  const [dateChecked, setDateChecked] = useState(searchForm.date);
-
+  const [dateChecked, setDateChecked] = useState("");
+  const [pageDate, setPageDate] = useState([
+    moment(moment(), dateFormat),
+    moment(moment().add(1, "days"), dateFormat),
+  ]);
 
 
   const [cityChecked, setCityChecked] = useState(searchForm.city);
@@ -493,6 +431,7 @@ const Result = (props) => {
                       .add(1, "days")
                       .format(dateFormat)]
                   );
+                  setPageDate([dates[0], dates[1].add(1, "days")]);
                   break;
                 case "":
                   setDateChecked(
@@ -500,9 +439,11 @@ const Result = (props) => {
                       .add(1, "days")
                       .format(dateFormat)]
                   );
+                  setPageDate([dateString[0], dates[0].add(1, "days")]);
                   break;
                 default:
                   setDateChecked([dateString[0],dateString[1]]);
+                  setPageDate(dates);
                   break;
               }
             }}
@@ -547,7 +488,72 @@ const Result = (props) => {
           {/* 根据搜索结果循环生成card */}
           {searchResult.map((item, index) => {
             return (
-              <ResultCard item={item} defaultDate={searchForm.date}/>
+              <Card
+                className="result-card"
+                hoverable
+                title={
+                  <TitleRender
+                    hotelName={item.name}
+                    suggestion={item.suggestion}
+                    tags={item.tags}
+                    data={item.dataUrl}
+                    address={item.address}
+                  />
+                }
+              >
+                <div style={{ display: "flex" }}>
+                  <Text
+                    style={{
+                      alignSelf: "center",
+                      fontSize: "20px",
+                      fontWeight: "700",
+                    }}
+                  >
+                    房价详情
+                  </Text>
+                  <RangePicker
+                    style={{ alignSelf: "center", marginLeft: "auto", width: '20%', minWidth: '240px' }}
+                    disabledDate={disabledDate}
+                    defaultValue={searchForm.date}
+                    // value={pageDate}
+                    className="result-rangePicker"
+                    inputReadOnly
+                    format={dateFormat}
+                    onCalendarChange={(dates, dateString, info) => {
+                      switch (dateString[1]) {
+                        case dateString[0]:
+                          setDateChecked(
+                            `${dateString[0]} 入住 ${dates[1]
+                              .add(1, "days")
+                              .format(dateFormat)} 离开`
+                          );
+                          setPageDate([dates[0], dates[1].add(1, "days")]);
+                          break;
+                        case "":
+                          setDateChecked(
+                            `${dateString[0]} 入住 ${dates[0]
+                              .add(1, "days")
+                              .format(dateFormat)} 离开`
+                          );
+                          setPageDate([dateString[0], dates[0].add(1, "days")]);
+                          break;
+                        default:
+                          setDateChecked(
+                            `${dateString[0]} 入住 ${dateString[1]} 离开`
+                          );
+                          setPageDate(dates);
+                          break;
+                      }
+                    }}
+                  />
+                  <div>&nbsp;</div>
+                  <Button style={{ alignSelf: "center", width: "5%", minWidth: '60px' }}>
+                    查询
+                  </Button>
+                </div>
+                <div>&nbsp;</div>
+                <Table columns={columns} dataSource={data} pagination={false} />
+              </Card>
             );
           })}
         </Space>

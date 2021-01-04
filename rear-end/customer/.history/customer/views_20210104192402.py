@@ -165,7 +165,7 @@ def search(request):
         form = request.body
         form = json.loads(form)
         print(form)
-        if form['city'] != '':
+        if form['city'] != '' and form['hotel'] == '':
             if form['trade'] == '' and form['budget'] == [0, 10000]:  #城市+日期
                 result = city_date(form)
                 return JsonResponse(result, safe=False)        

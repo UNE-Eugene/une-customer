@@ -73,7 +73,7 @@ def city_date(form):
             address = cursor.fetchall()
         print(message, suggestion, tags, address)
         for i, item in enumerate(message):
-            if item[2] != None:
+            if item[0] != None:
                 result.append({
                     'name': item[0],
                     'dataUrl': item[1],
@@ -165,7 +165,7 @@ def search(request):
         form = request.body
         form = json.loads(form)
         print(form)
-        if form['city'] != '':
+        if form['city'] != '' and form['hotel'] == '':
             if form['trade'] == '' and form['budget'] == [0, 10000]:  #城市+日期
                 result = city_date(form)
                 return JsonResponse(result, safe=False)        

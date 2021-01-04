@@ -69,7 +69,7 @@ const Search = (props) => {
 
   const [buttonChecked, setbuttonChecked] = useState(1);
   const [city, setCity] = useState(["北京", "上海", "深圳", "杭州"]);
-  const [hotel, setHotel] = useState(["北京雅诗阁来福士中心服务公寓", "上海静安洲际"]);
+  const [hotel, setHotel] = useState(["北京金茂万丽", "上海静安洲际"]);
   const [trade, setTrade] = useState(["来福士", "故宫", "外滩", "东方明珠"]);
   const [group, setGroup] = useState(["洲际", "万豪", "凯悦", "希尔顿"]);
 

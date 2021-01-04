@@ -54,7 +54,7 @@ def city_date(form):
     result = []
     with connection.cursor() as cursor:
         if form['group'] == '':
-            cursor.execute("SELECT hotel_name, data_url, hotel_id FROM T_Hotel_Info where city=%s", [form['city']]) #酒店查找
+            cursor.execute("SELECT hotel_name, data_url FROM T_Hotel_Info where city=%s", [form['city']]) #酒店查找
             message = cursor.fetchall()
             cursor.execute("SELECT suggestion from T_Hotel_Suggestions inner join T_Hotel_Info where T_Hotel_Info.city=%s and T_Hotel_Suggestions.hotel_id = T_Hotel_Info.hotel_id", [form['city']]) #酒店备注查找
             suggestion = cursor.fetchall()
@@ -63,7 +63,7 @@ def city_date(form):
             cursor.execute("SELECT address from T_Hotel_Address inner join T_Hotel_Info where T_Hotel_Info.city=%s and T_Hotel_Address.hotel_id = T_Hotel_Info.hotel_id", [form['city']]) 
             address = cursor.fetchall()
         else:
-            cursor.execute("SELECT hotel_name, data_url, hotel_id FROM T_Hotel_Info where city=%s and platform=%s", [form['city'], form['group']]) #酒店查找
+            cursor.execute("SELECT hotel_name, data_url FROM T_Hotel_Info where city=%s and platform=%s", [form['city'], form['group']]) #酒店查找
             message = cursor.fetchall()
             cursor.execute("SELECT suggestion from T_Hotel_Suggestions inner join T_Hotel_Info where T_Hotel_Info.city=%s and T_Hotel_Info.platform=%s and T_Hotel_Suggestions.hotel_id = T_Hotel_Info.hotel_id", [form['city'], form['group']]) #酒店备注查找
             suggestion = cursor.fetchall()
@@ -73,7 +73,7 @@ def city_date(form):
             address = cursor.fetchall()
         print(message, suggestion, tags, address)
         for i, item in enumerate(message):
-            if item[2] != None:
+            if item[1] != None:
                 result.append({
                     'name': item[0],
                     'dataUrl': item[1],
@@ -165,7 +165,7 @@ def search(request):
         form = request.body
         form = json.loads(form)
         print(form)
-        if form['city'] != '':
+        if form['city'] != '' and form['hotel'] == '':
             if form['trade'] == '' and form['budget'] == [0, 10000]:  #城市+日期
                 result = city_date(form)
                 return JsonResponse(result, safe=False)        
