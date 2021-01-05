@@ -18,7 +18,7 @@ import {
   Dropdown,
   Menu,
   Modal,
-  message,
+  message
 } from "antd";
 import Logo from "./static/logo.png";
 import moment from "moment";
@@ -72,6 +72,8 @@ function disabledDate(current) {
 //     priceLevel: "BB",
 //   },
 // ];
+
+
 
 const TitleRender = (props) => {
   console.log(props.tags);
@@ -156,12 +158,12 @@ const ResultCard = (props) => {
   const [privital, setPrivate] = useState("");
   const [ps, setPs] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [resultBudget, setResultBudget] = useState(searchForm.budget);
+  const [resultBudget, setResultBudget] = useState(searchForm.budget)
   const [resultDate, setResultDate] = useState([
     moment(defaultDate[0], "YYYY/MM/DD").format("YYYY-MM-DD"),
     moment(defaultDate[1], "YYYY/MM/DD").format("YYYY-MM-DD"),
-  ]);
-  const [data, setData] = useState("");
+  ])
+  const [data, setData] = useState('')
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -175,18 +177,21 @@ const ResultCard = (props) => {
   };
 
   useEffect(() => {
-    axios
-      .post("http://127.0.0.1:9000/staticPrice/", {
+    axios.post(
+      'http://127.0.0.1:9000/staticPrice/',
+      {
         name: item.name,
         group: item.platform,
         budget: resultBudget,
         date: resultDate,
-      })
-      .then((response) => {
-        console.log(response.data);
-        setData(response.data);
-      });
-  }, []);
+      }
+    ).then(
+      response=>{
+        console.log(response.data)
+        setData(response.data)
+      }
+    )
+  }, [])
   const columns = [
     {
       title: "房型",
@@ -209,23 +214,73 @@ const ResultCard = (props) => {
     },
     {
       title: "房态",
-      dataIndex: "dates",
+      dataIndex: "tags",
       align: "center",
-      render: (dates) => (
+      render: (tags) => (
         <Space direction="horizontal">
-          {dates.map((item, index) => {
-            return (
-              <Avatar
-                style={{
-                  alignSelf: "center",
-                  marginLeft: "auto",
-                  backgroundColor: item['color'],
-                }}
-              >
-                {item['date']}
-              </Avatar>
-            );
-          })}
+          <Avatar
+            style={{
+              alignSelf: "center",
+              marginLeft: "auto",
+              backgroundColor: "red",
+            }}
+          >
+            10
+          </Avatar>
+          <Avatar
+            style={{
+              alignSelf: "center",
+              marginLeft: "auto",
+              backgroundColor: "red",
+            }}
+          >
+            10
+          </Avatar>
+          <Avatar
+            style={{
+              alignSelf: "center",
+              marginLeft: "auto",
+              backgroundColor: "red",
+            }}
+          >
+            10
+          </Avatar>
+          <Avatar
+            style={{
+              alignSelf: "center",
+              marginLeft: "auto",
+              backgroundColor: "red",
+            }}
+          >
+            10
+          </Avatar>
+          <Avatar
+            style={{
+              alignSelf: "center",
+              marginLeft: "auto",
+              backgroundColor: "red",
+            }}
+          >
+            10
+          </Avatar>
+          <Avatar
+            style={{
+              alignSelf: "center",
+              marginLeft: "auto",
+              backgroundColor: "red",
+            }}
+          >
+            10
+          </Avatar>
+          <Avatar
+            style={{
+              alignSelf: "center",
+              marginLeft: "auto",
+              backgroundColor: "red",
+            }}
+          >
+            10
+          </Avatar>
         </Space>
       ),
     },
@@ -390,7 +445,8 @@ const Result = (props) => {
         });
     }
   }, []);
-
+  
+  
   const menu = (
     <Menu className="result-dropdown">
       <Menu.Item
@@ -443,8 +499,8 @@ const Result = (props) => {
         </Text>
       </Menu.Item>
       <Menu.Item
-        onClick={() => {
-          props.history.push("/center");
+        onClick={()=>{
+          props.history.push('/center')
         }}
         style={{
           position: "relative",
@@ -467,8 +523,8 @@ const Result = (props) => {
         </Text>
       </Menu.Item>
       <Menu.Item
-        onClick={() => {
-          props.history.push("/center");
+        onClick={()=>{
+          props.history.push('/center')
         }}
         style={{
           position: "relative",

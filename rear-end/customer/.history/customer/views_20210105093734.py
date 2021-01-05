@@ -54,7 +54,7 @@ def city_date(form):
     result = []
     with connection.cursor() as cursor:
         if form['group'] == '':
-            cursor.execute("SELECT hotel_name, data_url, hotel_id, platform FROM T_Hotel_Info where city=%s", [form['city']]) #酒店查找
+            cursor.execute("SELECT hotel_name, data_url, hotel_id FROM T_Hotel_Info where city=%s", [form['city']]) #酒店查找
             message = cursor.fetchall()
             cursor.execute("SELECT suggestion from T_Hotel_Suggestions inner join T_Hotel_Info where T_Hotel_Info.city=%s and T_Hotel_Suggestions.hotel_id = T_Hotel_Info.hotel_id", [form['city']]) #酒店备注查找
             suggestion = cursor.fetchall()
@@ -63,7 +63,7 @@ def city_date(form):
             cursor.execute("SELECT address from T_Hotel_Address inner join T_Hotel_Info where T_Hotel_Info.city=%s and T_Hotel_Address.hotel_id = T_Hotel_Info.hotel_id", [form['city']]) 
             address = cursor.fetchall()
         else:
-            cursor.execute("SELECT hotel_name, data_url, hotel_id, platform FROM T_Hotel_Info where city=%s and platform=%s", [form['city'], form['group']]) #酒店查找
+            cursor.execute("SELECT hotel_name, data_url, hotel_id FROM T_Hotel_Info where city=%s and platform=%s", [form['city'], form['group']]) #酒店查找
             message = cursor.fetchall()
             cursor.execute("SELECT suggestion from T_Hotel_Suggestions inner join T_Hotel_Info where T_Hotel_Info.city=%s and T_Hotel_Info.platform=%s and T_Hotel_Suggestions.hotel_id = T_Hotel_Info.hotel_id", [form['city'], form['group']]) #酒店备注查找
             suggestion = cursor.fetchall()
@@ -79,8 +79,7 @@ def city_date(form):
                     'dataUrl': item[1],
                     'suggestion': suggestion[i][0],
                     'tags': tags[i][0].split('|'),
-                    'address': address[i][0],
-                    'platform': item[3]
+                    'address': address[i][0]
                 })
         print(result)
     return result
@@ -89,7 +88,7 @@ def city_trade(form):
     result = []
     with connection.cursor() as cursor:
         if form['group'] == '':
-            cursor.execute("SELECT hotel_name, data_url, platform FROM T_Hotel_Info inner join T_Hotel_Trade_Distance where T_Hotel_Info.city=%s and T_Hotel_Trade_Distance.hotel_id=T_Hotel_Info.hotel_id and T_Hotel_Trade_Distance.name=%s and T_Hotel_Trade_Distance.distance<5", [form['city'], form['trade']]) #酒店查找
+            cursor.execute("SELECT hotel_name, data_url FROM T_Hotel_Info inner join T_Hotel_Trade_Distance where T_Hotel_Info.city=%s and T_Hotel_Trade_Distance.hotel_id=T_Hotel_Info.hotel_id and T_Hotel_Trade_Distance.name=%s and T_Hotel_Trade_Distance.distance<5", [form['city'], form['trade']]) #酒店查找
             message = cursor.fetchall()
             cursor.execute("SELECT suggestion from T_Hotel_Suggestions inner join T_Hotel_Trade_Distance on T_Hotel_Trade_Distance.city=%s and T_Hotel_Trade_Distance.hotel_id=T_Hotel_Suggestions.hotel_id and T_Hotel_Trade_Distance.name=%s and T_Hotel_Trade_Distance.distance<5", [form['city'], form['trade']]) #酒店备注查找
             suggestion = cursor.fetchall()
@@ -98,7 +97,7 @@ def city_trade(form):
             cursor.execute("SELECT address from T_Hotel_Address inner join T_Hotel_Trade_Distance on T_Hotel_Trade_Distance.city=%s and T_Hotel_Trade_Distance.hotel_id=T_Hotel_Address.hotel_id and T_Hotel_Trade_Distance.name=%s and T_Hotel_Trade_Distance.distance<5", [form['city'], form['trade']])
             address = cursor.fetchall()
         else:
-            cursor.execute("SELECT hotel_name, data_url, platform FROM T_Hotel_Info inner join T_Hotel_Trade_Distance where T_Hotel_Info.city=%s and T_Hotel_Info.platform=%s and T_Hotel_Trade_Distance.hotel_id=T_Hotel_Info.hotel_id and T_Hotel_Trade_Distance.name=%s and T_Hotel_Trade_Distance.distance<5", [form['city'], form['group'], form['trade']]) #酒店查找
+            cursor.execute("SELECT hotel_name, data_url FROM T_Hotel_Info inner join T_Hotel_Trade_Distance where T_Hotel_Info.city=%s and T_Hotel_Info.platform=%s and T_Hotel_Trade_Distance.hotel_id=T_Hotel_Info.hotel_id and T_Hotel_Trade_Distance.name=%s and T_Hotel_Trade_Distance.distance<5", [form['city'], form['group'], form['trade']]) #酒店查找
             message = cursor.fetchall()
             cursor.execute("SELECT suggestion from T_Hotel_Suggestions inner join T_Hotel_Trade_Distance on T_Hotel_Trade_Distance.city=%s and T_Hotel_Trade_Distance.platform=%s and T_Hotel_Trade_Distance.hotel_id=T_Hotel_Suggestions.hotel_id and T_Hotel_Trade_Distance.name=%s and T_Hotel_Trade_Distance.distance<5", [form['city'], form['group'], form['trade']]) #酒店备注查找
             suggestion = cursor.fetchall()
@@ -114,8 +113,7 @@ def city_trade(form):
                     'dataUrl': item[1],
                     'suggestion': suggestion[i][0],
                     'tags': tags[i][0].split('|'),
-                    'address': address[i][0],
-                    'platform': item[3]
+                    'address': address[i][0]
                 })
         print(result)
     return result
@@ -123,7 +121,7 @@ def city_trade(form):
 def hotel(form):
     result = []
     with connection.cursor() as cursor:
-        cursor.execute("SELECT data_url, suggest_id, platform FROM T_Hotel_Info inner join T_Hotel_Suggest where T_Hotel_Info.hotel_name=%s and T_Hotel_Info.hotel_id=T_Hotel_Suggest.hotel_id ", [form['hotel']]) #酒店查找
+        cursor.execute("SELECT data_url, suggest_id FROM T_Hotel_Info inner join T_Hotel_Suggest where T_Hotel_Info.hotel_name=%s and T_Hotel_Info.hotel_id=T_Hotel_Suggest.hotel_id ", [form['hotel']]) #酒店查找
         message = cursor.fetchall()
         cursor.execute("SELECT suggestion from T_Hotel_Suggestions inner join T_Hotel_Info where T_Hotel_Info.hotel_name=%s and T_Hotel_Info.hotel_id=T_Hotel_Suggestions.hotel_id", [form['hotel']]) #酒店备注查找
         suggestion = cursor.fetchall()
@@ -132,17 +130,17 @@ def hotel(form):
         cursor.execute("SELECT address from T_Hotel_Address inner join T_Hotel_Info where T_Hotel_Info.hotel_name=%s and T_Hotel_Info.hotel_id=T_Hotel_Address.hotel_id", [form['hotel']])
         address = cursor.fetchall()
         print(message, suggestion, tags, address)
-        result.append({
+        if message[0][0] != None:
+                result.append({
                     'name': form['hotel'],
                     'dataUrl': message[0][0],
                     'suggestion': suggestion[0][0],
                     'tags': tags[0][0].split('|'),
-                    'address': address[0][0],
-                    'platform': message[0][2]
+                    'address': address[0][0]
                 })
         other = message[0][1].split('|')
         for i, item in enumerate(other):
-            cursor.execute("SELECT hotel_name, data_url, platform FROM T_Hotel_Info where T_Hotel_Info.hotel_id=%s", [item]) #酒店查找
+            cursor.execute("SELECT hotel_name, data_url FROM T_Hotel_Info where T_Hotel_Info.hotel_id=%s", [item]) #酒店查找
             message = cursor.fetchall()
             cursor.execute("SELECT suggestion from T_Hotel_Suggestions inner join T_Hotel_Info where T_Hotel_Info.hotel_id=%s", [item]) #酒店备注查找
             suggestion = cursor.fetchall()
@@ -157,13 +155,11 @@ def hotel(form):
                         'dataUrl': jtem[1],
                         'suggestion': suggestion[j][0],
                         'tags': tags[j][0].split('|'),
-                        'address': address[j][0],
-                        'platform': jtem[2]
+                        'address': address[j][0]
                     })
         print(result)
     return result
-    
-@login_required
+
 def search(request):
     if request.method == 'POST':
         form = request.body

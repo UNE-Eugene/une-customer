@@ -219,10 +219,10 @@ const ResultCard = (props) => {
                 style={{
                   alignSelf: "center",
                   marginLeft: "auto",
-                  backgroundColor: item['color'],
+                  backgroundColor: "red",
                 }}
               >
-                {item['date']}
+                10
               </Avatar>
             );
           })}

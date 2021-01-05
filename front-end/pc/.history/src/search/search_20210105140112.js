@@ -135,30 +135,6 @@ const Search = (props) => {
         </Text>
       </Menu.Item>
       <Menu.Item
-        onClick={()=>{
-          props.history.push('/center')
-        }}
-        style={{
-          position: "relative",
-          width: "100px",
-          height: "60px",
-          borderRadius: "10px",
-        }}
-      >
-        <Text
-          style={{
-            position: "absolute",
-            top: "20px",
-            height: "40px",
-            bottom: 0,
-            right: 0,
-            left: 0,
-          }}
-        >
-          我的主页
-        </Text>
-      </Menu.Item>
-      <Menu.Item
         onClick={() => {
           axios.get("/logout/").then((response) => {
             message.success("注销成功， 请重新登录");

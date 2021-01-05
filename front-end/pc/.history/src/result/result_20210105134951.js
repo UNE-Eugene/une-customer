@@ -18,7 +18,6 @@ import {
   Dropdown,
   Menu,
   Modal,
-  message,
 } from "antd";
 import Logo from "./static/logo.png";
 import moment from "moment";
@@ -46,32 +45,81 @@ function disabledDate(current) {
   return current && current < moment().add(-1, "days").endOf("day");
 }
 
-// const data = [
-//   {
-//     key: "1",
-//     room: "John Brown",
-//     priceType: 32,
-//     price: "New York No. 1 Lake Park",
-//     tags: ["nice", "developer"],
-//     priceLevel: "SS",
-//   },
-//   {
-//     key: "2",
-//     room: "Jim Green",
-//     priceType: 42,
-//     price: "London No. 1 Lake Park",
-//     tags: ["loser"],
-//     priceLevel: "AA",
-//   },
-//   {
-//     key: "3",
-//     room: "Joe Black",
-//     priceType: 32,
-//     price: "Sidney No. 1 Lake Park",
-//     tags: ["cool", "teacher"],
-//     priceLevel: "BB",
-//   },
-// ];
+const data = [
+  {
+    key: "1",
+    room: "John Brown",
+    priceType: 32,
+    price: "New York No. 1 Lake Park",
+    tags: ["nice", "developer"],
+    priceLevel: "SS",
+  },
+  {
+    key: "2",
+    room: "Jim Green",
+    priceType: 42,
+    price: "London No. 1 Lake Park",
+    tags: ["loser"],
+    priceLevel: "AA",
+  },
+  {
+    key: "3",
+    room: "Joe Black",
+    priceType: 32,
+    price: "Sidney No. 1 Lake Park",
+    tags: ["cool", "teacher"],
+    priceLevel: "BB",
+  },
+];
+
+const menu = (
+  <Menu className="result-dropdown">
+    <Menu.Item
+      onClick={{}}
+      style={{
+        position: "relative",
+        width: "100px",
+        height: "60px",
+        borderRadius: "10px",
+      }}
+    >
+      <Text
+        style={{
+          position: "absolute",
+          top: "20px",
+          height: "40px",
+          bottom: 0,
+          right: 0,
+          left: 0,
+        }}
+      >
+        上传头像
+      </Text>
+    </Menu.Item>
+    <Menu.Item
+      onClick={{}}
+      style={{
+        position: "relative",
+        width: "100px",
+        height: "60px",
+        borderRadius: "10px",
+      }}
+    >
+      <Text
+        style={{
+          position: "absolute",
+          top: "20px",
+          height: "40px",
+          bottom: 0,
+          right: 0,
+          left: 0,
+        }}
+      >
+        修改密码
+      </Text>
+    </Menu.Item>
+  </Menu>
+);
 
 const TitleRender = (props) => {
   console.log(props.tags);
@@ -144,11 +192,9 @@ const TitleRender = (props) => {
 };
 
 const ResultCard = (props) => {
-  const { searchForm, setSearchForm } = useSearchForm();
-
   const item = props.item;
   const defaultDate = props.defaultDate;
-
+  console.log(defaultDate);
   const [pageDate, setPageDate] = useState([
     moment(defaultDate[0], "YYYY/MM/DD"),
     moment(defaultDate[1], "YYYY/MM/DD"),
@@ -156,12 +202,7 @@ const ResultCard = (props) => {
   const [privital, setPrivate] = useState("");
   const [ps, setPs] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [resultBudget, setResultBudget] = useState(searchForm.budget);
-  const [resultDate, setResultDate] = useState([
-    moment(defaultDate[0], "YYYY/MM/DD").format("YYYY-MM-DD"),
-    moment(defaultDate[1], "YYYY/MM/DD").format("YYYY-MM-DD"),
-  ]);
-  const [data, setData] = useState("");
+
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -174,19 +215,6 @@ const ResultCard = (props) => {
     setIsModalVisible(false);
   };
 
-  useEffect(() => {
-    axios
-      .post("http://127.0.0.1:9000/staticPrice/", {
-        name: item.name,
-        group: item.platform,
-        budget: resultBudget,
-        date: resultDate,
-      })
-      .then((response) => {
-        console.log(response.data);
-        setData(response.data);
-      });
-  }, []);
   const columns = [
     {
       title: "房型",
@@ -209,23 +237,74 @@ const ResultCard = (props) => {
     },
     {
       title: "房态",
-      dataIndex: "dates",
+      key: "tags",
+      dataIndex: "tags",
       align: "center",
-      render: (dates) => (
+      render: (tags) => (
         <Space direction="horizontal">
-          {dates.map((item, index) => {
-            return (
-              <Avatar
-                style={{
-                  alignSelf: "center",
-                  marginLeft: "auto",
-                  backgroundColor: item['color'],
-                }}
-              >
-                {item['date']}
-              </Avatar>
-            );
-          })}
+          <Avatar
+            style={{
+              alignSelf: "center",
+              marginLeft: "auto",
+              backgroundColor: "red",
+            }}
+          >
+            10
+          </Avatar>
+          <Avatar
+            style={{
+              alignSelf: "center",
+              marginLeft: "auto",
+              backgroundColor: "red",
+            }}
+          >
+            10
+          </Avatar>
+          <Avatar
+            style={{
+              alignSelf: "center",
+              marginLeft: "auto",
+              backgroundColor: "red",
+            }}
+          >
+            10
+          </Avatar>
+          <Avatar
+            style={{
+              alignSelf: "center",
+              marginLeft: "auto",
+              backgroundColor: "red",
+            }}
+          >
+            10
+          </Avatar>
+          <Avatar
+            style={{
+              alignSelf: "center",
+              marginLeft: "auto",
+              backgroundColor: "red",
+            }}
+          >
+            10
+          </Avatar>
+          <Avatar
+            style={{
+              alignSelf: "center",
+              marginLeft: "auto",
+              backgroundColor: "red",
+            }}
+          >
+            10
+          </Avatar>
+          <Avatar
+            style={{
+              alignSelf: "center",
+              marginLeft: "auto",
+              backgroundColor: "red",
+            }}
+          >
+            10
+          </Avatar>
         </Space>
       ),
     },
@@ -290,9 +369,7 @@ const ResultCard = (props) => {
                 bordered={false}
                 autoSize={true}
                 value={ps}
-                onChange={(e) => {
-                  setPs(e.target.value);
-                }}
+                onChange={(e) => {setPs(e.target.value)}}
               />
             </Modal>
           </Space>
@@ -379,6 +456,10 @@ const Result = (props) => {
   const [budget2, setBudget2] = useState(searchForm.budget[1]);
 
   useEffect(() => {
+    setResult(searchResult)
+  }, []);
+
+  useEffect(() => {
     if (username === "") {
       axios
         .get("/user/")
@@ -390,109 +471,7 @@ const Result = (props) => {
         });
     }
   }, []);
-
-  const menu = (
-    <Menu className="result-dropdown">
-      <Menu.Item
-        onClick={{}}
-        style={{
-          position: "relative",
-          width: "100px",
-          height: "60px",
-          borderRadius: "10px",
-        }}
-      >
-        <Text
-          style={{
-            position: "absolute",
-            top: "20px",
-            height: "40px",
-            bottom: 0,
-            right: 0,
-            left: 0,
-          }}
-        >
-          上传头像
-        </Text>
-      </Menu.Item>
-      <Menu.Item
-        onClick={() => {
-          axios.get("/logout/").then((response) => {
-            message.success("注销成功， 请重新登录");
-            props.history.push("/");
-          });
-        }}
-        style={{
-          position: "relative",
-          width: "100px",
-          height: "60px",
-          borderRadius: "10px",
-        }}
-      >
-        <Text
-          style={{
-            position: "absolute",
-            top: "20px",
-            height: "40px",
-            bottom: 0,
-            right: 0,
-            left: 0,
-          }}
-        >
-          修改密码
-        </Text>
-      </Menu.Item>
-      <Menu.Item
-        onClick={() => {
-          props.history.push("/center");
-        }}
-        style={{
-          position: "relative",
-          width: "100px",
-          height: "60px",
-          borderRadius: "10px",
-        }}
-      >
-        <Text
-          style={{
-            position: "absolute",
-            top: "20px",
-            height: "40px",
-            bottom: 0,
-            right: 0,
-            left: 0,
-          }}
-        >
-          我的主页
-        </Text>
-      </Menu.Item>
-      <Menu.Item
-        onClick={() => {
-          props.history.push("/center");
-        }}
-        style={{
-          position: "relative",
-          width: "100px",
-          height: "60px",
-          borderRadius: "10px",
-        }}
-      >
-        <Text
-          style={{
-            position: "absolute",
-            top: "20px",
-            height: "40px",
-            bottom: 0,
-            right: 0,
-            left: 0,
-          }}
-        >
-          退出登录
-        </Text>
-      </Menu.Item>
-    </Menu>
-  );
-
+  console.log(result);
   return (
     <Layout style={{ position: "relative", height: "100%", width: "100%" }}>
       <Header className="result-header" theme="light">
@@ -630,6 +609,7 @@ const Result = (props) => {
                   date: dateChecked,
                 })
                 .then((response) => {
+                  console.log(response.data);
                   setSearchResult(response.data);
                   setResult(response.data);
                 });
@@ -649,7 +629,7 @@ const Result = (props) => {
           direction="vertical"
         >
           {/* 根据搜索结果循环生成card */}
-          {result.map((item, index) => {
+          {searchResult.map((item, index) => {
             return item.name === "" ? null : (
               <ResultCard item={item} defaultDate={dateChecked} />
             );
