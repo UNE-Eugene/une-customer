@@ -203,5 +203,5 @@ def ask(request):
             if result is None:
                 cursor.execute("INSERT INTO T_Hotel_Asked(message, remarks, promoter, accepter, askid) Values(%s,%s,%s,%s,%s)", [form['message'], form['remark'], username.username, relation, form['askid']])
             else:
-                cursor.execute('update T_Hotel_Asked set message= %s , remarks= %s where promoter=%s and askid=%s', [form['message'], form['remark'], username.username, form['askid']])
+                cursor.execute('update T_Hotel_Asked set message= %s and remarks= %s where promoter=%s and askid=%s', [form['message'], form['remark'], username.username, form['askid']])
             return HttpResponse('success')

@@ -89,7 +89,6 @@ def ihg(form):
             message = cursor.fetchall()
             dates = date_range(start, end)
             x = 0
-            print(message)
             if len(message) == 0:
                 return None
             else:
@@ -232,6 +231,7 @@ def morriott(form):
             if len(message) == 0:
                 return None
             else:
+                message = sorted(message, key=lambda item: item[-1])
                 #积分价处理
                 if message[0][3] == '积分价':
                     price = float(message[0][5]) * 300 / 10000
@@ -265,7 +265,6 @@ def morriott(form):
             if len(message) == 0:
                 return None
             else:
-                message = sorted(message, key=lambda item: item[-1])
                 for i, item in enumerate(message):
                     if i == 0:
                         pass

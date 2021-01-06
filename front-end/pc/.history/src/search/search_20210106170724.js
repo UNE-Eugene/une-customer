@@ -573,7 +573,7 @@ const Search = (props) => {
                     hotel: hotelChecked,
                     trade: tradeChecked,
                     group: groupChecked,
-                    budget: [0, budget],
+                    budget: [budget*0.8, budget*1.2],
                     date: formDate
                   }
                 )
@@ -583,7 +583,7 @@ const Search = (props) => {
                   hotel: hotelChecked,
                   trade: tradeChecked,
                   group: groupChecked,
-                  budget: [0, budget*1.2],
+                  budget: [budget*0.8, budget*1.2],
                   date: [formDate[0].format(dateFormat), formDate[1].format(dateFormat)]
                 }).then(
                   response =>{

@@ -154,7 +154,6 @@ const ResultCard = (props) => {
     moment(defaultDate[0], "YYYY/MM/DD"),
     moment(defaultDate[1], "YYYY/MM/DD"),
   ]);
-  const [nowKey, setNowKey] = useState(0)
   const [privital, setPrivate] = useState("");
   const [ps, setPs] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -167,12 +166,12 @@ const ResultCard = (props) => {
 
   const handleOk = () => {
     setIsModalVisible(false);
-    console.log(data)
+    console.log(item)
     axios
       .post("/ask/", {
         message: privital,
         remark: ps,
-        askid: `${item.name}${pageDate[0].format("YYYY-MM-DD")}/${pageDate[1].format("YYYY-MM-DD")}${data[nowKey].priceType}`
+        askid: `${item.name}${pageDate[0].format("YYYY-MM-DD")}/${pageDate[1].format("YYYY-MM-DD")}${data.priceType}`
       })
       .then((response) => {
         message.success(response.data);
@@ -289,7 +288,6 @@ const ResultCard = (props) => {
           <Space size="middle">
             <Button
               onClick={() => {
-                setNowKey(record.key)
                 setPrivate(
                   `
                 酒店：${item.name}

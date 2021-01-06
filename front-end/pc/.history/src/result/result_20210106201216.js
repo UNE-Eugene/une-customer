@@ -154,7 +154,6 @@ const ResultCard = (props) => {
     moment(defaultDate[0], "YYYY/MM/DD"),
     moment(defaultDate[1], "YYYY/MM/DD"),
   ]);
-  const [nowKey, setNowKey] = useState(0)
   const [privital, setPrivate] = useState("");
   const [ps, setPs] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -167,12 +166,10 @@ const ResultCard = (props) => {
 
   const handleOk = () => {
     setIsModalVisible(false);
-    console.log(data)
     axios
       .post("/ask/", {
         message: privital,
         remark: ps,
-        askid: `${item.name}${pageDate[0].format("YYYY-MM-DD")}/${pageDate[1].format("YYYY-MM-DD")}${data[nowKey].priceType}`
       })
       .then((response) => {
         message.success(response.data);
@@ -289,14 +286,12 @@ const ResultCard = (props) => {
           <Space size="middle">
             <Button
               onClick={() => {
-                setNowKey(record.key)
                 setPrivate(
                   `
-                酒店：${item.name}
+                酒店：${item.name} 
                 价格类型：${record.priceType}
                 价格：${record.price}
                 价格等级：${record.priceLevel}
-                日期：${pageDate[0].format("YYYY-MM-DD")} 入住 ${pageDate[1].format("YYYY-MM-DD")} 离店
                 `
                 );
                 showModal();

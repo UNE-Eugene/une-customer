@@ -89,7 +89,6 @@ def ihg(form):
             message = cursor.fetchall()
             dates = date_range(start, end)
             x = 0
-            print(message)
             if len(message) == 0:
                 return None
             else:

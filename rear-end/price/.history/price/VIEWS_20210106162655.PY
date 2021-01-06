@@ -89,7 +89,6 @@ def ihg(form):
             message = cursor.fetchall()
             dates = date_range(start, end)
             x = 0
-            print(message)
             if len(message) == 0:
                 return None
             else:
@@ -136,83 +135,75 @@ def hilton(form):
     with connection.cursor() as cursor:
         if end - start == timedelta(days=1):
             cursor.execute(
-                "SELECT * FROM T_Hilton_Group_Update where hotel_name=%s and start_date=%s and end_date = %s and points_compare_to_cash<=1",
+                "SELECT * FROM T_Ihg_Group_Update where hotel_name=%s and start_date=%s and end_date = %s and points_compare_to_cash<=1",
                 [form['name'], start, end])  #酒店查找
 
             message = cursor.fetchall()
             dates = date_range(start, end)
-            
+            message = sorted(message, key=lambda item: item[-1])
 
             #积分价处理
-            if len(message) == 0:
-                return None
+            if message[0][3] == '积分价':
+                price = float(message[0][5]) * 300 / 10000
+                dates[0]['credit'] = 'True'
             else:
-                message = sorted(message, key=lambda item: item[-1])
-                #积分价处理
-                if message[0][3] == '积分价':
-                    price = float(message[0][5]) * 300 / 10000
-                    dates[0]['credit'] = 'True'
-                else:
-                    price = float(message[0][5])
-                    dates[0]['credit'] = 'False'
+                price = float(message[0][5])
+                dates[0]['credit'] = 'False'
 
-                #处理日期标注
-                if form['budget'][0] <= price <= form['budget'][1]:
-                    dates[0]['room'] = message[0][2]
-                    dates[0]['price'] = price
-                else:
-                    dates[0]['room'] = '预算内无房'
-                    dates[0]['price'] = 0
+            #处理日期标注
+            if form['budget'][0] <= price <= form['budget'][1]:
+                dates[0]['room'] = message[0][2]
+                dates[0]['price'] = price
+            else:
+                dates[0]['room'] = '预算内无房'
+                dates[0]['price'] = 0
 
-                result.append({
-                    'key': 0,
-                    'priceType': '官网价',
-                    'price': price,
-                    'priceLevel': 'BB',
-                    'dates': dates
-                })
+            result.append({
+                'key': 0,
+                'priceType': '官网价',
+                'price': price,
+                'priceLevel': 'BB',
+                'dates': dates
+            })
         else:
             cursor.execute(
-                "SELECT * FROM T_Hilton_Group_Update where hotel_name=%s and start_date>=%s and end_date <= %s order by start_date, points_compare_to_cash",
+                "SELECT * FROM T_Ihg_Group_Update where hotel_name=%s and start_date>=%s and end_date <= %s order by start_date, points_compare_to_cash",
                 [form['name'], start, end])  #酒店查找
             message = cursor.fetchall()
             dates = date_range(start, end)
             x = 0
-            if len(message) == 0:
-                return None
-            else:
-                for i, item in enumerate(message):
-                    if i == 0:
+            for i, item in enumerate(message):
+                if i == 0:
+                    pass
+                else:
+                    if item[7] == message[i - 1][7]:
+                        continue
+                    else:
+                        x = x + 1
                         pass
-                    else:
-                        if item[7] == message[i - 1][7]:
-                            continue
-                        else:
-                            x = x + 1
-                            pass
 
-                    if item[3] == '积分价':
-                        price = float(item[5]) * 300 / 10000
-                        dates[x]['credit'] = 'True'
-                    else:
-                        price = float(item[5])
-                        dates[x]['credit'] = 'False'
+                if item[3] == '积分价':
+                    price = float(item[5]) * 300 / 10000
+                    dates[x]['credit'] = 'True'
+                else:
+                    price = float(item[5])
+                    dates[x]['credit'] = 'False'
 
-                    if form['budget'][0] <= price <= form['budget'][1]:
-                    #处理日期标注
-                        dates[x]['room'] = item[2]
-                        dates[x]['price'] = price
-                    else:
-                        dates[x]['room'] = '预算内无房'
-                        dates[x]['price'] = 0
-                print(dates)
-                result.append({
-                    'key': 0,
-                    'priceType': '官网价',
-                    'price': '/',
-                    'priceLevel': 'BB',
-                    'dates': dates
-                })
+                if form['budget'][0] <= price <= form['budget'][1]:
+                #处理日期标注
+                    dates[x]['room'] = item[2]
+                    dates[x]['price'] = price
+                else:
+                    dates[x]['room'] = '预算内无房'
+                    dates[x]['price'] = 0
+            print(dates)
+            result.append({
+                'key': 0,
+                'priceType': '官网价',
+                'price': '/',
+                'priceLevel': 'BB',
+                'dates': dates
+            })
         return result
 
 
@@ -224,78 +215,73 @@ def morriott(form):
     with connection.cursor() as cursor:
         if end - start == timedelta(days=1):
             cursor.execute(
-                "SELECT * FROM T_Morriott_Group_Update where hotel_name=%s and start_date=%s and end_date = %s and points_compare_to_cash<=1",
+                "SELECT * FROM T_Ihg_Group_Update where hotel_name=%s and start_date=%s and end_date = %s and points_compare_to_cash<=1",
                 [form['name'], start, end])  #酒店查找
 
             message = cursor.fetchall()
             dates = date_range(start, end)
-            if len(message) == 0:
-                return None
+            message = sorted(message, key=lambda item: item[-1])
+
+            #积分价处理
+            if message[0][3] == '积分价':
+                price = float(message[0][5]) * 300 / 10000
+                dates[0]['credit'] = 'True'
             else:
-                #积分价处理
-                if message[0][3] == '积分价':
-                    price = float(message[0][5]) * 300 / 10000
-                    dates[0]['credit'] = 'True'
-                else:
-                    price = float(message[0][5])
-                    dates[0]['credit'] = 'False'
+                price = float(message[0][5])
+                dates[0]['credit'] = 'False'
 
-                #处理日期标注
-                if form['budget'][0] <= price <= form['budget'][1]:
-                    dates[0]['room'] = message[0][2]
-                    dates[0]['price'] = price
-                else:
-                    dates[0]['room'] = '预算内无房'
-                    dates[0]['price'] = 0
+            #处理日期标注
+            if form['budget'][0] <= price <= form['budget'][1]:
+                dates[0]['room'] = message[0][2]
+                dates[0]['price'] = price
+            else:
+                dates[0]['room'] = '预算内无房'
+                dates[0]['price'] = 0
 
-                result.append({
-                    'key': 0,
-                    'priceType': '官网价',
-                    'price': price,
-                    'priceLevel': 'BB',
-                    'dates': dates
-                })
+            result.append({
+                'key': 0,
+                'priceType': '官网价',
+                'price': price,
+                'priceLevel': 'BB',
+                'dates': dates
+            })
         else:
             cursor.execute(
-                "SELECT * FROM T_Morriott_Group_Update where hotel_name=%s and start_date>=%s and end_date <= %s order by start_date, points_compare_to_cash",
+                "SELECT * FROM T_Ihg_Group_Update where hotel_name=%s and start_date>=%s and end_date <= %s order by start_date, points_compare_to_cash",
                 [form['name'], start, end])  #酒店查找
             message = cursor.fetchall()
             dates = date_range(start, end)
             x = 0
-            if len(message) == 0:
-                return None
-            else:
-                message = sorted(message, key=lambda item: item[-1])
-                for i, item in enumerate(message):
-                    if i == 0:
+            for i, item in enumerate(message):
+                if i == 0:
+                    pass
+                else:
+                    if item[7] == message[i - 1][7]:
+                        continue
+                    else:
+                        x = x + 1
                         pass
-                    else:
-                        if item[7] == message[i - 1][7]:
-                            continue
-                        else:
-                            x = x + 1
-                            pass
 
-                    if item[3] == '积分价':
-                        price = float(item[5]) * 300 / 10000
-                        dates[x]['credit'] = 'True'
-                    else:
-                        price = float(item[5])
-                        dates[x]['credit'] = 'False'
+                if item[3] == '积分价':
+                    price = float(item[5]) * 300 / 10000
+                    dates[x]['credit'] = 'True'
+                else:
+                    price = float(item[5])
+                    dates[x]['credit'] = 'False'
 
-                    if form['budget'][0] <= price <= form['budget'][1]:
-                    #处理日期标注
-                        dates[x]['room'] = item[2]
-                        dates[x]['price'] = price
-                    else:
-                        dates[x]['room'] = '预算内无房'
-                        dates[x]['price'] = 0
-                print(dates)
-                result.append({
-                    'key': 0,
-                    'priceType': '官网价',
-                    'price': '/',
-                    'priceLevel': 'BB',
-                    'dates': dates
-                })
+                if form['budget'][0] <= price <= form['budget'][1]:
+                #处理日期标注
+                    dates[x]['room'] = item[2]
+                    dates[x]['price'] = price
+                else:
+                    dates[x]['room'] = '预算内无房'
+                    dates[x]['price'] = 0
+            print(dates)
+            result.append({
+                'key': 0,
+                'priceType': '官网价',
+                'price': '/',
+                'priceLevel': 'BB',
+                'dates': dates
+            })
         return result

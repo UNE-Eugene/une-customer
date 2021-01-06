@@ -84,6 +84,7 @@ const Search = (props) => {
   const [budget, setBudget] = useState(10000)
   const [budget1, setBudget1] = useState(0);
   const [budget2, setBudget2] = useState(10000);
+  const [slider, setSlider] = useState([0, 10000]);
 
   const checked = { backgroundColor: "black", color: "white" };
   const unChecked = { backgroundColor: "white", color: "black" };
@@ -484,10 +485,12 @@ const Search = (props) => {
                   step={50}
                   min={0}
                   max={10000}
-                  value={budget}
+                  value={slider}
                   onChange={(value) => {
                     console.log(value)
-                    setBudget(value)
+                    setBudget1(value[0]);
+                    setBudget2(value[1]);
+                    setSlider(value);
                   }}
                   style={{ alignSelf: "center", width: "100%" }}
                 />
@@ -495,12 +498,14 @@ const Search = (props) => {
             </Row>
             <div className="form-input">
               <InputNumber
-                style={{ height: "45%", width: "100%", alignSelf: "center" }}
+                style={{ height: "45%", width: "42.5%", alignSelf: "center" }}
                 key="budget1"
-                value={budget}
+                value={budget1}
                 step={50}
                 onChange={(value) => {
-                  setBudget(value)
+                  setBudget1(value*0.8);
+                  setBudget2(value*1.2)
+                  setSlider([budget1, budget2]);
                 }}
               />
             </div>
@@ -573,7 +578,7 @@ const Search = (props) => {
                     hotel: hotelChecked,
                     trade: tradeChecked,
                     group: groupChecked,
-                    budget: [0, budget],
+                    budget: [budget1, budget2],
                     date: formDate
                   }
                 )
@@ -583,7 +588,7 @@ const Search = (props) => {
                   hotel: hotelChecked,
                   trade: tradeChecked,
                   group: groupChecked,
-                  budget: [0, budget*1.2],
+                  budget: [budget1, budget2],
                   date: [formDate[0].format(dateFormat), formDate[1].format(dateFormat)]
                 }).then(
                   response =>{

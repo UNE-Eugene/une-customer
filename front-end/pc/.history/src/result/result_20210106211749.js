@@ -172,7 +172,7 @@ const ResultCard = (props) => {
       .post("/ask/", {
         message: privital,
         remark: ps,
-        askid: `${item.name}${pageDate[0].format("YYYY-MM-DD")}/${pageDate[1].format("YYYY-MM-DD")}${data[nowKey].priceType}`
+        askid: `${item.name}${pageDate[0].format("YYYY-MM-DD")}/${pageDate[1].format("YYYY-MM-DD")}${data.priceType}`
       })
       .then((response) => {
         message.success(response.data);

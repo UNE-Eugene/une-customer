@@ -9,7 +9,7 @@ import {
   Button,
   Input,
   Card,
-  InputNumber,
+  Select,
   DatePicker,
   Table,
   Tag,
@@ -154,12 +154,14 @@ const ResultCard = (props) => {
     moment(defaultDate[0], "YYYY/MM/DD"),
     moment(defaultDate[1], "YYYY/MM/DD"),
   ]);
-  const [nowKey, setNowKey] = useState(0)
   const [privital, setPrivate] = useState("");
   const [ps, setPs] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [resultBudget, setResultBudget] = useState(searchForm.budget[1]);
-
+  const [resultBudget, setResultBudget] = useState(searchForm.budget);
+  const [resultDate, setResultDate] = useState([
+    moment(defaultDate[0], "YYYY/MM/DD").format("YYYY-MM-DD"),
+    moment(defaultDate[1], "YYYY/MM/DD").format("YYYY-MM-DD"),
+  ]);
   const [data, setData] = useState("");
   const showModal = () => {
     setIsModalVisible(true);
@@ -167,16 +169,6 @@ const ResultCard = (props) => {
 
   const handleOk = () => {
     setIsModalVisible(false);
-    console.log(data)
-    axios
-      .post("/ask/", {
-        message: privital,
-        remark: ps,
-        askid: `${item.name}${pageDate[0].format("YYYY-MM-DD")}/${pageDate[1].format("YYYY-MM-DD")}${data[nowKey].priceType}`
-      })
-      .then((response) => {
-        message.success(response.data);
-      });
   };
 
   const handleCancel = () => {
@@ -188,11 +180,8 @@ const ResultCard = (props) => {
       .post("http://127.0.0.1:9000/staticPrice/", {
         name: item.name,
         group: item.platform,
-        budget: [0, resultBudget],
-        date: [
-          pageDate[0].format("YYYY-MM-DD"),
-          pageDate[1].format("YYYY-MM-DD"),
-        ],
+        budget: resultBudget,
+        date: resultDate,
       })
       .then((response) => {
         console.log(response.data);
@@ -219,42 +208,24 @@ const ResultCard = (props) => {
       render: (dates) => (
         <Space direction="horizontal">
           {dates.map((item, index) => {
-            console.log(item["room"] === "0");
             return (
-              <Popover
-                content={`
-                ${
-                  item.room === undefined
-                    ? "当日暂无数据"
-                    : item.room === "0"
-                    ? "满房"
-                    : item.room
+              <Popover content={
+                `
+                ${item.room}
+                ${item.price}
+                `
+              } 
+              trigger="hover"
+              style={
+                {
+                  borderRadius: '10px'
                 }
-                ${
-                  item.price === undefined
-                    ? ""
-                    : item.price === 0
-                    ? ""
-                    : item.price
-                }
-                `}
-                trigger="hover"
-                style={{
-                  borderRadius: "10px",
-                }}
-              >
+              }>
                 <Avatar
                   style={{
                     alignSelf: "center",
                     marginLeft: "auto",
-                    backgroundColor:
-                      item["room"] === "0"
-                        ? "black"
-                        : item["room"] === undefined
-                        ? "black"
-                        : item["room"] === "预算内无房"
-                        ? "gray"
-                        : "green",
+                    backgroundColor: item["color"],
                   }}
                 >
                   {item["date"]}
@@ -289,14 +260,13 @@ const ResultCard = (props) => {
           <Space size="middle">
             <Button
               onClick={() => {
-                setNowKey(record.key)
                 setPrivate(
                   `
-                酒店：${item.name}
+                酒店：${item.name} 
+                房间：${record.room}
                 价格类型：${record.priceType}
                 价格：${record.price}
                 价格等级：${record.priceLevel}
-                日期：${pageDate[0].format("YYYY-MM-DD")} 入住 ${pageDate[1].format("YYYY-MM-DD")} 离店
                 `
                 );
                 showModal();
@@ -362,22 +332,10 @@ const ResultCard = (props) => {
         >
           房价详情
         </Text>
-        <InputNumber
-          style={{
-            alignSelf: "center",
-            marginLeft: "auto",
-            width: "10%",
-            minWidth: "120px",
-          }}
-          value={resultBudget}
-          onChange={(value) => {
-            setResultBudget(value);
-          }}
-        />
-        <div>&nbsp;</div>
         <RangePicker
           style={{
             alignSelf: "center",
+            marginLeft: "auto",
             width: "20%",
             minWidth: "240px",
           }}
@@ -393,10 +351,7 @@ const ResultCard = (props) => {
                 setPageDate([dates[0], dates[1].add(1, "days")]);
                 break;
               case "":
-                setPageDate([
-                  moment(dateString[0], "YYYY/MM/DD"),
-                  dates[0].add(1, "days"),
-                ]);
+                setPageDate([dateString[0], dates[0].add(1, "days")]);
                 break;
               default:
                 setPageDate(dates);
@@ -405,26 +360,7 @@ const ResultCard = (props) => {
           }}
         />
         <div>&nbsp;</div>
-        <Button
-          style={{ alignSelf: "center", width: "5%", minWidth: "60px" }}
-          onClick={() => {
-            setData("");
-            axios
-              .post("http://127.0.0.1:9000/staticPrice/", {
-                name: item.name,
-                group: item.platform,
-                budget: [0, resultBudget],
-                date: [
-                  pageDate[0].format("YYYY-MM-DD"),
-                  pageDate[1].format("YYYY-MM-DD"),
-                ],
-              })
-              .then((response) => {
-                console.log(response.data);
-                setData(response.data);
-              });
-          }}
-        >
+        <Button style={{ alignSelf: "center", width: "5%", minWidth: "60px" }}>
           查询
         </Button>
       </div>
