@@ -306,7 +306,6 @@ def get_ask_log(request):
         form = request.body
         form = json.loads(form)
         askid = form['askid']
-        print(askid)
         with connection.cursor() as cursor:
             cursor.execute('select * from T_Hotel_Asked where askid like %s order by update_time', ['%'+askid+'%'])
             result = cursor.fetchall()

@@ -1,7 +1,7 @@
 module.exports = {
-  pages: ['pages/index/index','pages/personal/personal'],
+  pages: ['pages/index/index','pages/personal/personal', "pages/login/login"],
   window: {
-    navigationBarTitleText: 'Remax Wechat Template',
+    navigationBarTitleText: '酒店客服系统',
     navigationBarBackgroundColor: '#282c34'
   },
   tabBar: {
@@ -12,13 +12,13 @@ module.exports = {
       "text": "查询",
       "pagePath": "pages/index/index",
       "iconPath": "search.png",
-      "selectedIconPath": "search.png"
+      "selectedIconPath": "search_filled.png"
     },
     {
       "text": "我的",
       "pagePath": "pages/personal/personal",
-      "iconPath": "profile.png",
-      "selectedIconPath": "profile.png"
+      "iconPath": "people.png",
+      "selectedIconPath": "people_fill.png"
     }]
   }
 };

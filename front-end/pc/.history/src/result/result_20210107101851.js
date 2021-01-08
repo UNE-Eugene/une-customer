@@ -201,15 +201,6 @@ const ResultCard = (props) => {
         console.log(response.data);
         setData(response.data);
       });
-      axios.post('http://127.0.0.1:9000/log/', {
-        askid: `${item.name}${pageDate[0].format(
-          "YYYY-MM-DD"
-        )}/${pageDate[1].format("YYYY-MM-DD")}`
-      }).then(
-        response=>{
-          console.log(response.data)
-        }
-      )
   }, []);
   const columns = [
     {
@@ -445,13 +436,22 @@ const ResultCard = (props) => {
       <div>&nbsp;</div>
       <Table columns={columns} dataSource={data} pagination={false} />
       <Comment
+        actions={[<span key="comment-nested-reply-to">Reply to</span>]}
+        author={<a>Han Solo</a>}
+        avatar={
+          <Avatar
+            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+            alt="Han Solo"
+          />
+        }
         content={
           <p>
             We supply a series of design principles, practical patterns and high
             quality design resources (Sketch and Axure).
           </p>
         }
-      />
+      >
+      </Comment>
     </Card>
   );
 };

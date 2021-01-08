@@ -24,5 +24,5 @@ urlpatterns = [
     path('user/', get_user),
     path('api/search/', search),
     path('ask/', ask),
-
+    path('log/', get_ask_log)
 ]

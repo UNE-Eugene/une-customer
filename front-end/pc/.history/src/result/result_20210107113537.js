@@ -204,7 +204,7 @@ const ResultCard = (props) => {
       axios.post('http://127.0.0.1:9000/log/', {
         askid: `${item.name}${pageDate[0].format(
           "YYYY-MM-DD"
-        )}/${pageDate[1].format("YYYY-MM-DD")}`
+        )}/${pageDate[1].format("YYYY-MM-DD")}}`
       }).then(
         response=>{
           console.log(response.data)

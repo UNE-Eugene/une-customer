@@ -3,19 +3,28 @@
   width: 100%;
   height: 100%;
   display: flex;
-  background-color: gray;
+  background-color: #F0FFFF;
 }
 
 .personHeader___PyNiv {
   position: absolute;
-  top: 5%;
+  top: 15%;
   left: 0;
-  height: 20%;
+  height: 25%;
   width: 100%;
   display: flex;
   text-align: center;
   min-height: 240rpx;
 
+}
+
+.personBackground___33Wj7 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 35%;
+  background-color: white;
 }
 
 .personImg___3Kjna {
@@ -59,12 +68,18 @@
   height: 10%;
   background-color: white;
   display: flex;
-  border-bottom-width: medium;
-  border-bottom-color: black;
 }
 
 .personText___3CgsG {
   position: absolute;
   align-self: center;
-  left: 3%;
+  left: 100rpx;
+}
+
+.icon___IiVpN {
+  position: absolute;
+  align-self: center;
+  left: 50rpx;
+  height: 40rpx;
+  width: 40rpx
 }

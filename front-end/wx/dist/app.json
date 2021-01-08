@@ -1,10 +1,11 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/personal/personal"
+    "pages/personal/personal",
+    "pages/login/login"
   ],
   "window": {
-    "navigationBarTitleText": "Remax Wechat Template",
+    "navigationBarTitleText": "酒店客服系统",
     "navigationBarBackgroundColor": "#282c34"
   },
   "tabBar": {

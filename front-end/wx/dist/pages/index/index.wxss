@@ -1,49 +1,31 @@
-.app___2lhPP {
+.searchBody___2XrCp {
   position: absolute;
-  text-align: center;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.header___3qOk9 {
-  color: white;
-  z-index: 1;
-  display: flex;
-  height: 22.5vh;
-  width: 100%;
-  position: absolute;
-  top: 10%;
-}
-
-.background___ZSAAH {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-size: 100% 100%;
   top: 0;
   left: 0;
-  z-index: -1;
-}
-
-
-.content___2xTIE {
-  position: absolute;
-  top:33vh;
-  height: 46vh;
+  height: 100%;
   width: 100%;
-  display: flex;
+  background-color:#F0FFFF;
 }
-.card___3O7TJ {
+
+.searchHeader___3_Fix {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 25%;
+}
+
+.searchCard___1GBHm {
   position: absolute;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   box-sizing: border-box;
   z-index: 1;
-  width: 76vw;
-  height: 46vh;
-  left: 12vw;
+  width: 94%;
+  height: 61%;
+  top: 27%;
+  left: 3%;
   font-size: 40rpx;
   background: #FFF;
   background-color: #FFF;
@@ -51,91 +33,50 @@
   box-shadow: 0 10rpx 20rpx 0 rgba(34, 34, 34, 0.089);
 }
 
-.logo___Al4Xb {
-  width: 30vw;
-  height: 22.5vh;
-  background-size: 100% 100%;
-  margin: auto;
-  z-index: -1;
-  min-height: 225rpx;
-  min-width: 300rpx;
-}
-
-
-.title___2mr8X {
+.submitButton___jq8Hl {
   position: absolute;
-  top: 10%;
-  margin: auto;
-  width: 100%;
-  height: 70rpx;
-  font-weight: 700;
-  font-size: 50rpx;
+  top: 91%;
+  left: 3%;
+  width: 94%;
+  height: 75rpx;
+  line-height: 75rpx;
+  background-color: 	#1E90FF;
+  color: #FFF;
+  text-justify: center;
   text-align: center;
 }
 
-.username___1NxQQ {
-  display: flex;
-  flex-direction: row;
+.mainInput___zyCUQ {
   position: absolute;
-  top: 17vh;
-  left: 10vw;
-  width: 56vw;
-  height: 4vh;
-  border-bottom-color: black;
-  border-bottom-width: 100%;
+  top: 75%;
+  left: 3%;
+  width: 79%;
+  height: 65rpx;
+  line-height: 65rpx;
+  background-color: #FFF;
+  border-radius: 10rpx 0 0 10rpx;
 }
 
-.username___1NxQQ Image {
+.mainButton___2flwK {
   position: absolute;
-  left: 0vw;
-  width: 6vw;
-  height: 4vh;
+  top: 75%;
+  left: 82%;
+  width: 15%;
+  height: 65rpx;
+  line-height: 65rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #FFF;
+  background-color: #000000;
+  border-radius: 0 10rpx 10rpx 0;
 }
 
-.username___1NxQQ Input {
+.searchInput___3N7hl {
   position: absolute;
-  left: 9vw;
-  height: 4vh;
-}
-
-.password___2icBm {
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-  top: 26vh;
-  left: 10vw;
-  width: 56vw;
-  height: 4vh;
-  border-bottom-color: black;
-  border-bottom-width: 100%;
-}
-
-.password___2icBm Image {
-  position: absolute;
-  left: 0vw;
-  width: 6vw;
-  height: 4vh;
-}
-
-.password___2icBm Input {
-  position: absolute;
-  left: 9vw;
-  height: 4vh;
-}
-
-.placeholder___1o4QS {
-  font-size: 32rpx;
-}
-
-.button___3NgDU {
-  width: 70%;
-  height: 6vh;
-  position: absolute;
-  top: 36vh;
-  left: 15%;
-  border-radius: 20rpx;
-  background: black;
-  color: white;
-  line-height: 6vh;
-  font-size: 37rpx;
+  left: 5%;
+  width: 90%;
+  height: 70rpx;
+  background-color: #F5F5F5;
+  font-size: 34rpx;
+  line-height: 70rpx;
 }

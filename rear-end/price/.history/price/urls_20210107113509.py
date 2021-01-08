@@ -1,4 +1,4 @@
-"""customer URL Configuration
+"""price URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -15,14 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import loginView, get_csrf, get_user, logoutView, search,ask, get_ask_log
+from .views import scrap_price
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('UNE/', get_csrf),
-    path('login/', loginView),
-    path('logout/', logoutView),
-    path('user/', get_user),
-    path('api/search/', search),
-    path('ask/', ask),
-
+    path('staticPrice/', scrap_price ),
+    path('log/', get_ask_log)
 ]

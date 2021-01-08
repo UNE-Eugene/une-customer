@@ -820,7 +820,8 @@ module.exports = {
 },
       pageEvents: {
   "pages/index/index": [],
-  "pages/personal/personal": []
+  "pages/personal/personal": [],
+  "pages/login/login": []
 },
       appEvents: []
     }

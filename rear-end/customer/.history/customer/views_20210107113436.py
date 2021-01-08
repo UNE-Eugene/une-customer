@@ -204,3 +204,14 @@ def ask(request):
                 cursor.execute('update T_Hotel_Asked set message= %s , remarks= %s, update_time=%s where promoter=%s and askid=%s', [form['message'], form['remark'], datetime.now(), username.username, form['askid']])
             return HttpResponse('success')
 
+@login_required
+def get_ask_log(request):
+    if request.method == 'POST':
+        form = request.body
+        form = json.loads(form)
+        askid = form['askid']
+        with connection.cursor() as cursor:
+            cursor.execute('select * from T_Hotel_Asked where askid like %s order by update_time', [askid+'%'])
+            result = cursor.fetchall()
+            print(result)
+            return HttpResponse()

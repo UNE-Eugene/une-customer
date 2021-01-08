@@ -1,49 +1,31 @@
-.app {
+.searchBody {
   position: absolute;
-  text-align: center;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.header {
-  color: white;
-  z-index: 1;
-  display: flex;
-  height: 22.5vh;
-  width: 100%;
-  position: absolute;
-  top: 10%;
-}
-
-.background {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-size: 100% 100%;
   top: 0;
   left: 0;
-  z-index: -1;
-}
-
-
-.content {
-  position: absolute;
-  top:33vh;
-  height: 46vh;
+  height: 100%;
   width: 100%;
-  display: flex;
+  background-color:#F0FFFF;
 }
-.card {
+
+.searchHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 25%;
+}
+
+.searchCard {
   position: absolute;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   box-sizing: border-box;
   z-index: 1;
-  width: 76vw;
-  height: 46vh;
-  left: 12vw;
+  width: 94%;
+  height: 61%;
+  top: 27%;
+  left: 3%;
   font-size: 40px;
   background: #FFF;
   background-color: #FFF;
@@ -51,91 +33,50 @@
   box-shadow: 0 10px 20px 0 rgba(34, 34, 34, 0.089);
 }
 
-.logo {
-  width: 30vw;
-  height: 22.5vh;
-  background-size: 100% 100%;
-  margin: auto;
-  z-index: -1;
-  min-height: 225px;
-  min-width: 300px;
-}
-
-
-.title {
+.submitButton {
   position: absolute;
-  top: 10%;
-  margin: auto;
-  width: 100%;
-  height: 70px;
-  font-weight: 700;
-  font-size: 50px;
+  top: 91%;
+  left: 3%;
+  width: 94%;
+  height: 75px;
+  line-height: 75px;
+  background-color: 	#1E90FF;
+  color: #FFF;
+  text-justify: center;
   text-align: center;
 }
 
-.username {
-  display: flex;
-  flex-direction: row;
+.mainInput {
   position: absolute;
-  top: 17vh;
-  left: 10vw;
-  width: 56vw;
-  height: 4vh;
-  border-bottom-color: black;
-  border-bottom-width: 100%;
+  top: 75%;
+  left: 3%;
+  width: 79%;
+  height: 65px;
+  line-height: 65px;
+  background-color: #FFF;
+  border-radius: 10px 0 0 10px;
 }
 
-.username Image {
+.mainButton {
   position: absolute;
-  left: 0vw;
-  width: 6vw;
-  height: 4vh;
+  top: 75%;
+  left: 82%;
+  width: 15%;
+  height: 65px;
+  line-height: 65px;
+  text-align: center;
+  font-size: 28px;
+  color: #FFF;
+  background-color: #000000;
+  border-radius: 0 10px 10px 0;
 }
 
-.username Input {
+.searchInput {
   position: absolute;
-  left: 9vw;
-  height: 4vh;
-}
-
-.password {
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-  top: 26vh;
-  left: 10vw;
-  width: 56vw;
-  height: 4vh;
-  border-bottom-color: black;
-  border-bottom-width: 100%;
-}
-
-.password Image {
-  position: absolute;
-  left: 0vw;
-  width: 6vw;
-  height: 4vh;
-}
-
-.password Input {
-  position: absolute;
-  left: 9vw;
-  height: 4vh;
-}
-
-.placeholder {
-  font-size: 32px;
-}
-
-.button {
-  width: 70%;
-  height: 6vh;
-  position: absolute;
-  top: 36vh;
-  left: 15%;
-  border-radius: 20rpx;
-  background: black;
-  color: white;
-  line-height: 6vh;
-  font-size: 37px;
+  left: 5%;
+  width: 90%;
+  height: 70px;
+  background-color: #F5F5F5;
+  font-size: 34px;
+  line-height: 70px;
 }

@@ -204,3 +204,9 @@ def ask(request):
                 cursor.execute('update T_Hotel_Asked set message= %s , remarks= %s, update_time=%s where promoter=%s and askid=%s', [form['message'], form['remark'], datetime.now(), username.username, form['askid']])
             return HttpResponse('success')
 
+@login_required
+def get_ask_log(request):
+    if request.method == 'POST':
+        form = request.body
+        form = json.loads(form)
+        

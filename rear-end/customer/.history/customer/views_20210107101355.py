@@ -193,9 +193,12 @@ def ask(request):
         form = json.loads(form)
         uid = request.session.get('_auth_user_id')
         username = User.objects.get(pk=uid)
+        print(username.username)
+        print(type(username.username))
         with connection.cursor() as cursor:
             cursor.execute('SELECT relation from T_User_Message where user=%s', [username.username])
             relation = cursor.fetchone()
+            print(relation)
             cursor.execute('select id from T_Hotel_Asked where promoter = %s and askid=%s', [username.username, form['askid']])
             result = cursor.fetchone()
             if result is None:
@@ -203,4 +206,3 @@ def ask(request):
             else:
                 cursor.execute('update T_Hotel_Asked set message= %s , remarks= %s, update_time=%s where promoter=%s and askid=%s', [form['message'], form['remark'], datetime.now(), username.username, form['askid']])
             return HttpResponse('success')
-

@@ -201,10 +201,10 @@ const ResultCard = (props) => {
         console.log(response.data);
         setData(response.data);
       });
-      axios.post('http://127.0.0.1:9000/log/', {
+      axios.post('/log/', {
         askid: `${item.name}${pageDate[0].format(
           "YYYY-MM-DD"
-        )}/${pageDate[1].format("YYYY-MM-DD")}`
+        )}/${pageDate[1].format("YYYY-MM-DD")}}`
       }).then(
         response=>{
           console.log(response.data)
