@@ -1,5 +1,13 @@
 module.exports = {
-  pages: ['pages/index/index','pages/personal/personal', "pages/login/login"],
+  pages: ['pages/index/index','pages/personal/personal'],
+  subpackages: [
+    {
+      "root": "packageLogin",
+      "pages": [
+        "pages/login/login",
+      ]
+    }
+  ],
   window: {
     navigationBarTitleText: '酒店客服系统',
     navigationBarBackgroundColor: '#282c34'
@@ -12,7 +20,7 @@ module.exports = {
       "text": "查询",
       "pagePath": "pages/index/index",
       "iconPath": "search.png",
-      "selectedIconPath": "search_filled.png"
+      "selectedIconPath": "search_fill.png"
     },
     {
       "text": "我的",

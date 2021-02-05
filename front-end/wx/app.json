@@ -1,8 +1,14 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/personal/personal",
-    "pages/login/login"
+    "pages/index/index"
+  ],
+  "subpackages": [
+    {
+      "root": "packageLogin",
+      "pages": [
+        "pages/login/login"
+      ]
+    }
   ],
   "window": {
     "navigationBarTitleText": "酒店客服系统",
@@ -17,14 +23,14 @@
       {
         "text": "查询",
         "pagePath": "pages/index/index",
-        "iconPath": "search.png",
-        "selectedIconPath": "search.png"
+        "iconPath": "public/search.png",
+        "selectedIconPath": "public/search_fill.png"
       },
       {
         "text": "我的",
         "pagePath": "pages/personal/personal",
-        "iconPath": "profile.png",
-        "selectedIconPath": "profile.png"
+        "iconPath": "public/people.png",
+        "selectedIconPath": "public/people_fill.png"
       }
     ]
   }

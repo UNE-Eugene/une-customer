@@ -1,8 +1,15 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/personal/personal",
-    "pages/login/login"
+    "pages/personal/personal"
+  ],
+  "subpackages": [
+    {
+      "root": "packageLogin",
+      "pages": [
+        "pages/login/login"
+      ]
+    }
   ],
   "window": {
     "navigationBarTitleText": "酒店客服系统",
@@ -17,7 +24,7 @@
         "text": "查询",
         "pagePath": "pages/index/index",
         "iconPath": "search.png",
-        "selectedIconPath": "search_filled.png"
+        "selectedIconPath": "search_fill.png"
       },
       {
         "text": "我的",

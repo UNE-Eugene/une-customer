@@ -821,7 +821,7 @@ module.exports = {
       pageEvents: {
   "pages/index/index": [],
   "pages/personal/personal": [],
-  "pages/login/login": []
+  "packageLogin/pages/login/login": []
 },
       appEvents: []
     }

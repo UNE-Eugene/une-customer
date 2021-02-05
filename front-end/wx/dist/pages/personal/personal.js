@@ -45,12 +45,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! remax/wechat */ "./node_modules/remax/wechat.js");
 /* harmony import */ var _personal_css_modules__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./personal.css?modules */ "./src/pages/personal/personal.css?modules");
 /* harmony import */ var _personal_css_modules__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_personal_css_modules__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _static_lock_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../static/lock.png */ "./src/pages/static/lock.png");
-/* harmony import */ var _static_settings_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../static/settings.png */ "./src/pages/static/settings.png");
-/* harmony import */ var _static_quit_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../static/quit.png */ "./src/pages/static/quit.png");
-/* harmony import */ var _static_log_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../static/log.png */ "./src/pages/static/log.png");
-/* harmony import */ var _static_mine_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../static/mine.png */ "./src/pages/static/mine.png");
-/* harmony import */ var _static_personal_background_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../static/personal-background.png */ "./src/pages/static/personal-background.png");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -62,12 +56,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
 
 
 
@@ -87,7 +75,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       width: '100%',
       height: '100%'
     },
-    src: _static_personal_background_png__WEBPACK_IMPORTED_MODULE_8__["default"]
+    src: "https://rac-1300807146.cos.ap-nanjing.myqcloud.com/UNE-WX/personal-background.png"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["View"], {
     className: _personal_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.personHeader
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["View"], {
@@ -106,7 +94,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("img", {
     className: _personal_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.icon,
-    src: _static_settings_png__WEBPACK_IMPORTED_MODULE_4__["default"]
+    src: "https://rac-1300807146.cos.ap-nanjing.myqcloud.com/UNE-WX/settings.png"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["Text"], {
     className: _personal_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.personText
   }, "\u6743\u9650\u7BA1\u7406")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["View"], {
@@ -119,7 +107,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("img", {
     className: _personal_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.icon,
-    src: _static_log_png__WEBPACK_IMPORTED_MODULE_6__["default"]
+    src: "https://rac-1300807146.cos.ap-nanjing.myqcloud.com/UNE-WX/log.png"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["Text"], {
     className: _personal_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.personText
   }, "\u65E5\u5FD7\u7BA1\u7406")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["View"], {
@@ -132,7 +120,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("img", {
     className: _personal_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.icon,
-    src: _static_lock_png__WEBPACK_IMPORTED_MODULE_3__["default"]
+    src: "https://rac-1300807146.cos.ap-nanjing.myqcloud.com/UNE-WX/lock.png"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["Text"], {
     className: _personal_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.personText
   }, "\u4FEE\u6539\u5BC6\u7801")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["View"], {
@@ -145,7 +133,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("img", {
     className: _personal_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.icon,
-    src: _static_mine_png__WEBPACK_IMPORTED_MODULE_7__["default"]
+    src: "https://rac-1300807146.cos.ap-nanjing.myqcloud.com/UNE-WX/mine.png"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["Text"], {
     className: _personal_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.personText
   }, "\u4E2A\u4EBA\u4FE1\u606F")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["View"], {
@@ -158,89 +146,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("img", {
     className: _personal_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.icon,
-    src: _static_quit_png__WEBPACK_IMPORTED_MODULE_5__["default"]
+    src: "https://rac-1300807146.cos.ap-nanjing.myqcloud.com/UNE-WX/quit.png"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["Text"], {
     className: _personal_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.personText
   }, "\u9000\u51FA\u767B\u5F55")));
 });
-
-/***/ }),
-
-/***/ "./src/pages/static/lock.png":
-/*!***********************************!*\
-  !*** ./src/pages/static/lock.png ***!
-  \***********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "b644da7b72b58161a4cfa0c6c9c5704f.png");
-
-/***/ }),
-
-/***/ "./src/pages/static/log.png":
-/*!**********************************!*\
-  !*** ./src/pages/static/log.png ***!
-  \**********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "1b849917f36c09dfef236869d002d97e.png");
-
-/***/ }),
-
-/***/ "./src/pages/static/mine.png":
-/*!***********************************!*\
-  !*** ./src/pages/static/mine.png ***!
-  \***********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "8c9574a120cd2df42042694dbeab8f1b.png");
-
-/***/ }),
-
-/***/ "./src/pages/static/personal-background.png":
-/*!**************************************************!*\
-  !*** ./src/pages/static/personal-background.png ***!
-  \**************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "0f3e2e08a824f2c606e1e57ceed6a727.png");
-
-/***/ }),
-
-/***/ "./src/pages/static/quit.png":
-/*!***********************************!*\
-  !*** ./src/pages/static/quit.png ***!
-  \***********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "194babfc378c9fa5b88c1ce4733f7a2c.png");
-
-/***/ }),
-
-/***/ "./src/pages/static/settings.png":
-/*!***************************************!*\
-  !*** ./src/pages/static/settings.png ***!
-  \***************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "40860da852217604c25b44c591a753eb.png");
 
 /***/ }),
 
@@ -251,7 +161,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\UNE\Desktop\code\front-end\wx\src\pages\personal\personal.entry.js */"./src/pages/personal/personal.entry.js");
+module.exports = __webpack_require__(/*! C:\Users\Dell\Desktop\UNE\une-customer\front-end\wx\src\pages\personal\personal.entry.js */"./src/pages/personal/personal.entry.js");
 
 
 /***/ })
