@@ -8761,7 +8761,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     blockSize: 18,
     step: 50,
     showValue: true,
-    value: budget
+    value: budget,
+    bindchange: function bindchange(e) {
+      setBudget(e.detail.value);
+    }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_2__["View"], {
     className: _index_css_modules__WEBPACK_IMPORTED_MODULE_3___default.a.searchInput,
     inputStyle: {

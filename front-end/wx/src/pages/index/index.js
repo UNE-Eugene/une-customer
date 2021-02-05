@@ -63,6 +63,7 @@ export default () => {
           step={50}
           showValue={true}
           value={budget}
+          bindchange={e=>{setBudget(e.detail.value)}}
         />
         <View className={styles.searchInput} inputStyle={{ height: '70px', padding: '0 10px 0 10px' }} style={{ top: '75%' }} >
           <Image style={{ position: 'absolute', left: '10px', top: '10px', width: '50px', height: '50px' }} src='https://rac-1300807146.cos.ap-nanjing.myqcloud.com/UNE-WX/money.png' />
