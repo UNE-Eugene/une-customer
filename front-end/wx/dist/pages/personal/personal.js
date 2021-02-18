@@ -66,6 +66,16 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       number = _React$useState2[0],
       setNumber = _React$useState2[1];
 
+  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_0__["useState"]('点击登录'),
+      _React$useState4 = _slicedToArray(_React$useState3, 2),
+      Username = _React$useState4[0],
+      setUsername = _React$useState4[1];
+
+  var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_0__["useState"]('https://rac-1300807146.cos.ap-nanjing.myqcloud.com/UNE-WX/logo.png'),
+      _React$useState6 = _slicedToArray(_React$useState5, 2),
+      UserAvatar = _React$useState6[0],
+      setUserAvatar = _React$useState6[1];
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["View"], {
     className: _personal_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.div
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["View"], {
@@ -76,15 +86,31 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       height: '100%'
     },
     src: "https://rac-1300807146.cos.ap-nanjing.myqcloud.com/UNE-WX/personal-background.png"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["View"], {
-    className: _personal_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.personHeader
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+    className: _personal_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.personHeader,
+    "open-type": "getUserInfo",
+    onClick: function onClick() {
+      wx.getSetting({
+        success: function success(res) {
+          if (res.authSetting['scope.userInfo']) {
+            // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+            wx.getUserInfo({
+              success: function success(res) {
+                setUsername(res.userInfo.nickName);
+                setUserAvatar(res.userInfo.avatarUrl);
+              }
+            });
+          }
+        }
+      });
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["View"], {
     className: _personal_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.personImg
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["Image"], {
-    src: "https://test-1301787690.cos.ap-shanghai.myqcloud.com/%E9%85%92%E5%BA%97%E8%B5%84%E6%96%99/%E4%B8%8A%E6%B5%B7%E4%B8%87%E8%BE%BE%E7%91%9E%E5%8D%8E%E9%85%92%E5%BA%97/%E4%B8%8A%E6%B5%B7%E4%B8%87%E8%BE%BE%E7%91%9E%E5%8D%8E%E9%85%92%E5%BA%97_2.jpg"
+    src: UserAvatar
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["View"], {
     className: _personal_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.workerNumber
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["Text"], null, number)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["View"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["Text"], null, Username)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_1__["View"], {
     className: _personal_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.personContent,
     onClick: function onClick() {
       setNumber(Math.ceil(Math.random() * 10));

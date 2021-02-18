@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { View, Text, Image } from 'remax/wechat';
+import { View, Text, Image, Button } from 'remax/wechat';
 import styles from './personal.css';
 
 export default () => {
 
   const [number, setNumber] = React.useState(520);
-
+  const [Username, setUsername] = React.useState('点击登录')
+  const [UserAvatar, setUserAvatar] = React.useState('https://rac-1300807146.cos.ap-nanjing.myqcloud.com/UNE-WX/logo.png')
   return (
     <View className={styles.div}>
       <View className={styles.personBackground}>
@@ -13,14 +14,31 @@ export default () => {
           width: '100%',
           height: '100%',
         }} src='https://rac-1300807146.cos.ap-nanjing.myqcloud.com/UNE-WX/personal-background.png' />
-        <View className={styles.personHeader}>
+        <Button className={styles.personHeader}
+          open-type='getUserInfo'
+
+          onClick={() => {
+            wx.getSetting({
+              success(res) {
+                if (res.authSetting['scope.userInfo']) {
+                  // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+                  wx.getUserInfo({
+                    success: function (res) {
+                      setUsername(res.userInfo.nickName)
+                      setUserAvatar(res.userInfo.avatarUrl)
+                    }
+                  })
+                }
+              }
+            })
+          }}>
           <View className={styles.personImg}>
-            <Image src='https://test-1301787690.cos.ap-shanghai.myqcloud.com/%E9%85%92%E5%BA%97%E8%B5%84%E6%96%99/%E4%B8%8A%E6%B5%B7%E4%B8%87%E8%BE%BE%E7%91%9E%E5%8D%8E%E9%85%92%E5%BA%97/%E4%B8%8A%E6%B5%B7%E4%B8%87%E8%BE%BE%E7%91%9E%E5%8D%8E%E9%85%92%E5%BA%97_2.jpg' />
+            <Image src={UserAvatar} />
           </View>
           <View className={styles.workerNumber}>
-            <Text >{number}</Text>
+            <Text>{Username}</Text>
           </View>
-        </View>
+        </Button>
       </View>
 
       <View className={styles.personContent} onClick={() => { setNumber(Math.ceil(Math.random() * 10)) }} style={{ top: '35%' }}>

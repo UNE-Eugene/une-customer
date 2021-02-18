@@ -15,7 +15,12 @@
   display: flex;
   text-align: center;
   min-height: 240px;
+  background-color: transparent;
+  border: none;
+}
 
+.personHeader::after{
+  border: none;
 }
 
 .personBackground {
@@ -59,6 +64,8 @@
   color: black;
   font-size: 40px;
   font-weight: 800;
+  height: 100%;
+  line-height: 100%;
 }
 
 .personContent {

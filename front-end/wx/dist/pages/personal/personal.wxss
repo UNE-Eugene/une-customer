@@ -15,7 +15,12 @@
   display: flex;
   text-align: center;
   min-height: 240rpx;
+  background-color: transparent;
+  border: none;
+}
 
+.personHeader___PyNiv::after{
+  border: none;
 }
 
 .personBackground___33Wj7 {
@@ -59,6 +64,8 @@
   color: black;
   font-size: 40rpx;
   font-weight: 800;
+  height: 100%;
+  line-height: 100%;
 }
 
 .personContent___BPd3Y {
